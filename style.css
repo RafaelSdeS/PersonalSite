@@ -1,0 +1,427 @@
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/*VARIABLES*/
+:root {
+  /*COLORS*/
+  --color: 0;
+  --background-color: hsla(var(--color), 65%, 55%, 0.9);
+  --text-color: hsla(0, 0%, 96%, 1);
+  --title-color: hsla(0, 0%, 15%, 1);
+  --section-color: hsla(0, 0%, 95%, 1);
+  --footer-color: hsla(var(--color), 18%, 35%, 0.65);
+  --white: hsla(0, 0%, 100%, 0.6);
+
+  /*FONTS*/
+  --title-fontsize: 2rem;
+  --text-fontsize: 1.5rem;
+  --font: 'Ubuntu', sans-serif;
+}
+
+/* BÁSICO*/
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--section-color);
+}
+
+.container {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 6rem;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+
+  background: linear-gradient(
+    270deg,
+    hsla(var(--color), 36%, 57%, 1) 0%,
+    hsla(var(--color), 65%, 88%, 0.34) 100%
+  );
+}
+
+/*OLA*/
+#ola {
+  background: rgb(231, 225, 225);
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.boas-vindas {
+  text-align: center;
+}
+
+.boas-vindas h2,
+.boas-vindas p {
+  padding-top: 1rem;
+  font-weight: bold;
+  color: var(--title-color);
+}
+
+.boas-vindas h2 {
+  font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
+}
+.boas-vindas .text {
+  padding-top: 2rem;
+}
+
+.boas-vindas .text p {
+  font: 300 calc(1.5 * var(--text-fontsize)) var(--font);
+}
+
+.boas-vindas .divider {
+  background: black;
+  margin: 6rem 10rem;
+  width: auto;
+}
+
+/*APRESENTAÇÃO*/
+
+#apresentação {
+  background: var(--section-color);
+}
+
+#apresentação .container {
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#apresentação .card {
+  background: var(--background-color);
+  text-align: center;
+  align-self: center;
+
+  border-radius: 2rem;
+
+  width: 17.5%;
+}
+
+#apresentação .card .title {
+  color: var(--text-color);
+  font: 700 var(--title-fontsize) var(--font);
+  padding: 1rem;
+}
+
+#apresentação .text {
+  color: var(--title-color);
+  font: 400 var(--text-fontsize) var(--font);
+
+  width: 20%;
+}
+
+#apresentação .image {
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 8px rgb(184, 165, 165);
+
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+/*PERFIL*/
+#perfil {
+  background: var(--white);
+  padding-top: 5rem;
+}
+
+.painel {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-bottom: 4rem;
+}
+
+.painel .text,
+.painel .image {
+  max-width: 60%;
+  margin: 0 5rem;
+  z-index: 1;
+}
+
+.painel h2 {
+  font: 700 var(--title-fontsize) var(--font);
+}
+
+.painel .text:nth-of-type(1) p {
+  padding-top: 2rem;
+
+  text-align: left;
+
+  font: 300 var(--text-fontsize) var(--font);
+}
+
+.painel .text:nth-of-type(2) p {
+  padding-top: 2rem;
+
+  font: 300 var(--text-fontsize) var(--font);
+}
+
+.painel .text:nth-of-type(2) p,
+.painel .text:nth-of-type(2) h2 {
+  text-align: right;
+}
+
+#perfil .painel .image {
+  position: relative;
+  right: 100px;
+  top: 50px;
+}
+
+#perfil .image::before {
+  content: '';
+
+  background: hsla(var(--color), 55%, 65%, 0.8);
+
+  position: absolute;
+}
+
+#perfil .painel:nth-child(1) .image::before {
+  top: -100px;
+  left: 200px;
+
+  height: 20rem;
+  width: 20rem;
+
+  clip-path: circle();
+}
+
+#perfil .painel:nth-child(2) .image::before {
+  width: 40rem;
+  height: 40rem;
+
+  top: -250px;
+  left: 250px;
+
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+#perfil .painel:nth-child(3) .image::before {
+  top: -50px;
+  right: 100px;
+
+  height: 25rem;
+  width: 25rem;
+
+  clip-path: circle(50% at 50% 50%);
+}
+
+#perfil .painel:nth-child(1) .image img {
+  width: 20rem;
+  height: 24rem;
+  left: 50px;
+}
+
+#perfil .painel .image img {
+  position: relative;
+  clip-path: circle();
+
+  width: 30rem;
+
+  left: 100px;
+}
+
+/*conhecimentos*/
+#conhecimentos {
+  background: var(--section-color);
+}
+
+#conhecimentos .title {
+  padding-top: 2rem;
+  display: flex;
+
+  font: 700 var(--title-fontsize) var(--font);
+
+  justify-content: center;
+}
+
+#conhecimentos .cards {
+  display: flex;
+  height: max-content;
+  gap: 6rem;
+  justify-content: center;
+}
+
+#conhecimentos .container.grid {
+  padding-bottom: 6rem;
+}
+
+#conhecimentos .list-container {
+  margin: 0.5rem 0;
+  height: 80%;
+  width: auto;
+}
+
+.cards .card-title {
+  font: 700 var(--title-fontsize) var(--font);
+  padding-top: 1rem;
+}
+
+.cards .list {
+  font: 300 var(--text-fontsize) var(--font);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+
+  transition-duration: 0.4s;
+  height: 100%;
+}
+
+#conhecimentos .card1,
+#conhecimentos .card2 {
+  text-align: center;
+
+  flex: 1;
+  height: 20rem;
+  border-radius: 1.5rem;
+
+  box-shadow: 1px 1px 10px 1.2px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
+
+#conhecimentos .card2 {
+  background: var(--background-color);
+}
+
+#conhecimentos .card1 {
+  background: var(--white);
+}
+
+#conhecimentos .card2 .list,
+#conhecimentos .card2 .card-title {
+  color: var(--text-color);
+}
+
+#card1:hover,
+#card2:hover,
+#card3:hover {
+  box-shadow: 0.6rem 0.6rem rgb(39, 37, 37);
+
+  margin-right: 2rem;
+  height: fit-content;
+  min-height: 100%;
+
+  transition-duration: 0.4s;
+}
+
+#conhecimentos .card1:hover .list,
+#conhecimentos .card2:hover .list {
+  font-size: calc(1.5 * var(--text-fontsize));
+  transition-duration: 0.4s;
+
+  min-height: 100%;
+  height: 140%;
+
+  margin: 1rem 0;
+}
+
+#conhecimentos .card1:hover .card-title,
+#conhecimentos .card2:hover .card-title {
+  font-size: calc(1.5 * var(--title-fontsize));
+  transition: 0.4s;
+  transition-duration: 0.6s;
+}
+
+#conhecimentos .card1:hover .list li,
+#conhecimentos .card2:hover .list li {
+  margin-top: 2rem;
+}
+
+/*FOOTER*/
+footer {
+  background: var(--footer-color);
+}
+
+footer .container {
+  padding: 2rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+footer h2 {
+  font: 400 var(--title-fontsize) var(--font);
+}
+
+footer .grid {
+  display: flex;
+
+  gap: 2rem;
+
+  padding-top: 2rem;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
+
+  color: black;
+}
+
+footer a p {
+  transition-duration: 0.3s;
+}
+
+footer a:hover p {
+  color: blue;
+}
+
+footer i {
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+footer a .icon-github:before {
+  font-size: 31px;
+}
+
+footer .autoria {
+  align-self: center;
+
+  font: 400 var(--text-fontsize) var(--font);
+}
+
+footer .gmail {
+  display: flex;
+  align-items: center;
+}
+
+footer .gmail p {
+  padding-left: 0.5rem;
+  font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
+}
