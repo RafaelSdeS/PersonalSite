@@ -14,19 +14,25 @@ img {
   height: auto;
 }
 
-ul {
+ul,
+li {
   list-style: none;
+}
+
+section {
+  width: 100%;
 }
 
 /*VARIABLES*/
 :root {
   /*COLORS*/
   --color: 0;
-  --background-color: hsla(var(--color), 65%, 50%, 0.8);
+  --background-color: hsla(var(--color), 65%, 55%, 0.9);
   --text-color: hsla(0, 0%, 96%, 1);
   --title-color: hsla(0, 0%, 15%, 1);
-  --section-color: hsla(0, 0%, 97%, 1);
-  --footer-color: hsla(var(--color), 7%, 44%, 1);
+  --section-color: hsla(0, 0%, 95%, 1);
+  --footer-color: hsla(var(--color), 18%, 35%, 0.65);
+  --white: hsla(0, 0%, 100%, 0.6);
 
   /*FONTS*/
   --title-fontsize: 2rem;
@@ -43,8 +49,8 @@ body {
 }
 
 .container {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .grid {
@@ -65,7 +71,7 @@ body {
 
 /*OLA*/
 #ola {
-  background: rgb(228, 218, 218);
+  background: rgb(231, 225, 225);
   padding-top: 6rem;
   padding-bottom: 3rem;
 }
@@ -94,91 +100,22 @@ body {
 
 .boas-vindas .divider {
   background: black;
-  margin: 6rem 10rem;
+  margin: 5.5rem 2rem;
   width: auto;
-}
-
-.animatedwrapper {
-  opacity: 0.7;
-  overflow: hidden;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: 0;
-  width: 100%;
-  height: 2000px;
-  isolation: isolate;
-}
-
-/*Toda essa parte animada eu admito que "roubei" de um utro site, mas achei que ficava legal então coloquei aqui hehe*/
-.dot {
-  opacity: 0.8;
-  --size: 500px;
-  display: none;
-  position: absolute;
-  left: calc(var(--size) / 3 * -1);
-  top: calc(var(--size) / 3 * -1);
-  width: var(--size);
-  height: var(--size);
-  mix-blend-mode: soft-light;
-  border-radius: var(--size);
-  filter: blur(calc(var(--size) / 6));
-  animation: dot-animation ease-in-out 20s infinite;
-  will-change: transform;
-}
-
-@supports (mix-blend-mode: soft-light) and (filter: blur(1px)) {
-  .animatedwrapper {
-    background: none;
-  }
-
-  .dot {
-    display: block;
-  }
-}
-
-.dot--one {
-  background: #ed2a24;
-  left: 10 rem;
-}
-
-.dot--two {
-  background: #f48937;
-  animation-delay: -7s;
-  left: 40rem;
-}
-
-.dot--three {
-  left: 25rem;
-  top: 5rem;
-  background: #bd3690;
-  animation-delay: -14s;
-}
-
-@keyframes dot-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  33% {
-    transform: translate(calc(var(--size) / 1.5), 0);
-  }
-  66% {
-    transform: translate(0, calc(var(--size) / 1.5));
-  }
-  100% {
-    transform: translate(0, 0);
-  }
 }
 
 /*APRESENTAÇÃO*/
 
 #apresentação {
+  background: var(--section-color);
+}
+
+#apresentação .container {
   padding-top: 5rem;
   padding-bottom: 6rem;
 
-  background: var(--section-color);
-
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -188,8 +125,6 @@ body {
   align-self: center;
 
   border-radius: 2rem;
-
-  width: 17.5%;
 }
 
 #apresentação .card .title {
@@ -219,21 +154,23 @@ body {
 
 /*PERFIL*/
 #perfil {
-  background: white;
+  background: var(--white);
   padding-top: 5rem;
 }
 
-.painel {
+#perfil .container {
   display: flex;
-
-  justify-content: space-between;
-
-  margin: 0 1rem;
-  padding-bottom: 8rem;
+  flex-direction: column;
 }
 
-.painel .text1,
-.painel .text2,
+.painel {
+  padding-bottom: 4rem;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.painel .text,
 .painel .image {
   max-width: 60%;
   margin: 0 5rem;
@@ -244,45 +181,86 @@ body {
   font: 700 var(--title-fontsize) var(--font);
 }
 
-.painel .text1 p,
-.painel .text2 p {
+.painel .text:nth-of-type(1) p {
+  padding-top: 2rem;
+
+  text-align: left;
+
+  font: 300 var(--text-fontsize) var(--font);
+}
+
+.painel .text:nth-of-type(2) p {
   padding-top: 2rem;
 
   font: 300 var(--text-fontsize) var(--font);
 }
 
-.painel .text2 p,
-.painel .text2 h2 {
+.painel .text:nth-of-type(2) p,
+.painel .text:nth-of-type(2) h2 {
   text-align: right;
 }
 
-#perfil .image {
+#perfil .painel .image {
   position: relative;
-}
-
-#perfil .image img {
-  position: relative;
+  right: 100px;
+  top: 50px;
 }
 
 #perfil .image::before {
   content: '';
-  height: 20rem;
-  width: 20rem;
-  border-radius: 50%;
 
-  background: hsla(var(--color), 60%, 60%, 0.5);
-
-  top: -50px;
-  right: -100px;
+  background: hsla(var(--color), 55%, 65%, 0.8);
 
   position: absolute;
-  z-index: 0;
+}
+
+#perfil .painel:nth-child(1) .image::before {
+  top: -100px;
+  left: 200px;
+
+  height: 20rem;
+  width: 20rem;
+
+  clip-path: circle();
+}
+
+#perfil .painel:nth-child(2) .image::before {
+  width: 40rem;
+  height: 40rem;
+
+  top: -250px;
+  left: 250px;
+
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+#perfil .painel:nth-child(3) .image::before {
+  top: -50px;
+  right: 100px;
+
+  height: 25rem;
+  width: 25rem;
+
+  clip-path: circle(50% at 50% 50%);
+}
+
+#perfil .painel:nth-child(1) .image img {
+  width: 20rem;
+  height: 24rem;
+  left: 50px;
+}
+
+#perfil .painel .image img {
+  position: relative;
+  clip-path: circle();
+
+  width: 30rem;
+
+  left: 100px;
 }
 
 /*conhecimentos*/
 #conhecimentos {
-  padding-bottom: 6rem;
-
   background: var(--section-color);
 }
 
@@ -297,39 +275,49 @@ body {
 
 #conhecimentos .cards {
   display: flex;
-  gap: 6rem;
+  flex-flow: row;
   justify-content: center;
+
+  height: max-content;
+
+  gap: 6rem;
 }
 
-.cards h2 {
+#conhecimentos .container.grid {
+  padding: 6rem 1rem;
+}
+
+#conhecimentos .list-container {
+  margin: 0.5rem 0;
+  height: 80%;
+  width: auto;
+}
+
+.cards .card-title {
   font: 700 var(--title-fontsize) var(--font);
+  padding-top: 1rem;
 }
 
-.cards p {
+.cards .list {
   font: 300 var(--text-fontsize) var(--font);
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+
+  transition-duration: 0.4s;
+  height: 100%;
 }
 
 #conhecimentos .card1,
 #conhecimentos .card2 {
   text-align: center;
-  justify-content: center;
-  width: 30%;
 
-  height: auto;
+  flex: 1;
+  height: 20rem;
   border-radius: 1.5rem;
 
   box-shadow: 1px 1px 10px 1.2px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-#card1:hover,
-#card2:hover,
-#card3:hover {
-  box-shadow: 0.75rem 0.75rem rgb(39, 37, 37);
-
-  margin-right: 2rem;
-  height: 120%;
-  width: 40%;
+  transition: 0.4s;
 }
 
 #conhecimentos .card2 {
@@ -340,29 +328,106 @@ body {
   background: var(--white);
 }
 
-#conhecimentos .card1 .title,
-#conhecimentos .card2 .title {
-  margin: 1rem;
+#conhecimentos .card2 .list,
+#conhecimentos .card2 .card-title {
+  color: var(--text-color);
 }
 
-#conhecimentos .card2 .text,
-#conhecimentos .card2 .title {
-  color: var(--text-color);
+#card1:hover,
+#card2:hover,
+#card3:hover {
+  box-shadow: 0.6rem 0.6rem rgb(39, 37, 37);
+
+  margin-right: 2rem;
+  height: fit-content;
+
+  transition-duration: 0.4s;
+}
+
+#conhecimentos .card1:hover .list,
+#conhecimentos .card2:hover .list {
+  font-size: calc(1.5 * var(--text-fontsize));
+  transition-duration: 0.4s;
+
+  min-height: 100%;
+  height: 140%;
+
+  margin: 1rem 0;
+}
+
+#conhecimentos .card1:hover .card-title,
+#conhecimentos .card2:hover .card-title {
+  font-size: calc(1.5 * var(--title-fontsize));
+  transition: 0.4s;
+  transition-duration: 0.6s;
+}
+
+#conhecimentos .card1:hover .list li,
+#conhecimentos .card2:hover .list li {
+  margin-top: 2rem;
 }
 
 /*FOOTER*/
 footer {
-  background: hsla(var(--color), 25%, 25%, 0.6);
+  background: var(--footer-color);
+}
+
+footer .container {
+  padding: 2rem;
 }
 
 footer h2 {
-  color: var(--text-color);
+  font: 400 var(--title-fontsize) var(--font);
+}
+
+footer .grid {
+  display: flex;
+  flex-direction: row;
+
+  gap: 2rem;
 
   padding-top: 2rem;
 }
 
-footer .grid {
-  gap: 1rem;
+footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
-  padding-top: 2rem;
+  font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
+
+  color: black;
+}
+
+footer a p {
+  transition-duration: 0.3s;
+}
+
+footer a:hover p {
+  color: blue;
+}
+
+footer i {
+  font-size: 1.5rem;
+  line-height: 0;
+}
+
+footer a .icon-github:before {
+  font-size: 2rem;
+}
+
+footer .autoria {
+  align-self: center;
+
+  font: 400 var(--text-fontsize) var(--font);
+}
+
+footer .gmail {
+  display: flex;
+  align-items: center;
+}
+
+footer .gmail p {
+  padding-left: 0.5rem;
+  font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
 }
