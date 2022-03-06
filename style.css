@@ -19,6 +19,10 @@ li {
   list-style: none;
 }
 
+section {
+  width: 100%;
+}
+
 /*VARIABLES*/
 :root {
   /*COLORS*/
@@ -96,7 +100,7 @@ body {
 
 .boas-vindas .divider {
   background: black;
-  margin: 6rem 10rem;
+  margin: 5.5rem 2rem;
   width: auto;
 }
 
@@ -121,8 +125,6 @@ body {
   align-self: center;
 
   border-radius: 2rem;
-
-  width: 17.5%;
 }
 
 #apresentação .card .title {
@@ -156,12 +158,16 @@ body {
   padding-top: 5rem;
 }
 
-.painel {
+#perfil .container {
   display: flex;
+  flex-direction: column;
+}
 
-  justify-content: space-between;
-
+.painel {
   padding-bottom: 4rem;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .painel .text,
@@ -269,13 +275,16 @@ body {
 
 #conhecimentos .cards {
   display: flex;
-  height: max-content;
-  gap: 6rem;
+  flex-flow: row;
   justify-content: center;
+
+  height: max-content;
+
+  gap: 6rem;
 }
 
 #conhecimentos .container.grid {
-  padding-bottom: 6rem;
+  padding: 6rem 1rem;
 }
 
 #conhecimentos .list-container {
@@ -331,7 +340,6 @@ body {
 
   margin-right: 2rem;
   height: fit-content;
-  min-height: 100%;
 
   transition-duration: 0.4s;
 }
@@ -366,9 +374,6 @@ footer {
 
 footer .container {
   padding: 2rem;
-
-  display: flex;
-  justify-content: space-between;
 }
 
 footer h2 {
@@ -377,6 +382,7 @@ footer h2 {
 
 footer .grid {
   display: flex;
+  flex-direction: row;
 
   gap: 2rem;
 
@@ -407,7 +413,7 @@ footer i {
 }
 
 footer a .icon-github:before {
-  font-size: 31px;
+  font-size: 2rem;
 }
 
 footer .autoria {
