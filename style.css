@@ -80,6 +80,10 @@ body {
   text-align: center;
 }
 
+.boas-vindas h2 {
+  font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
+}
+
 .boas-vindas h2,
 .boas-vindas p {
   padding-top: 1rem;
@@ -87,9 +91,6 @@ body {
   color: var(--title-color);
 }
 
-.boas-vindas h2 {
-  font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
-}
 .boas-vindas .text {
   padding-top: 2rem;
 }
@@ -172,7 +173,6 @@ body {
 
 .painel .text,
 .painel .image {
-  max-width: 60%;
   margin: 0 5rem;
   z-index: 1;
 }
@@ -181,18 +181,15 @@ body {
   font: 700 var(--title-fontsize) var(--font);
 }
 
-.painel .text:nth-of-type(1) p {
+.painel .text p {
   padding-top: 2rem;
-
-  text-align: left;
 
   font: 300 var(--text-fontsize) var(--font);
 }
 
-.painel .text:nth-of-type(2) p {
-  padding-top: 2rem;
-
-  font: 300 var(--text-fontsize) var(--font);
+.painel .text:nth-of-type(1) p,
+.painel .text:nth-of-type(1) h2 {
+  text-align: left;
 }
 
 .painel .text:nth-of-type(2) p,
@@ -202,8 +199,15 @@ body {
 
 #perfil .painel .image {
   position: relative;
+}
+
+#perfil .painel:nth-child(1) .image {
   right: 100px;
   top: 50px;
+}
+
+#perfil .painel:nth-child(2) .image {
+  right: 100px;
 }
 
 #perfil .image::before {
@@ -216,7 +220,7 @@ body {
 
 #perfil .painel:nth-child(1) .image::before {
   top: -100px;
-  left: 200px;
+  right: -200px;
 
   height: 20rem;
   width: 20rem;
@@ -229,7 +233,7 @@ body {
   height: 40rem;
 
   top: -250px;
-  left: 250px;
+  right: -250px;
 
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
@@ -244,19 +248,16 @@ body {
   clip-path: circle(50% at 50% 50%);
 }
 
-#perfil .painel:nth-child(1) .image img {
-  width: 20rem;
-  height: 24rem;
-  left: 50px;
+#perfil .painel .image img {
+  clip-path: circle();
 }
 
-#perfil .painel .image img {
-  position: relative;
-  clip-path: circle();
+#perfil .painel:nth-child(1) .image img {
+  width: 20rem;
+}
 
-  width: 30rem;
-
-  left: 100px;
+#perfil .painel:nth-child(2) .image img {
+  width: 35rem;
 }
 
 /*conhecimentos*/

@@ -1,4 +1,12 @@
-@media (max-width: 768px) {
+@media (max-width: 500px) {
+  /* PERGIL */
+
+  #perfil .painel {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
   :root {
     /*FONTS*/
     --title-fontsize: 1.4rem;
@@ -9,12 +17,15 @@
   /* APRESENTAÇÂO */
 
   #apresentação .container {
-    padding: 3rem;
+    padding: 6rem 0rem;
+  }
+
+  #apresentação .text {
+    font-size: calc(1.4 * var(--text-fontsize));
   }
 
   #apresentação .image {
     width: 100%;
-    max-width: 8rem;
 
     margin-left: 2rem;
     margin-right: 2rem;
@@ -37,57 +48,69 @@
 
   .painel .text,
   .painel .image {
-    max-width: 60%;
+    max-width: 50%;
     margin: 0 0.5rem;
     z-index: 1;
   }
 
   #perfil .painel .image {
     position: relative;
-    right: 50px;
-    top: 30px;
 
     max-width: 50%;
   }
 
-  #perfil .painel .image img {
-    position: relative;
-    clip-path: circle();
+  #perfil .painel:nth-child(1) .image {
+    right: -80px;
 
-    width: 15rem;
-
-    left: 35px;
-    top: -10px;
+    top: 10px;
   }
 
   #perfil .painel:nth-child(1) .image img {
-    width: 10rem;
-    height: 12rem;
-    left: 40px;
+    width: 14rem;
   }
 
   #perfil .painel:nth-child(1) .image::before {
     top: -50px;
-    left: 70px;
+    right: 80px;
 
-    height: 10rem;
-    width: 10rem;
+    height: 13rem;
+    width: 13rem;
 
     clip-path: circle();
   }
 
-  #perfil .painel:nth-child(2) .image::before {
-    width: 15rem;
-    height: 15rem;
+  #perfil .painel:nth-child(2) .image {
+    top: -10px;
 
-    top: -100px;
-    left: 160px;
+    right: 20px;
+  }
+
+  #perfil .painel:nth-child(2) .image img {
+    width: 24rem;
+  }
+
+  #perfil .painel:nth-child(2) .image::before {
+    width: 25rem;
+    height: 25rem;
+
+    top: -150px;
+    right: -150px;
 
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
+  #perfil .painel:nth-child(3) .image {
+    top: -10px;
+
+    right: 10px;
+  }
+
+  #perfil .painel:nth-child(3) .image img {
+    width: 18rem;
+  }
+
   #perfil .painel:nth-child(3) .image::before {
-    top: -70px;
+    top: -30px;
     right: -20px;
 
     height: 12rem;
