@@ -40,7 +40,7 @@ section {
   --font: 'Ubuntu', sans-serif;
 }
 
-/* BÁSICO*/
+/* BASE */
 html {
   scroll-behavior: smooth;
 }
@@ -115,6 +115,16 @@ body {
   padding-top: 5rem;
   padding-bottom: 6rem;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#apresentação .card {
+  margin-bottom: 2rem;
+}
+
+#apresentação .eu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,7 +301,6 @@ body {
 #conhecimentos .list-container {
   margin: 0.5rem 0;
   height: 80%;
-  width: auto;
 }
 
 .cards .card-title {
@@ -311,11 +320,12 @@ body {
 
 #conhecimentos .card1,
 #conhecimentos .card2 {
+  display: flex;
+  flex-flow: column;
   text-align: center;
-
-  flex: 1;
   height: 20rem;
   border-radius: 1.5rem;
+  width: 33%;
 
   box-shadow: 1px 1px 10px 1.2px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
@@ -350,8 +360,7 @@ body {
   font-size: calc(1.5 * var(--text-fontsize));
   transition-duration: 0.4s;
 
-  min-height: 100%;
-  height: 140%;
+  height: fit-content;
 
   margin: 1rem 0;
 }
@@ -431,4 +440,14 @@ footer .gmail {
 footer .gmail p {
   padding-left: 0.5rem;
   font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
+}
+
+footer .whatsapp {
+  display: flex;
+  align-items: center;
+}
+
+footer .github {
+  display: flex;
+  align-items: center;
 }

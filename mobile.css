@@ -1,19 +1,4 @@
-@media (max-width: 500px) {
-  /* PERGIL */
-
-  #perfil .painel {
-    flex-direction: column;
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    /*FONTS*/
-    --title-fontsize: 1.4rem;
-    --text-fontsize: 1rem;
-    --font: 'Ubuntu', sans-serif;
-  }
-
+@media (max-width: 900px) {
   /* APRESENTAÇÂO */
 
   #apresentação .container {
@@ -21,7 +6,9 @@
   }
 
   #apresentação .text {
-    font-size: calc(1.4 * var(--text-fontsize));
+    font-size: calc(1.5 * var(--text-fontsize));
+
+    width: 30%;
   }
 
   #apresentação .image {
@@ -39,34 +26,36 @@
     padding: 1rem 1rem;
   }
 
-  .painel {
+  #perfil .painel {
     padding-bottom: 3rem;
 
     display: flex;
     flex-direction: row;
   }
 
+  #perfil .painel .text p {
+    font-size: calc(1.4 * var(--text-fontsize));
+  }
+
   .painel .text,
   .painel .image {
-    max-width: 50%;
+    max-width: 60%;
     margin: 0 0.5rem;
     z-index: 1;
   }
 
   #perfil .painel .image {
-    position: relative;
-
     max-width: 50%;
   }
 
   #perfil .painel:nth-child(1) .image {
-    right: -80px;
+    right: -50px;
 
     top: 10px;
   }
 
   #perfil .painel:nth-child(1) .image img {
-    width: 14rem;
+    width: 16rem;
   }
 
   #perfil .painel:nth-child(1) .image::before {
@@ -93,7 +82,7 @@
     width: 25rem;
     height: 25rem;
 
-    top: -150px;
+    top: -50px;
     right: -150px;
 
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -106,15 +95,15 @@
   }
 
   #perfil .painel:nth-child(3) .image img {
-    width: 18rem;
+    width: 24rem;
   }
 
   #perfil .painel:nth-child(3) .image::before {
     top: -30px;
     right: -20px;
 
-    height: 12rem;
-    width: 12rem;
+    height: 16rem;
+    width: 16rem;
 
     clip-path: circle(50% at 50% 50%);
   }
@@ -140,34 +129,15 @@
     align-self: center;
   }
 
-  .cards .list {
-    font: 300 calc(1.2 * var(--text-fontsize)) var(--font);
-  }
-
-  #card1:hover,
-  #card2:hover,
-  #card3:hover {
-    box-shadow: 0.6rem 0.6rem rgb(39, 37, 37);
-
-    height: 30rem;
-
-    transition-duration: 0.4s;
-  }
-
-  #conhecimentos .card1:hover .list,
-  #conhecimentos .card2:hover .list {
-    font-size: calc(1.6 * var(--text-fontsize));
-    transition-duration: 0.4s;
-
-    height: 50%;
-  }
-
   #conhecimentos .card1:hover .list li,
   #conhecimentos .card2:hover .list li {
     padding-top: 1px;
   }
 
   /* FOOTER */
+  footer .container {
+    padding: 1rem;
+  }
 
   footer .grid {
     display: flex;
@@ -178,11 +148,7 @@
     padding-top: 0rem;
   }
 
-  footer .container {
-    padding: 1rem;
-  }
-
-  .contatos {
+  footer .contatos {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -191,7 +157,11 @@
   }
 
   footer .contatos p {
-    font-size: calc(1 * var(--text-fontsize));
+    font-size: calc(0.6 * var(--text-fontsize));
+  }
+
+  footer .contatos h2 {
+    font-size: calc(0.6 * var(--title-fontsize));
   }
 
   footer i {
@@ -203,5 +173,126 @@
   }
   footer .autoria {
     align-self: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  /* APRESENTAÇÃO */
+  #apresentação .eu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #apresentação .text {
+    font-size: calc(1.2 * var(--text-fontsize));
+
+    width: 100%;
+
+    text-align: center;
+
+    padding-top: 2rem;
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: 200px;
+  }
+  #perfil .painel:nth-child(2) .image::before {
+    top: 10px;
+  }
+
+  /* PERFIL */
+
+  #perfil .painel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #conhecimentos .title {
+    text-align: center;
+  }
+
+  #perfil .text,
+  #perfil .image {
+    margin: 0 0rem;
+
+    max-width: 90%;
+  }
+
+  #perfil .text p {
+    font-size: calc(0.8 * var(--text-fontsize));
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: -40px;
+
+    top: 70px;
+  }
+
+  #perfil .painel:nth-child(1) .image img {
+    width: 16rem;
+  }
+
+  #perfil .painel:nth-child(1) .image::before {
+    top: -50px;
+    right: 80px;
+
+    height: 13rem;
+    width: 13rem;
+
+    clip-path: circle();
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: -10px;
+
+    right: -220px;
+  }
+
+  #perfil .painel:nth-child(2) .image img {
+    width: 24rem;
+  }
+
+  #perfil .painel:nth-child(2) .image::before {
+    width: 25rem;
+    height: 25rem;
+
+    top: 150px;
+    right: -100px;
+
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  #perfil .painel:nth-child(3) .image {
+    top: 30px;
+
+    right: 10px;
+  }
+
+  #perfil .painel:nth-child(3) .image img {
+    width: 24rem;
+  }
+
+  #perfil .painel:nth-child(3) .image::before {
+    top: -20px;
+    right: -140px;
+
+    height: 16rem;
+    width: 16rem;
+
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  #conhecimentos .container.grid {
+    padding: 3rem 1rem;
+  }
+
+  #conhecimentos .cards {
+    display: flex;
+    flex-flow: column;
+    height: max-content;
+
+    gap: 3rem;
+
+    margin: 1rem 2rem;
   }
 }
