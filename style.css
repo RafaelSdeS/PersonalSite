@@ -46,6 +46,8 @@ html {
 }
 body {
   background: var(--section-color);
+
+  overflow-x: hidden;
 }
 
 .container {
@@ -120,10 +122,6 @@ body {
   justify-content: center;
 }
 
-#apresentação .card {
-  margin-bottom: 2rem;
-}
-
 #apresentação .eu {
   display: flex;
   align-items: center;
@@ -181,10 +179,17 @@ body {
   flex-direction: row;
 }
 
+.painel .text {
+  z-index: 1;
+}
+
+.painel .image {
+  z-index: 0;
+}
+
 .painel .text,
 .painel .image {
   margin: 0 5rem;
-  z-index: 1;
 }
 
 .painel h2 {
@@ -242,7 +247,7 @@ body {
   width: 40rem;
   height: 40rem;
 
-  top: -250px;
+  top: -100px;
   right: -250px;
 
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -263,11 +268,15 @@ body {
 }
 
 #perfil .painel:nth-child(1) .image img {
-  width: 20rem;
+  width: 80%;
 }
 
 #perfil .painel:nth-child(2) .image img {
-  width: 35rem;
+  width: 140%;
+}
+
+#perfil .painel:nth-child(3) .image img {
+  width: 110%;
 }
 
 /*conhecimentos*/
@@ -303,7 +312,7 @@ body {
   height: 80%;
 }
 
-.cards .card-title {
+#conhecimentos .cards .card-title {
   font: 700 var(--title-fontsize) var(--font);
   padding-top: 1rem;
 }

@@ -1,3 +1,43 @@
+@media (min-width: 1400px) {
+  :root {
+    --title-fontsize: 4rem;
+    --text-fontsize: 2.5rem;
+  }
+
+  #conhecimentos .card1,
+  #conhecimentos .card2 {
+    height: max-content;
+    min-height: 25rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .painel .text,
+  .painel .image {
+    margin: 0px 2rem;
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: 0px;
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: 100px;
+  }
+
+  #perfil .painel:nth-child(3) .image {
+    right: -100px;
+  }
+
+  #perfil .painel:nth-child(2) .image img {
+    width: 28rem;
+  }
+
+  #perfil .painel:nth-child(3) .image img {
+    width: 27rem;
+  }
+}
+
 @media (max-width: 900px) {
   /* APRESENTAÇÂO */
 
@@ -125,7 +165,7 @@
 
   #conhecimentos .card1,
   #conhecimentos .card2 {
-    width: 50%;
+    width: 80%;
     align-self: center;
   }
 
@@ -157,11 +197,11 @@
   }
 
   footer .contatos p {
-    font-size: calc(0.6 * var(--text-fontsize));
+    font-size: calc(0.8 * var(--text-fontsize));
   }
 
   footer .contatos h2 {
-    font-size: calc(0.6 * var(--title-fontsize));
+    font-size: calc(0.8 * var(--title-fontsize));
   }
 
   footer i {
@@ -176,28 +216,23 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 760px) {
   /* APRESENTAÇÃO */
   #apresentação .eu {
     display: flex;
     flex-direction: column;
   }
 
-  #apresentação .text {
-    font-size: calc(1.2 * var(--text-fontsize));
+  #apresentação .card {
+    margin-bottom: 2rem;
+  }
 
+  #apresentação .text {
     width: 100%;
 
     text-align: center;
 
     padding-top: 2rem;
-  }
-
-  #perfil .painel:nth-child(2) .image {
-    top: 200px;
-  }
-  #perfil .painel:nth-child(2) .image::before {
-    top: 10px;
   }
 
   /* PERFIL */
@@ -223,43 +258,27 @@
   }
 
   #perfil .painel:nth-child(1) .image {
-    right: -40px;
+    right: -40%;
 
-    top: 70px;
-  }
-
-  #perfil .painel:nth-child(1) .image img {
-    width: 16rem;
+    top: 50px;
   }
 
   #perfil .painel:nth-child(1) .image::before {
     top: -50px;
     right: 80px;
 
-    height: 13rem;
-    width: 13rem;
+    height: 18rem;
+    width: 18rem;
 
     clip-path: circle();
   }
 
   #perfil .painel:nth-child(2) .image {
-    top: -10px;
-
-    right: -220px;
-  }
-
-  #perfil .painel:nth-child(2) .image img {
-    width: 24rem;
+    top: -40px;
   }
 
   #perfil .painel:nth-child(2) .image::before {
-    width: 25rem;
-    height: 25rem;
-
-    top: 150px;
-    right: -100px;
-
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    top: 200px;
   }
 
   #perfil .painel:nth-child(3) .image {
@@ -268,18 +287,8 @@
     right: 10px;
   }
 
-  #perfil .painel:nth-child(3) .image img {
-    width: 24rem;
-  }
-
   #perfil .painel:nth-child(3) .image::before {
-    top: -20px;
-    right: -140px;
-
-    height: 16rem;
-    width: 16rem;
-
-    clip-path: circle(50% at 50% 50%);
+    right: -200px;
   }
 
   #conhecimentos .container.grid {
@@ -294,5 +303,27 @@
     gap: 3rem;
 
     margin: 1rem 2rem;
+  }
+
+  footer .contatos p {
+    font-size: calc(0.6 * var(--text-fontsize));
+  }
+
+  footer .contatos h2 {
+    font-size: calc(0.6 * var(--title-fontsize));
+  }
+}
+
+@media (max-width: 460px) {
+  :root {
+    --title-fontsize: 2rem;
+    --text-fontsize: 1.2rem;
+  }
+  #perfil .painel:nth-child(1) .image {
+    right: -25%;
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    right: 10%;
   }
 }
