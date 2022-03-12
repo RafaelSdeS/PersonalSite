@@ -443,7 +443,7 @@ footer .contatos .gmail {
   align-items: center;
 }
 
-footer .contatos .gmail p {
+footer .gmail p {
   padding-left: 0.5rem;
   font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
 }
