@@ -1,0 +1,330 @@
+@media (min-width: 1400px) {
+  :root {
+    --title-fontsize: 4rem;
+    --text-fontsize: 2.5rem;
+  }
+
+  #conhecimentos .card1,
+  #conhecimentos .card2 {
+    height: max-content;
+    min-height: 25rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  #perfil .painel .text,
+  #perfil .painel .image {
+    margin: 0px 2rem;
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: 0px;
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: 100px;
+  }
+
+  #perfil .painel:nth-child(3) .image {
+    right: -100px;
+  }
+
+  #perfil .painel:nth-child(2) .image img {
+    width: 28rem;
+  }
+
+  #perfil .painel:nth-child(3) .image img {
+    width: 27rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* APRESENTAÇÂO */
+
+  #apresentação .container {
+    padding: 6rem 0rem;
+  }
+
+  #apresentação .eu .image {
+    width: 100%;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  #apresentação .text {
+    font-size: calc(1.5 * var(--text-fontsize));
+
+    width: 30%;
+  }
+
+  /* PERFIL */
+
+  #perfil .container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+  }
+
+  #perfil .painel {
+    padding-bottom: 3rem;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  #perfil .painel .text,
+  #perfil .painel .image {
+    margin: 0 0rem;
+
+    max-width: 90%;
+  }
+
+  #perfil .painel .text p {
+    font-size: calc(1.4 * var(--text-fontsize));
+  }
+
+  .painel .text,
+  .painel .image {
+    max-width: 60%;
+    margin: 0 0.5rem;
+    z-index: 1;
+  }
+
+  #perfil .painel .image {
+    max-width: 50%;
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: -50px;
+
+    top: 10px;
+  }
+
+  #perfil .painel:nth-child(1) .image img {
+    width: 16rem;
+  }
+
+  #perfil .painel:nth-child(1) .image::before {
+    top: -50px;
+    right: 80px;
+
+    height: 13rem;
+    width: 13rem;
+
+    clip-path: circle();
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: -10px;
+
+    right: 20px;
+  }
+
+  #perfil .painel:nth-child(2) .image img {
+    width: 24rem;
+  }
+
+  #perfil .painel:nth-child(2) .image::before {
+    width: 25rem;
+    height: 25rem;
+
+    top: -50px;
+    right: -150px;
+
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  #perfil .painel:nth-child(3) .image {
+    top: -10px;
+
+    right: 10px;
+  }
+
+  #perfil .painel:nth-child(3) .image img {
+    width: 24rem;
+  }
+
+  #perfil .painel:nth-child(3) .image::before {
+    top: -30px;
+    right: -20px;
+
+    height: 16rem;
+    width: 16rem;
+
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  /* CONHECIMENTOS */
+
+  #conhecimentos .container.grid {
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  #conhecimentos .cards {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    gap: 3rem;
+  }
+
+  #conhecimentos .card1,
+  #conhecimentos .card2 {
+    width: 80%;
+    align-self: center;
+  }
+
+  #conhecimentos .card1:hover .list li,
+  #conhecimentos .card2:hover .list li {
+    padding-top: 1px;
+  }
+
+  /* FOOTER */
+  footer .container {
+    padding: 1rem;
+  }
+
+  footer .contatos .grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    padding-top: 0rem;
+  }
+
+  footer .contatos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    justify-content: space-around;
+  }
+
+  footer .contatos p {
+    font-size: calc(0.8 * var(--text-fontsize));
+  }
+
+  footer .contatos h2 {
+    font-size: calc(0.8 * var(--title-fontsize));
+  }
+
+  footer .contatos i {
+    font-size: 1rem;
+  }
+
+  footer .contatos a .icon-github::before {
+    font-size: 1.3rem;
+  }
+  footer .contatos .autoria {
+    align-self: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  /* APRESENTAÇÃO */
+  #apresentação .eu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #apresentação .eu .card {
+    margin-bottom: 2rem;
+  }
+
+  #apresentação .eu .text {
+    width: 100%;
+
+    text-align: center;
+
+    padding-top: 2rem;
+  }
+
+  /* PERFIL */
+
+  #perfil .painel {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #conhecimentos .painel .title {
+    text-align: center;
+  }
+
+  #perfil .painel .text p {
+    font-size: calc(0.8 * var(--text-fontsize));
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: -40%;
+
+    top: 50px;
+  }
+
+  #perfil .painel:nth-child(1) .image::before {
+    top: -50px;
+    right: 80px;
+
+    height: 18rem;
+    width: 18rem;
+
+    clip-path: circle();
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    top: -40px;
+  }
+
+  #perfil .painel:nth-child(2) .image::before {
+    top: 200px;
+  }
+
+  #perfil .painel:nth-child(3) .image {
+    top: 30px;
+
+    right: 10px;
+  }
+
+  #perfil .painel:nth-child(3) .image::before {
+    right: -200px;
+  }
+
+  #conhecimentos .container.grid {
+    padding: 3rem 1rem;
+  }
+
+  #conhecimentos .cards {
+    display: flex;
+    flex-flow: column;
+    height: max-content;
+
+    gap: 3rem;
+
+    margin: 1rem 2rem;
+  }
+
+  footer .contatos p {
+    font-size: calc(0.6 * var(--text-fontsize));
+  }
+
+  footer .contatos h2 {
+    font-size: calc(0.6 * var(--title-fontsize));
+  }
+}
+
+@media (max-width: 460px) {
+  :root {
+    --title-fontsize: 2rem;
+    --text-fontsize: 1.2rem;
+  }
+
+  #perfil .painel:nth-child(1) .image {
+    right: -25%;
+  }
+
+  #perfil .painel:nth-child(2) .image {
+    right: 10%;
+  }
+}

@@ -44,6 +44,7 @@ section {
 html {
   scroll-behavior: smooth;
 }
+
 body {
   background: var(--section-color);
 
@@ -78,30 +79,30 @@ body {
   padding-bottom: 3rem;
 }
 
-.boas-vindas {
+#ola .boas-vindas {
   text-align: center;
 }
 
-.boas-vindas h2 {
-  font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
+#ola .boas-vindas .text {
+  padding-top: 2rem;
 }
 
-.boas-vindas h2,
-.boas-vindas p {
+#ola .boas-vindas h2,
+#ola .boas-vindas .text p {
   padding-top: 1rem;
   font-weight: bold;
   color: var(--title-color);
 }
 
-.boas-vindas .text {
-  padding-top: 2rem;
+#ola .boas-vindas h2 {
+  font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
 }
 
-.boas-vindas .text p {
+#ola .boas-vindas .text p {
   font: 300 calc(1.5 * var(--text-fontsize)) var(--font);
 }
 
-.boas-vindas .divider {
+#ola .boas-vindas .divider {
   background: black;
   margin: 5.5rem 2rem;
   width: auto;
@@ -172,67 +173,64 @@ body {
   flex-direction: column;
 }
 
-.painel {
+#perfil .painel {
   padding-bottom: 4rem;
 
   display: flex;
   flex-direction: row;
 }
 
-.painel .text {
-  z-index: 1;
-}
-
-.painel .image {
-  z-index: 0;
-}
-
-.painel .text,
-.painel .image {
+#perfil .painel .text,
+#perfil .painel .image {
   margin: 0 5rem;
 }
 
-.painel h2 {
+#perfil .painel .image {
+  z-index: 0;
+}
+
+#perfil .painel .text {
+  z-index: 1;
+}
+
+#perfil .painel .text h2 {
   font: 700 var(--title-fontsize) var(--font);
 }
 
-.painel .text p {
+#perfil .painel .text p {
   padding-top: 2rem;
 
   font: 300 var(--text-fontsize) var(--font);
 }
 
-.painel .text:nth-of-type(1) p,
-.painel .text:nth-of-type(1) h2 {
+#perfil .painel .text:nth-of-type(1) p,
+#perfil .painel .text:nth-of-type(1) h2 {
   text-align: left;
 }
 
-.painel .text:nth-of-type(2) p,
-.painel .text:nth-of-type(2) h2 {
+#perfil .painel .text:nth-of-type(2) p,
+#perfil .painel .text:nth-of-type(2) h2 {
   text-align: right;
 }
 
 #perfil .painel .image {
   position: relative;
 }
-
-#perfil .painel:nth-child(1) .image {
-  right: 100px;
-  top: 50px;
-}
-
-#perfil .painel:nth-child(2) .image {
-  right: 100px;
-}
-
-#perfil .image::before {
+#perfil .painel .image::before {
   content: '';
 
   background: hsla(var(--color), 55%, 65%, 0.8);
 
   position: absolute;
 }
+#perfil .painel .image img {
+  clip-path: circle();
+}
 
+#perfil .painel:nth-child(1) .image {
+  right: 100px;
+  top: 50px;
+}
 #perfil .painel:nth-child(1) .image::before {
   top: -100px;
   right: -200px;
@@ -241,6 +239,13 @@ body {
   width: 20rem;
 
   clip-path: circle();
+}
+#perfil .painel:nth-child(1) .image img {
+  width: 80%;
+}
+
+#perfil .painel:nth-child(2) .image {
+  right: 100px;
 }
 
 #perfil .painel:nth-child(2) .image::before {
@@ -252,6 +257,14 @@ body {
 
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
+#perfil .painel:nth-child(2) .image img {
+  width: 140%;
+}
+
+#perfil .painel:nth-child(3) .image {
+  top: auto;
+  right: auto;
+}
 
 #perfil .painel:nth-child(3) .image::before {
   top: -50px;
@@ -261,18 +274,6 @@ body {
   width: 25rem;
 
   clip-path: circle(50% at 50% 50%);
-}
-
-#perfil .painel .image img {
-  clip-path: circle();
-}
-
-#perfil .painel:nth-child(1) .image img {
-  width: 80%;
-}
-
-#perfil .painel:nth-child(2) .image img {
-  width: 140%;
 }
 
 #perfil .painel:nth-child(3) .image img {
@@ -317,7 +318,7 @@ body {
   padding-top: 1rem;
 }
 
-.cards .list {
+#conhecimentos .cards .list {
   font: 300 var(--text-fontsize) var(--font);
   display: flex;
   flex-flow: column;
@@ -348,11 +349,6 @@ body {
   background: var(--white);
 }
 
-#conhecimentos .card2 .list,
-#conhecimentos .card2 .card-title {
-  color: var(--text-color);
-}
-
 #card1:hover,
 #card2:hover,
 #card3:hover {
@@ -362,6 +358,11 @@ body {
   height: fit-content;
 
   transition-duration: 0.4s;
+}
+
+#conhecimentos .card2 .list,
+#conhecimentos .card2 .card-title {
+  color: var(--text-color);
 }
 
 #conhecimentos .card1:hover .list,
@@ -395,17 +396,23 @@ footer .container {
   padding: 2rem;
 }
 
-footer h2 {
+footer .contatos h2 {
   font: 400 var(--title-fontsize) var(--font);
 }
 
-footer .grid {
+footer .contatos .grid {
   display: flex;
   flex-direction: row;
 
   gap: 2rem;
 
   padding-top: 2rem;
+}
+
+footer .autoria {
+  align-self: center;
+
+  font: 400 var(--text-fontsize) var(--font);
 }
 
 footer a {
@@ -431,32 +438,26 @@ footer i {
   line-height: 0;
 }
 
-footer a .icon-github:before {
-  font-size: 2rem;
-}
-
-footer .autoria {
-  align-self: center;
-
-  font: 400 var(--text-fontsize) var(--font);
-}
-
-footer .gmail {
+footer .contatos .gmail {
   display: flex;
   align-items: center;
 }
 
-footer .gmail p {
+footer .contatos .gmail p {
   padding-left: 0.5rem;
   font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
 }
 
-footer .whatsapp {
+footer .contatos .whatsapp {
   display: flex;
   align-items: center;
 }
 
-footer .github {
+footer .contatos .github {
   display: flex;
   align-items: center;
+}
+
+footer .contatos a .icon-github:before {
+  font-size: 2rem;
 }
