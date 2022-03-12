@@ -40,12 +40,15 @@ section {
   --font: 'Ubuntu', sans-serif;
 }
 
-/* BÁSICO*/
+/* BASE */
 html {
   scroll-behavior: smooth;
 }
+
 body {
   background: var(--section-color);
+
+  overflow-x: hidden;
 }
 
 .container {
@@ -76,29 +79,30 @@ body {
   padding-bottom: 3rem;
 }
 
-.boas-vindas {
+#ola .boas-vindas {
   text-align: center;
 }
 
-.boas-vindas h2,
-.boas-vindas p {
+#ola .boas-vindas .text {
+  padding-top: 2rem;
+}
+
+#ola .boas-vindas h2,
+#ola .boas-vindas .text p {
   padding-top: 1rem;
   font-weight: bold;
   color: var(--title-color);
 }
 
-.boas-vindas h2 {
+#ola .boas-vindas h2 {
   font: 700 calc(1.5 * var(--title-fontsize)) var(--font);
 }
-.boas-vindas .text {
-  padding-top: 2rem;
-}
 
-.boas-vindas .text p {
+#ola .boas-vindas .text p {
   font: 300 calc(1.5 * var(--text-fontsize)) var(--font);
 }
 
-.boas-vindas .divider {
+#ola .boas-vindas .divider {
   background: black;
   margin: 5.5rem 2rem;
   width: auto;
@@ -114,6 +118,12 @@ body {
   padding-top: 5rem;
   padding-bottom: 6rem;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#apresentação .eu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,75 +173,97 @@ body {
   flex-direction: column;
 }
 
-.painel {
+#perfil .painel {
   padding-bottom: 4rem;
 
   display: flex;
   flex-direction: row;
 }
 
-.painel .text,
-.painel .image {
-  max-width: 60%;
+#perfil .painel .text,
+#perfil .painel .image {
   margin: 0 5rem;
+}
+
+#perfil .painel .image {
+  z-index: 0;
+}
+
+#perfil .painel .text {
   z-index: 1;
 }
 
-.painel h2 {
+#perfil .painel .text h2 {
   font: 700 var(--title-fontsize) var(--font);
 }
 
-.painel .text:nth-of-type(1) p {
+#perfil .painel .text p {
   padding-top: 2rem;
 
+  font: 300 var(--text-fontsize) var(--font);
+}
+
+#perfil .painel .text:nth-of-type(1) p,
+#perfil .painel .text:nth-of-type(1) h2 {
   text-align: left;
-
-  font: 300 var(--text-fontsize) var(--font);
 }
 
-.painel .text:nth-of-type(2) p {
-  padding-top: 2rem;
-
-  font: 300 var(--text-fontsize) var(--font);
-}
-
-.painel .text:nth-of-type(2) p,
-.painel .text:nth-of-type(2) h2 {
+#perfil .painel .text:nth-of-type(2) p,
+#perfil .painel .text:nth-of-type(2) h2 {
   text-align: right;
 }
 
 #perfil .painel .image {
   position: relative;
-  right: 100px;
-  top: 50px;
 }
-
-#perfil .image::before {
+#perfil .painel .image::before {
   content: '';
 
   background: hsla(var(--color), 55%, 65%, 0.8);
 
   position: absolute;
 }
+#perfil .painel .image img {
+  clip-path: circle();
+}
 
+#perfil .painel:nth-child(1) .image {
+  right: 100px;
+  top: 50px;
+}
 #perfil .painel:nth-child(1) .image::before {
   top: -100px;
-  left: 200px;
+  right: -200px;
 
   height: 20rem;
   width: 20rem;
 
   clip-path: circle();
 }
+#perfil .painel:nth-child(1) .image img {
+  width: 80%;
+}
+
+#perfil .painel:nth-child(2) .image {
+  right: 100px;
+}
 
 #perfil .painel:nth-child(2) .image::before {
   width: 40rem;
   height: 40rem;
 
-  top: -250px;
-  left: 250px;
+  top: -100px;
+  right: -250px;
 
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+#perfil .painel:nth-child(2) .image img {
+  width: 140%;
+}
+
+#perfil .painel:nth-child(3) .image {
+  top: auto;
+  right: auto;
 }
 
 #perfil .painel:nth-child(3) .image::before {
@@ -244,19 +276,8 @@ body {
   clip-path: circle(50% at 50% 50%);
 }
 
-#perfil .painel:nth-child(1) .image img {
-  width: 20rem;
-  height: 24rem;
-  left: 50px;
-}
-
-#perfil .painel .image img {
-  position: relative;
-  clip-path: circle();
-
-  width: 30rem;
-
-  left: 100px;
+#perfil .painel:nth-child(3) .image img {
+  width: 110%;
 }
 
 /*conhecimentos*/
@@ -290,15 +311,14 @@ body {
 #conhecimentos .list-container {
   margin: 0.5rem 0;
   height: 80%;
-  width: auto;
 }
 
-.cards .card-title {
+#conhecimentos .cards .card-title {
   font: 700 var(--title-fontsize) var(--font);
   padding-top: 1rem;
 }
 
-.cards .list {
+#conhecimentos .cards .list {
   font: 300 var(--text-fontsize) var(--font);
   display: flex;
   flex-flow: column;
@@ -310,11 +330,12 @@ body {
 
 #conhecimentos .card1,
 #conhecimentos .card2 {
+  display: flex;
+  flex-flow: column;
   text-align: center;
-
-  flex: 1;
   height: 20rem;
   border-radius: 1.5rem;
+  width: 33%;
 
   box-shadow: 1px 1px 10px 1.2px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
@@ -328,11 +349,6 @@ body {
   background: var(--white);
 }
 
-#conhecimentos .card2 .list,
-#conhecimentos .card2 .card-title {
-  color: var(--text-color);
-}
-
 #card1:hover,
 #card2:hover,
 #card3:hover {
@@ -344,13 +360,17 @@ body {
   transition-duration: 0.4s;
 }
 
+#conhecimentos .card2 .list,
+#conhecimentos .card2 .card-title {
+  color: var(--text-color);
+}
+
 #conhecimentos .card1:hover .list,
 #conhecimentos .card2:hover .list {
   font-size: calc(1.5 * var(--text-fontsize));
   transition-duration: 0.4s;
 
-  min-height: 100%;
-  height: 140%;
+  height: fit-content;
 
   margin: 1rem 0;
 }
@@ -376,17 +396,23 @@ footer .container {
   padding: 2rem;
 }
 
-footer h2 {
+footer .contatos h2 {
   font: 400 var(--title-fontsize) var(--font);
 }
 
-footer .grid {
+footer .contatos .grid {
   display: flex;
   flex-direction: row;
 
   gap: 2rem;
 
   padding-top: 2rem;
+}
+
+footer .autoria {
+  align-self: center;
+
+  font: 400 var(--text-fontsize) var(--font);
 }
 
 footer a {
@@ -412,22 +438,26 @@ footer i {
   line-height: 0;
 }
 
-footer a .icon-github:before {
-  font-size: 2rem;
-}
-
-footer .autoria {
-  align-self: center;
-
-  font: 400 var(--text-fontsize) var(--font);
-}
-
-footer .gmail {
+footer .contatos .gmail {
   display: flex;
   align-items: center;
 }
 
-footer .gmail p {
+footer .contatos .gmail p {
   padding-left: 0.5rem;
   font: 400 calc(0.8 * var(--text-fontsize)) var(--font);
+}
+
+footer .contatos .whatsapp {
+  display: flex;
+  align-items: center;
+}
+
+footer .contatos .github {
+  display: flex;
+  align-items: center;
+}
+
+footer .contatos a .icon-github:before {
+  font-size: 2rem;
 }
