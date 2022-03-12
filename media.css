@@ -254,7 +254,7 @@
   }
 
   #perfil .painel .text p {
-    font-size: calc(0.8 * var(--text-fontsize));
+    font-size: var(--text-fontsize);
   }
 
   #perfil .painel:nth-child(1) .image {
