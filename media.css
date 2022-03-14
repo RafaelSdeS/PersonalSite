@@ -98,7 +98,7 @@
   #perfil .painel:nth-child(1) .image {
     right: -50px;
 
-    top: 10px;
+    top: 40px;
   }
 
   #perfil .painel:nth-child(1) .image img {
@@ -116,7 +116,7 @@
   }
 
   #perfil .painel:nth-child(2) .image {
-    top: -10px;
+    top: 120px;
 
     right: 20px;
   }
@@ -136,7 +136,7 @@
   }
 
   #perfil .painel:nth-child(3) .image {
-    top: -10px;
+    top: 50px;
 
     right: 10px;
   }
@@ -260,7 +260,11 @@
   #perfil .painel:nth-child(1) .image {
     right: -40%;
 
-    top: 50px;
+    top: -10px;
+  }
+
+  #perfil .painel:nth-child(1) .image img {
+    width: 20rem;
   }
 
   #perfil .painel:nth-child(1) .image::before {
@@ -274,7 +278,7 @@
   }
 
   #perfil .painel:nth-child(2) .image {
-    top: -40px;
+    top: -70px;
   }
 
   #perfil .painel:nth-child(2) .image::before {
