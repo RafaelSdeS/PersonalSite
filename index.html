@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="en">
   <head>
     <!--PAGE INFO-->
     <meta charset="utf-8" />
@@ -14,185 +14,246 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
 
     <!--ICONS-->
     <link rel="stylesheet" href="assets/icons/style.css" />
 
-    <title>Site pessoal do Rafael</title>
+    <title>Rafael Silva de Souza</title>
   </head>
   <body>
-    
+    <!--HEADER-->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#hero">RSS</a>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+        </nav>
+        <a class="lang" href="indexpt.html">PT</a>
+      </div>
+    </header>
+
     <!--MAIN-->
     <main>
-      <a class="lang" href="indexeng.html">English version</a>
-      <section id="ola">
+      <section id="hero">
         <div class="container">
-          <div class="boas-vindas">
-            <h2>Ei, Olá! ✋</h2>
-            <h2>Bem vindo ao meu site!</h2>
-            <div class="text">
-              <p>
-                Este site foi feito com carinho e a (pouca) habilidade de um dev
-                (mais do que) júnior.
-              </p>
-              <p>Sinta-se livre para dar uma olhada e dar um feedback!</p>
-            </div>
-
-            <div class="divider"></div>
+          <span class="eyebrow">&gt; whoami</span>
+          <h1>Rafael Silva de Souza</h1>
+          <p class="role">
+            Computer Engineering @ UFRGS &middot; Hardware Acceleration, HPC
+            &amp; Quant Finance
+          </p>
+          <p class="tagline">
+            Building faster neural networks and smarter trading agents, one
+            kernel at a time.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#work">See my work</a>
+            <a
+              class="btn btn-ghost"
+              href="https://github.com/RafaelSdeS"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+          <div class="pills open-to">
+            <span class="pills-label">Open to</span>
+            <span class="pill">ML Engineering &amp; AI Research</span>
+            <span class="pill">Quantitative Research</span>
+            <span class="pill">HPC</span>
+            <span class="pill">Computer Vision</span>
+            <span class="pill">Software &amp; Data Engineering</span>
+            <span class="pill">Scientific Computing</span>
           </div>
         </div>
       </section>
-      <div class="divider"></div>
-      <section id="apresentação">
+
+      <section id="about">
+        <div class="container about-grid">
+          <div class="about-text">
+            <span class="eyebrow">// about</span>
+            <h2>Background</h2>
+            <p>
+              I'm an undergraduate Computer Engineering student at UFRGS,
+              previously studying Electrical Engineering at UFSC. I work at
+              the intersection of hardware and machine learning: my current
+              research applies hardware-aware constraints &mdash; restricting
+              convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make
+              neural networks a better fit for hardware accelerators.
+            </p>
+            <p>
+              Outside the lab, I build reinforcement-learning trading agents
+              and backtesting infrastructure for the Brazilian equity market
+              (B3).
+            </p>
+          </div>
+          <div class="stat-card">
+            <ul class="stat-list">
+              <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
+              <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
+              <li><span>Languages</span>Portuguese &middot; English &middot; French &middot; Spanish</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
         <div class="container">
-          <div class="eu">
-            <div class="card">
-              <div class="title">
-                <h2>Este</h2>
-                <h2>sou eu</h2>
-              </div>
-            </div>
-            <img
-              class="image"
-              src="assets/images/minha-foto.jpg"
-              alt="Minha Foto"
-            />
-
-            <div class="text">
+          <span class="eyebrow">// current-work</span>
+          <h2>Current Work</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>Undergrad Research</h3>
               <p>
-                Eu me chamo Rafael de Souza. Sou um estudante e aspirante a
-                programador que está tentando escrever a sua história na
-                programação.
+                Conducting undergraduate research under Professor Mateus
+                Grellert at UFRGS on hardware-aware neural network
+                optimization. The work restricts convolutional kernel sizes
+                (2&times;2, 3&times;3) to target the Winograd convolution
+                algorithm, evaluated on VOC detection and segmentation
+                &mdash; benchmarking computational cost against the
+                accuracy trade-off to design architectures better suited
+                for hardware accelerators.
               </p>
-            </div>
+              <div class="pills">
+                <span class="pill">Python</span>
+                <span class="pill">C++</span>
+                <span class="pill">CUDA</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Quantitative Finance</h3>
+              <p>
+                Developing ML systems for portfolio management on the
+                Brazilian Equity Market (B3), systematically testing
+                strategies across the top 50 most liquid B3 stocks.
+                Building an RL-based EIIE (Ensemble of Identical
+                Independent Evaluators) portfolio agent, with heavy
+                emphasis on feature engineering and walk-forward
+                validation.
+              </p>
+              <div class="pills">
+                <span class="pill">Python</span>
+                <span class="pill">Reinforcement Learning</span>
+                <span class="pill">Walk-Forward Validation</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <div class="divider"></div>
-      <section id="perfil">
+      <section id="experience">
         <div class="container">
-          <div class="painel">
-            <div class="text">
-              <h2>Minha ética de trabalho</h2>
+          <span class="eyebrow">// experience</span>
+          <h2>Experience</h2>
+          <div class="card-grid">
+            <article class="card">
+              <h3>
+                <a
+                  href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex"
+                  target="_blank"
+                  >Projeto VORIS &mdash; UFSC
+                  <span class="ext">&#8599;</span></a
+                >
+              </h3>
               <p>
-                Sempre me esforcei muito em tudo, nunca gostei de deixar uma coisa incompleta. 
-                Eu acredito que o esforço, dedicação e criatividade são os pontos essenciais para qualquer
-                trabalho que faço. Seguir os horários e regras, mas não ficar engesado
-                por causa deles.
+                Contributed to a computer vision system for 3D
+                reconstruction using laser triangulation: camera
+                calibration, laser-line detection and image processing,
+                embedded systems (Arduino) and sensor integration, and
+                GPU-accelerated model training for laser localization.
               </p>
-            </div>
-            <div class="image"><img src="assets/images/premio.jpg" alt='Premio'/></div>
-          </div>
-          <div class="painel">
-            <div class="image"><img src="assets/images/programando.jpg" alt="Programando" /></div>
-            <div class="text">
-              <h2>Minha história com a programação</h2>
+              <div class="pills">
+                <span class="pill">Computer Vision</span>
+                <span class="pill">Embedded Systems</span>
+                <span class="pill">CUDA</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>
+                <a href="https://e3.ufsc.br/" target="_blank"
+                  >E3 UFSC &mdash; Shell Eco-marathon Team
+                  <span class="ext">&#8599;</span></a
+                >
+              </h3>
               <p>
-                Desde que sou pequeno eu gosto da tecnologia, mas nunca me deu
-                de estudar isso afundo, mas, em 2021, comecei a me interessar na
-                área e a ver vídeos de pessoas programando, desde sites a jogos.
-                Então pensei comigo mesmo "Por que não estudar isso?". Comecei
-                com Python, mas logo entrei em um curso grátis de front-end
-                básico e simplesmente me apaixonei, então, depois do curso,
-                continuei por mim mesmo.
+                Member of the university's Shell Eco-marathon team,
+                contributing general engineering work and marketing for the
+                team's ultra-efficient vehicle program.
               </p>
-            </div>
-          </div>
-          <div class="painel">
-            <div class="text">
-              <h2>Minha experiência</h2>
-              <p>
-                Até agora só fiz alguns sites e aplicativos básicos, mas feitos
-                com empenho e determinação. Estou constantemente tentando
-                melhorar e aprender novas técnicas. Quando não sei algo pesquiso
-                muito, algumas vezes cavando fundo para achar a solução, além
-                de, óbvio, quebrar muito a cabeça.
-              </p>
-            </div>
-            <div class="image"><img src="assets/images/github.jpg" alt="Meu Github" /></div>
+              <div class="pills">
+                <span class="pill">Engineering</span>
+                <span class="pill">Marketing</span>
+                <span class="pill">Teamwork</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
-      <div class="divider"></div>
-      <section id="conhecimentos">
-        <h2 class="title">Minha características</h2>
 
-        <div class="container grid">
-          <div class="cards">
-            <div class="card1" id="card1">
-              <h2 class="card-title">Eu sei</h2>
-              <div class="list-container">
-                <div class="list">
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-                  <li>GitHub</li>
-                  <li>Node.JS</li>
-                  <li>BootStrap</li>
-                </div>
-              </div>
+      <section id="skills">
+        <div class="container">
+          <span class="eyebrow">$ skills --list</span>
+          <h2>Skills</h2>
+
+          <div class="skills-group">
+            <h3>Tech Stack</h3>
+            <div class="pills">
+              <span class="pill">Python</span>
+              <span class="pill">C</span>
+              <span class="pill">C++</span>
+              <span class="pill">CUDA</span>
+              <span class="pill">React</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Express</span>
+              <span class="pill">Tailwind CSS</span>
+              <span class="pill">Firebase</span>
             </div>
-            <div class="card2" id="card2">
-              <h2 class="card-title">Eu sou ...</h2>
-              <div class="list-container">
-                <div class="list">
-                  <li>Criativo</li>
-                  <li>Focado</li>
-                  <li>Pontual</li>
-                  <li>Responsável</li>
-                  <li>Lógico</li>
-                </div>
-              </div>
-            </div>
-            <div class="card1" id="card3">
-              <h2 class="card-title">E ainda ...</h2>
-              <div class="list-container">
-                <div class="list">
-                  <li>Inglês</li>
-                  <li>Espanhol</li>
-                  <li>Francês</li>
-                  <li>Italiano</li>
-                </div>
-              </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Languages</h3>
+            <div class="pills">
+              <span class="pill">Portuguese (Native)</span>
+              <span class="pill">English (Fluent)</span>
+              <span class="pill">French (Proficient)</span>
+              <span class="pill">Spanish (Proficient)</span>
             </div>
           </div>
         </div>
       </section>
-      <div class="divider"></div>
     </main>
 
     <!--FOOTER-->
     <footer>
       <div class="container">
-        <div class="contatos">
-          <h2>Entre em contato comigo</h2>
-          <div class="grid">
-            <div class="gmail">
-              <i class="icon-gmail"></i>
-              <p>Rafesilvadesouza@gmail.com</p>
-            </div>
-            <div class="whatsapp">
-              <a
-                href="https://api.whatsapp.com/send?phone=+5553 984660847&text=Gostei do teu site"
-                ><i class="icon-whatsapp"></i>
-                <p>Whatsapp</p></a
-              >
-            </div>
-            <div class="github">
-              <a href="https://github.com/RafaelSdeS" target="_blank"
-                ><i class="icon-github"></i>
-                <p>GitHub</p></a
-              >
-            </div>
-            <div class="autoria">
-              <p>Rafael Silva de Souza - 2022</p>
-            </div>
-          </div>
+        <h2>Get in touch</h2>
+        <div class="contacts">
+          <a class="contact" href="mailto:rafesilvadesouza@gmail.com">
+            <i class="icon-gmail"></i>
+            <p>Rafesilvadesouza@gmail.com</p>
+          </a>
+          <a class="contact" href="https://wa.me/5553984660847" target="_blank">
+            <i class="icon-whatsapp"></i>
+            <p>WhatsApp</p>
+          </a>
+          <a class="contact" href="https://github.com/RafaelSdeS" target="_blank">
+            <i class="icon-github"></i>
+            <p>GitHub</p>
+          </a>
+          <!-- TODO: replace with your LinkedIn profile URL -->
+          <a class="contact" href="#" target="_blank">
+            <i class="icon-linkedin"></i>
+            <p>LinkedIn</p>
+          </a>
         </div>
+        <p class="credit">Rafael Silva de Souza &mdash; 2026</p>
       </div>
     </footer>
   </body>
