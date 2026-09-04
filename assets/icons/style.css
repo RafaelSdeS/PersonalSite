@@ -25,17 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-whatsapp:before {
-  content: "\e900";
-}
 .icon-gmail:before {
   content: "\e901";
 }
 .icon-github:before {
   content: "\e902";
-}
-/* ponytail: no glyph yet — regenerate icons via icomoon.io (re-import selection.json,
-   add a LinkedIn glyph, export) and swap this codepoint for whichever one it assigns */
-.icon-linkedin:before {
-  content: "\e903";
 }

@@ -6,6 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!--THEME (applied before paint to avoid flash)-->
+    <script>
+      var t = localStorage.getItem("theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+      function toggleTheme() {
+        var d = document.documentElement;
+        var current =
+          d.getAttribute("data-theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        var next = current === "light" ? "dark" : "light";
+        d.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+      }
+    </script>
+
     <!--STYLES-->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
@@ -35,7 +52,17 @@
           <a href="#projects">Projetos</a>
           <a href="#skills">Habilidades</a>
         </nav>
-        <a class="lang" href="index.html">EN</a>
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Alternar modo claro/escuro"
+            onclick="toggleTheme()"
+          >
+            &#9680;
+          </button>
+          <a class="lang" href="index.html">EN</a>
+        </div>
       </div>
     </header>
 
@@ -43,6 +70,13 @@
     <main>
       <section id="hero">
         <div class="container">
+          <img
+            class="hero-avatar"
+            src="https://github.com/RafaelSdeS.png"
+            alt="Rafael Silva de Souza"
+            width="120"
+            height="120"
+          />
           <span class="eyebrow">&gt; whoami</span>
           <h1>Rafael Silva de Souza</h1>
           <p class="role">
@@ -364,21 +398,16 @@
       <div class="container">
         <h2>Entre em contato</h2>
         <div class="contacts">
-          <a class="contact" href="mailto:rafesilvadesouza@gmail.com">
+          <a class="contact" href="mailto:rafael.souza@inf.ufrgs.br">
             <i class="icon-gmail"></i>
-            <p>Rafesilvadesouza@gmail.com</p>
-          </a>
-          <a class="contact" href="https://wa.me/5553984660847" target="_blank">
-            <i class="icon-whatsapp"></i>
-            <p>WhatsApp</p>
+            <p>rafael.souza@inf.ufrgs.br</p>
           </a>
           <a class="contact" href="https://github.com/RafaelSdeS" target="_blank">
             <i class="icon-github"></i>
             <p>GitHub</p>
           </a>
-          <!-- TODO: substituir pela URL do seu perfil do LinkedIn -->
-          <a class="contact" href="#" target="_blank">
-            <i class="icon-linkedin"></i>
+          <a class="contact" href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank">
+            <svg class="icon-linkedin" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
             <p>LinkedIn</p>
           </a>
         </div>

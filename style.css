@@ -49,10 +49,11 @@ section {
   --radius: 10px;
   --shadow: 0 8px 24px hsla(220, 40%, 2%, 0.35);
   --header-h: 4.5rem;
+  --header-bg: hsla(220, 20%, 8%, 0.75);
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: hsl(220, 25%, 97%);
     --surface: hsl(0, 0%, 100%);
     --surface-alt: hsl(220, 20%, 94%);
@@ -60,7 +61,19 @@ section {
     --text: hsl(220, 25%, 12%);
     --text-muted: hsl(220, 10%, 40%);
     --shadow: 0 8px 24px hsla(220, 30%, 60%, 0.15);
+    --header-bg: hsla(0, 0%, 100%, 0.75);
   }
+}
+
+:root[data-theme="light"] {
+  --bg: hsl(220, 25%, 97%);
+  --surface: hsl(0, 0%, 100%);
+  --surface-alt: hsl(220, 20%, 94%);
+  --border: hsl(220, 15%, 88%);
+  --text: hsl(220, 25%, 12%);
+  --text-muted: hsl(220, 10%, 40%);
+  --shadow: 0 8px 24px hsla(220, 30%, 60%, 0.15);
+  --header-bg: hsla(0, 0%, 100%, 0.75);
 }
 
 /* BASE */
@@ -106,15 +119,9 @@ h3 {
   left: 0;
   right: 0;
   z-index: 10;
-  background: hsla(220, 20%, 8%, 0.75);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
-}
-
-@media (prefers-color-scheme: light) {
-  .site-header {
-    background: hsla(0, 0%, 100%, 0.75);
-  }
 }
 
 .header-inner {
@@ -151,16 +158,47 @@ h3 {
   background-size: 100% 1px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
   font: 500 0.85rem var(--font-mono);
   color: var(--text-muted);
   border: 1px solid var(--border);
-  padding: 0.3rem 0.7rem;
+  padding: 0 0.7rem;
   border-radius: 999px;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .lang:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font: 500 0.85rem var(--font-mono);
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
   color: var(--accent);
   border-color: var(--accent);
 }
@@ -209,6 +247,15 @@ h3 {
   min-height: calc(100vh - var(--header-h));
   display: flex;
   align-items: center;
+}
+
+.hero-avatar {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
 }
 
 #hero h1 {
@@ -426,6 +473,12 @@ footer h2 {
 
 .contact i {
   font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.contact svg {
+  width: 1.4rem;
+  height: 1.4rem;
   color: var(--accent);
 }
 
