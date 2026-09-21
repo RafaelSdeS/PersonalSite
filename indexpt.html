@@ -1,26 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
   <head>
     <!--PAGE INFO-->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rafael Silva de Souza é estudante de Engenharia de Computação e trabalha com aceleração de hardware, aprendizado de máquina, HPC e finanças quantitativas."
+    />
+    <meta
+      property="og:title"
+      content="Rafael Silva de Souza | Engenharia de Computação"
+    />
+    <meta
+      property="og:description"
+      content="ML consciente de hardware, HPC e sistemas quantitativos."
+    />
+    <meta property="og:type" content="website" />
 
     <!--THEME (applied before paint to avoid flash)-->
     <script>
-      var t = localStorage.getItem("theme");
-      if (t) document.documentElement.setAttribute("data-theme", t);
+      var t = localStorage.getItem('theme')
+      if (t) document.documentElement.setAttribute('data-theme', t)
       function toggleTheme() {
-        var d = document.documentElement;
+        var d = document.documentElement
         var current =
-          d.getAttribute("data-theme") ||
-          (matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-        var next = current === "light" ? "dark" : "light";
-        d.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
+          d.getAttribute('data-theme') ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light')
+        var next = current === 'light' ? 'dark' : 'light'
+        d.setAttribute('data-theme', next)
+        localStorage.setItem('theme', next)
+        document
+          .querySelector('.theme-toggle')
+          .setAttribute('aria-pressed', next === 'dark')
       }
+      window.addEventListener('DOMContentLoaded', function () {
+        var current =
+          document.documentElement.getAttribute('data-theme') ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light')
+        document
+          .querySelector('.theme-toggle')
+          .setAttribute('aria-pressed', current === 'dark')
+      })
     </script>
 
     <!--STYLES-->
@@ -57,6 +83,7 @@
             class="theme-toggle"
             type="button"
             aria-label="Alternar modo claro/escuro"
+            aria-pressed="false"
             onclick="toggleTheme()"
           >
             &#9680;
@@ -69,42 +96,66 @@
     <!--MAIN-->
     <main>
       <section id="hero">
-        <div class="container">
-          <img
-            class="hero-avatar"
-            src="https://github.com/RafaelSdeS.png"
-            alt="Rafael Silva de Souza"
-            width="120"
-            height="120"
-          />
-          <span class="eyebrow">&gt; whoami</span>
-          <h1>Rafael Silva de Souza</h1>
-          <p class="role">
-            Engenharia de Computação @ UFRGS &middot; Aceleração de Hardware,
-            HPC &amp; Finanças Quantitativas
-          </p>
-          <p class="tagline">
-            Construindo redes neurais mais rápidas e agentes de trading mais
-            inteligentes, um kernel de cada vez.
-          </p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#work">Ver meu trabalho</a>
-            <a
-              class="btn btn-ghost"
-              href="https://github.com/RafaelSdeS"
-              target="_blank"
-              >GitHub</a
-            >
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <img
+              class="hero-avatar"
+              src="https://github.com/RafaelSdeS.png"
+              alt="Rafael Silva de Souza"
+              width="120"
+              height="120"
+            />
+            <span class="eyebrow">&gt; whoami</span>
+            <h1>Rafael Silva de Souza</h1>
+            <p class="role">
+              Engenharia de Computação @ UFRGS &middot; Aceleração de Hardware,
+              HPC &amp; Finanças Quantitativas
+            </p>
+            <p class="tagline">
+              Construindo redes neurais mais rápidas e agentes de trading mais
+              inteligentes, um kernel de cada vez.
+            </p>
+            <div class="cta">
+              <a class="btn btn-primary" href="#work">Ver meu trabalho</a>
+              <a
+                class="btn btn-ghost"
+                href="https://github.com/RafaelSdeS"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+            <div class="pills open-to">
+              <span class="pills-label">Aberto a</span>
+              <span class="pill">Engenharia de ML &amp; Pesquisa em IA</span>
+              <span class="pill">Pesquisa Quantitativa</span>
+              <span class="pill">HPC</span>
+            </div>
           </div>
-          <div class="pills open-to">
-            <span class="pills-label">Aberto a</span>
-            <span class="pill">Engenharia de ML &amp; Pesquisa em IA</span>
-            <span class="pill">Pesquisa Quantitativa</span>
-            <span class="pill">HPC</span>
-            <span class="pill">Visão Computacional</span>
-            <span class="pill">Engenharia de Software &amp; Dados</span>
-            <span class="pill">Computação Científica</span>
-          </div>
+          <aside class="focus-panel" aria-label="Foco atual">
+            <span class="focus-heading">// foco-atual</span>
+            <div class="focus-item">
+              <span class="focus-label">Pesquisa</span>
+              <strong>Redes neurais conscientes de hardware</strong>
+              <p>
+                Explorando kernels restritos e arquiteturas adequadas a
+                aceleradores.
+              </p>
+            </div>
+            <div class="focus-item">
+              <span class="focus-label">Construção</span>
+              <strong>Sistemas quantitativos</strong>
+              <p>
+                Testando pipelines de dados e estratégias de portfólio para a
+                B3.
+              </p>
+            </div>
+            <div class="focus-item">
+              <span class="focus-label">Aprendizado</span>
+              <strong>Inferência de alto desempenho</strong>
+              <p>Estudando paralelismo, CUDA e o custo de mover computação.</p>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -114,13 +165,13 @@
             <span class="eyebrow">// sobre</span>
             <h2>Trajetória</h2>
             <p>
-              Sou estudante de graduação em Engenharia de Computação na
-              UFRGS, tendo estudado anteriormente Engenharia Elétrica na
-              UFSC. Trabalho na interseção entre hardware e aprendizado de
-              máquina: minha pesquisa atual aplica restrições conscientes de
-              hardware &mdash; limitando os kernels convolucionais a
-              2&times;2 e 3&times;3 &mdash; para tornar redes neurais mais
-              adequadas a aceleradores de hardware.
+              Sou estudante de graduação em Engenharia de Computação na UFRGS,
+              tendo estudado anteriormente Engenharia Elétrica na UFSC. Trabalho
+              na interseção entre hardware e aprendizado de máquina: minha
+              pesquisa atual aplica restrições conscientes de hardware &mdash;
+              limitando os kernels convolucionais a 2&times;2 e 3&times;3
+              &mdash; para tornar redes neurais mais adequadas a aceleradores de
+              hardware.
             </p>
             <p>
               Fora do laboratório, desenvolvo agentes de trading baseados em
@@ -130,9 +181,16 @@
           </div>
           <div class="stat-card">
             <ul class="stat-list">
-              <li><span>Universidade</span>UFRGS &mdash; Engenharia de Computação</li>
-              <li><span>Anteriormente</span>UFSC &mdash; Engenharia Elétrica</li>
-              <li><span>Idiomas</span>Português &middot; Inglês &middot; Francês &middot; Espanhol</li>
+              <li>
+                <span>Universidade</span>UFRGS &mdash; Engenharia de Computação
+              </li>
+              <li>
+                <span>Anteriormente</span>UFSC &mdash; Engenharia Elétrica
+              </li>
+              <li>
+                <span>Idiomas</span>Português &middot; Inglês &middot; Francês
+                &middot; Espanhol
+              </li>
             </ul>
           </div>
         </div>
@@ -146,14 +204,14 @@
             <article class="card">
               <h3>Pesquisa de Graduação</h3>
               <p>
-                Realizo pesquisa de graduação sob orientação do Professor
-                Mateus Grellert na UFRGS, com foco em otimização de redes
-                neurais consciente de hardware. O trabalho restringe o
-                tamanho dos kernels convolucionais (2&times;2, 3&times;3)
-                para atingir o algoritmo de convolução de Winograd, avaliado
-                em detecção e segmentação no VOC &mdash; comparando o custo
-                computacional com o trade-off de acurácia para projetar
-                arquiteturas mais adequadas a aceleradores de hardware.
+                Realizo pesquisa de graduação sob orientação do Professor Mateus
+                Grellert na UFRGS, com foco em otimização de redes neurais
+                consciente de hardware. O trabalho restringe o tamanho dos
+                kernels convolucionais (2&times;2, 3&times;3) para atingir o
+                algoritmo de convolução de Winograd, avaliado em detecção e
+                segmentação no VOC &mdash; comparando o custo computacional com
+                o trade-off de acurácia para projetar arquiteturas mais
+                adequadas a aceleradores de hardware.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -164,13 +222,12 @@
             <article class="card">
               <h3>Finanças Quantitativas</h3>
               <p>
-                Desenvolvo sistemas de ML para gestão de portfólio no mercado
-                de ações brasileiro (B3), testando estratégias
-                sistematicamente nas 50 ações mais líquidas da B3. Construo
-                um agente de portfólio EIIE (Ensemble of Identical
-                Independent Evaluators) baseado em aprendizado por reforço,
-                com forte ênfase em engenharia de atributos e validação
-                walk-forward.
+                Desenvolvo sistemas de ML para gestão de portfólio no mercado de
+                ações brasileiro (B3), testando estratégias sistematicamente nas
+                50 ações mais líquidas da B3. Construo um agente de portfólio
+                EIIE (Ensemble of Identical Independent Evaluators) baseado em
+                aprendizado por reforço, com forte ênfase em engenharia de
+                atributos e validação walk-forward.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -192,6 +249,7 @@
                 <a
                   href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex"
                   target="_blank"
+                  rel="noopener noreferrer"
                   >Projeto VORIS &mdash; UFSC
                   <span class="ext">&#8599;</span></a
                 >
@@ -199,10 +257,10 @@
               <p>
                 Contribuí para um sistema de visão computacional para
                 reconstrução 3D usando triangulação a laser: calibração de
-                câmera, detecção de linha de laser e processamento de
-                imagens, sistemas embarcados (Arduino) e integração de
-                sensores, além de treinamento de modelos acelerado por GPU
-                para localização do laser.
+                câmera, detecção de linha de laser e processamento de imagens,
+                sistemas embarcados (Arduino) e integração de sensores, além de
+                treinamento de modelos acelerado por GPU para localização do
+                laser.
               </p>
               <div class="pills">
                 <span class="pill">Visão Computacional</span>
@@ -212,15 +270,18 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://e3.ufsc.br/" target="_blank"
+                <a
+                  href="https://e3.ufsc.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >E3 UFSC &mdash; Equipe Shell Eco-marathon
                   <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
                 Membro da equipe de Shell Eco-marathon da universidade,
-                contribuindo com tarefas gerais de engenharia e marketing
-                para o programa de veículos ultra-eficientes da equipe.
+                contribuindo com tarefas gerais de engenharia e marketing para o
+                programa de veículos ultra-eficientes da equipe.
               </p>
               <div class="pills">
                 <span class="pill">Engenharia</span>
@@ -239,15 +300,30 @@
           <div class="card-grid">
             <article class="card">
               <h3>
-                <a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank"
-                  >VORIS &mdash; Triangulação a Laser <span class="ext">&#8599;</span></a
+                <a
+                  href="https://github.com/diegofabre/triangulacao_v1/branches"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >VORIS &mdash; Triangulação a Laser
+                  <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
                 Sistema de medição por triangulação a laser do projeto VORIS
                 &mdash; calibração de câmera, detecção do laser, sistemas
-                embarcados e treinamento de modelos acelerado por GPU,
-                dividido em branches dedicadas.
+                embarcados e treinamento de modelos acelerado por GPU, dividido
+                em branches dedicadas.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Projeto concluído</strong></div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Visão + sistemas embarcados</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Escopo:</strong> pipeline de medição da calibração da
+                câmera à localização do laser.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -257,14 +333,28 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/RafaelSdeS/dnn_study" target="_blank"
+                <a
+                  href="https://github.com/RafaelSdeS/dnn_study"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >DNN Study <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
                 Repositório de pesquisa sobre como restringir o tamanho de
-                kernels convolucionais afeta acurácia, eficiência e robustez
-                à quantização, visando a convolução acelerada por Winograd.
+                kernels convolucionais afeta acurácia, eficiência e robustez à
+                quantização, visando a convolução acelerada por Winograd.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Pesquisa ativa</strong></div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Modelagem + avaliação</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Questão:</strong> como kernels restritos podem aproximar
+                redes neurais dos aceleradores?
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -274,15 +364,27 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank"
+                <a
+                  href="https://github.com/RafaelSdeS/finance_analysis"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >Finance Analysis <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
-                Pipeline de dados de ações brasileiras que alimenta um
-                dataset pronto para ML, além de uma pesquisa ativa de
-                construção de portfólio com LightGBM e backtesting
-                walk-forward.
+                Pipeline de dados de ações brasileiras que alimenta um dataset
+                pronto para ML, além de uma pesquisa ativa de construção de
+                portfólio com LightGBM e backtesting walk-forward.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Pesquisa ativa</strong></div>
+                <div>
+                  <span>Contribuição</span><strong>Dados + backtesting</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Escopo:</strong> avaliação sistemática das ações
+                brasileiras mais líquidas.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -292,14 +394,30 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank"
+                <a
+                  href="https://github.com/RafaelSdeS/File-Organizer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >File Organizer <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
-                Organizador de documentos com IA que usa embeddings de
-                frases, extração de palavras-chave e clustering (KMeans)
-                para agrupar arquivos por similaridade semântica.
+                Organizador de documentos com IA que usa embeddings de frases,
+                extração de palavras-chave e clustering (KMeans) para agrupar
+                arquivos por similaridade semântica.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Protótipo concluído</strong>
+                </div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Implementação completa</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Abordagem:</strong> combinar representações semânticas
+                com agrupamento não supervisionado.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -309,14 +427,32 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank"
-                  >vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a
+                <a
+                  href="https://github.com/matregnago/vllm-parallelism-benchmark"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >vLLM Parallelism Benchmark
+                  <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
-                Projeto em grupo que avalia Tensor e Pipeline Parallelism na
-                inferência de LLM (Qwen2.5-7B via vLLM + Ray Cluster) no
-                cluster de HPC da UFRGS.
+                Trabalho da disciplina de Avaliação de Desempenho da UFRGS,
+                realizado com mais dois colegas. O projeto avalia Tensor e
+                Pipeline Parallelism na inferência de LLM (Qwen2.5-7B via vLLM)
+                no cluster de HPC da UFRGS.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Benchmark concluído</strong>
+                </div>
+                <div>
+                  <span>Contexto</span
+                  ><strong>Avaliação de Desempenho · equipe de 3</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Foco:</strong> comparar estratégias de inferência
+                paralela para um modelo de 7B parâmetros.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -326,28 +462,64 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank"
+                <a
+                  href="https://github.com/RafaelSdeS/alg_prog_jogo"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >Breakout &mdash; INF01202 <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
-                Trabalho final da disciplina INF01202 da UFRGS &mdash; uma
-                recriação do jogo Breakout em C.
+                Trabalho final da disciplina INF01202 da UFRGS: um Brick Breaker
+                arcade desenvolvido em C com Raylib. O jogo inclui movimentação
+                por teclado, detecção de colisões, vidas, pontuação, power-ups e
+                múltiplas fases carregadas de arquivos.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Projeto de disciplina</strong>
+                </div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Lógica e sistemas do jogo</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Foco técnico:</strong> estados modulares, saves
+                binários, ranking, áudio e feedback visual no HUD.
               </p>
               <div class="pills">
                 <span class="pill">C</span>
+                <span class="pill">Raylib</span>
+                <span class="pill">Sistemas de Jogo</span>
               </div>
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank"
+                <a
+                  href="https://github.com/vkveiga/pam-ufrgs/pull/1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   >PAM UFRGS <span class="ext">&#8599;</span></a
                 >
               </h3>
               <p>
                 Contribuí com um assistente de IA, previsão de formatura,
-                exportações e cobertura de testes via pull request neste app
-                de apoio à matrícula da UFRGS.
+                exportações e cobertura de testes via pull request neste app de
+                apoio à matrícula da UFRGS.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Contribuição open source</strong>
+                </div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Funcionalidades + testes</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Entregue:</strong> assistente, previsão, exportações e
+                cobertura adicional de testes.
               </p>
               <div class="pills">
                 <span class="pill">Vue</span>
@@ -364,12 +536,29 @@
           <h2>Habilidades</h2>
 
           <div class="skills-group">
-            <h3>Stack Técnico</h3>
+            <h3>Sistemas &amp; Aceleração</h3>
             <div class="pills">
               <span class="pill">Python</span>
               <span class="pill">C</span>
               <span class="pill">C++</span>
               <span class="pill">CUDA</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>ML &amp; Dados</h3>
+            <div class="pills">
+              <span class="pill">Python</span>
+              <span class="pill">Deep Learning</span>
+              <span class="pill">Aprendizado por Reforço</span>
+              <span class="pill">LightGBM</span>
+              <span class="pill">Visão Computacional</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Engenharia de Software</h3>
+            <div class="pills">
               <span class="pill">React</span>
               <span class="pill">TypeScript</span>
               <span class="pill">JavaScript</span>
@@ -402,12 +591,32 @@
             <i class="icon-gmail"></i>
             <p>rafael.souza@inf.ufrgs.br</p>
           </a>
-          <a class="contact" href="https://github.com/RafaelSdeS" target="_blank">
+          <a
+            class="contact"
+            href="https://github.com/RafaelSdeS"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i class="icon-github"></i>
             <p>GitHub</p>
           </a>
-          <a class="contact" href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank">
-            <svg class="icon-linkedin" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+          <a
+            class="contact"
+            href="https://www.linkedin.com/in/rafael-silva-de-souza/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              class="icon-linkedin"
+              viewBox="0 0 448 512"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="currentColor"
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+              />
+            </svg>
             <p>LinkedIn</p>
           </a>
         </div>

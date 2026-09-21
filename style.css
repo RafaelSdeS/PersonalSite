@@ -10,6 +10,11 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -53,7 +58,7 @@ section {
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
+  :root:not([data-theme='dark']) {
     --bg: hsl(220, 25%, 97%);
     --surface: hsl(0, 0%, 100%);
     --surface-alt: hsl(220, 20%, 94%);
@@ -65,7 +70,7 @@ section {
   }
 }
 
-:root[data-theme="light"] {
+:root[data-theme='light'] {
   --bg: hsl(220, 25%, 97%);
   --surface: hsl(0, 0%, 100%);
   --surface-alt: hsl(220, 20%, 94%);
@@ -150,7 +155,9 @@ h3 {
   background-position: left bottom;
   background-size: 0% 1px;
   padding-bottom: 2px;
-  transition: background-size 0.2s ease, color 0.2s ease;
+  transition:
+    background-size 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav a:hover {
@@ -174,7 +181,9 @@ h3 {
   border: 1px solid var(--border);
   padding: 0 0.7rem;
   border-radius: 999px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .lang:hover {
@@ -195,7 +204,9 @@ h3 {
   padding: 0;
   border-radius: 999px;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .theme-toggle:hover {
@@ -217,7 +228,10 @@ h3 {
   border-radius: var(--radius);
   font: 500 1rem var(--font-sans);
   border: 1px solid transparent;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .btn:hover {
@@ -246,6 +260,13 @@ h3 {
   background: var(--bg);
   min-height: calc(100vh - var(--header-h));
   display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 4rem;
   align-items: center;
 }
 
@@ -291,10 +312,59 @@ h3 {
   align-items: center;
 }
 
+.focus-panel {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.focus-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.focus-heading,
+.focus-label {
+  display: block;
+  font: 500 0.75rem var(--font-mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.focus-item {
+  padding: 1.25rem 0 0;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.focus-item strong {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+.focus-item p {
+  margin-top: 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /*SECTION RHYTHM*/
 #about,
 #work,
 #experience,
+#projects,
 #skills {
   padding: 6rem 0;
 }
@@ -311,6 +381,10 @@ h3 {
   background: var(--surface);
 }
 
+#projects {
+  background: var(--surface);
+}
+
 #skills {
   background: var(--bg);
 }
@@ -318,6 +392,7 @@ h3 {
 #about h2,
 #work h2,
 #experience h2,
+#projects h2,
 #skills h2 {
   font-size: var(--title-fontsize);
 }
@@ -338,6 +413,7 @@ h3 {
 }
 
 .stat-card {
+  align-self: center;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -373,17 +449,26 @@ h3 {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 2rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
   border-color: var(--accent);
+}
+
+#projects .card:nth-child(-n + 3) {
+  border-top: 3px solid var(--accent);
 }
 
 .card h3 {
@@ -408,6 +493,49 @@ h3 {
   color: var(--text-muted);
   line-height: 1.6;
   margin-top: 0.75rem;
+}
+
+.card > .project-meta,
+.card > .pills:last-child {
+  margin-top: auto;
+}
+
+.card > .project-meta ~ .pills:last-child {
+  margin-top: 1.5rem;
+}
+
+.card > .pills:last-child {
+  padding-top: 0.75rem;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-meta span {
+  display: block;
+  font: 500 0.7rem var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.project-meta strong {
+  font: 500 0.85rem var(--font-mono);
+  color: var(--text);
+}
+
+.project-result {
+  margin-top: 1rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.95rem;
 }
 
 .pills {
@@ -486,4 +614,18 @@ footer h2 {
   margin-top: 3rem;
   font: 400 0.85rem var(--font-mono);
   color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

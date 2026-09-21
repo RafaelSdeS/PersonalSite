@@ -14,6 +14,10 @@
 }
 
 @media (max-width: 1080px) {
+  .hero-grid {
+    gap: 2rem;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -52,6 +56,15 @@
     gap: 0.5rem;
   }
 
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .focus-panel {
+    max-width: 36rem;
+  }
+
   .nav {
     gap: 1rem;
     flex-wrap: wrap;
@@ -85,5 +98,10 @@
 
   #hero h1 {
     font-size: 1.85rem;
+  }
+
+  .project-meta {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }
