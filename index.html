@@ -100,8 +100,8 @@
             &amp; Quant Finance
           </p>
           <p class="tagline">
-            Building faster neural networks and smarter trading agents, one
-            kernel at a time.
+            Building faster neural networks and rigorously backtested
+            portfolio models, one kernel at a time.
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="#work">See my work</a>
@@ -275,6 +275,9 @@
                   <span class="ext">&#8599;</span></a
                 >
               </h3>
+              <div class="project-links">
+                <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy &mdash; technical visit <span class="ext">&#8599;</span></a>
+              </div>
               <p>
                 E3 (UFSC Energy Efficiency Team) designs, builds and validates
                 ultra-efficient gasoline and electric prototype vehicles for the
@@ -285,8 +288,8 @@
                 <div><span>Team</span><strong>Student competition team</strong></div>
                 <div><span>Areas</span><strong>Engineering + marketing</strong></div>
               </div>
-              <p class="project-result"><strong>How I contributed:</strong> I worked on general engineering tasks for the prototype program and on the team&rsquo;s marketing, communicating the project to the public.</p>
-              <p class="project-result"><strong>What I learned:</strong> how a student team splits a vehicle project across mechanical, electrical, management and marketing areas, and how to explain engineering work to people outside engineering.</p>
+              <p class="project-result"><strong>How I contributed:</strong> I worked mainly on the car&rsquo;s engineering, took part in a technical visit to the resin manufacturer Nanopoxy, and did the team&rsquo;s marketing while also organizing the marketing area.</p>
+              <p class="project-result"><strong>What I learned:</strong> hands-on engineering work on a prototype built for energy efficiency; how a company applies engineering in practice, seen up close on the Nanopoxy visit; and how to organize a team&rsquo;s marketing so its engineering work reaches people outside it.</p>
               <div class="pills">
                 <span class="pill">Engineering</span>
                 <span class="pill">Marketing</span>
@@ -367,104 +370,6 @@
             </article>
             <article class="card">
               <h3>
-                <a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer"
-                  >VORIS &mdash; Laser Triangulation <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">LabMetro project page <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                3D laser-triangulation measurement system for the VORIS
-                project &mdash; camera calibration, laser detection, embedded
-                systems, and GPU-accelerated model training, split across
-                dedicated branches.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Completed project</strong></div>
-                <div><span>Contribution</span><strong>Vision + embedded systems</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I worked on camera calibration, laser-line detection and image processing, integrated the Arduino and sensors, and trained GPU-accelerated models to locate the laser.</p>
-              <p class="project-result"><strong>What I learned:</strong> measurement accuracy is won or lost in calibration; how to bridge hardware and vision software; and how to train models for a physical measurement task instead of a benchmark.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">Computer Vision</span>
-                <span class="pill">CUDA</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer"
-                  >DNN Study <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                Research repo on how restricting convolutional kernel sizes
-                affects CNN accuracy, efficiency and quantization robustness,
-                targeting Winograd-accelerated convolution &mdash; from Tiny
-                ImageNet classification (FP32 &rarr; QAT &rarr; INT8) to PASCAL
-                VOC detection/segmentation and a comparison with efficient ViTs.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Active research</strong></div>
-                <div><span>Contribution</span><strong>Model design + evaluation</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I run the study under Prof. Mateus Grellert: I designed the experiment phases, trained and evaluated the models (152 runs in the main kernel-size study alone, plus robustness and hybrid runs) and profiled latency, power and GPU use.</p>
-              <p class="project-result"><strong>What I learned:</strong> how to design controlled experiments where only one factor changes; why multiple seeds matter before trusting a difference; and that accuracy alone hides the costs that show up in latency, power and INT8 quantization.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">Deep Learning</span>
-                <span class="pill">Quantization</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer"
-                  >Finance Analysis <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                Data pipeline for Brazilian equities feeding an ML-ready
-                dataset, plus an active LightGBM-based portfolio-construction
-                research effort with walk-forward backtesting.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Active research</strong></div>
-                <div><span>Contribution</span><strong>Data + backtesting</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I built it end to end: collectors for prices, fundamentals and macro data (SELIC, CDI, IPCA), a dataset builder without lookahead bias, and a LightGBM forecaster with a risk model and cost-aware optimizer under walk-forward backtesting. A US-equity expansion is in progress.</p>
-              <p class="project-result"><strong>What I learned:</strong> data leakage is the easiest way to fool yourself in finance, so every feature must exist at decision time; a backtest is only credible with walk-forward splits and transaction costs; and it pays to record what does not work.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">LightGBM</span>
-                <span class="pill">Finance</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer"
-                  >File Organizer <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                AI-powered document organizer using sentence embeddings,
-                keyword extraction, and KMeans clustering to group files by
-                semantic similarity.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Completed prototype</strong></div>
-                <div><span>Contribution</span><strong>End-to-end implementation</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I built it solo: text extraction from PDF, DOCX, TXT and XML plus offline audio transcription with Vosk, sentence embeddings with KMeans, YAKE keywords to name each folder, and a dry-run preview before any file moves.</p>
-              <p class="project-result"><strong>What I learned:</strong> applying NLP to messy real-world files; that unsupervised clusters are only useful with readable labels; and that tools which move files should always show a preview first.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">NLP</span>
-                <span class="pill">Clustering</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
                 <a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer"
                   >vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a
                 >
@@ -489,6 +394,29 @@
                 <span class="pill">Python</span>
                 <span class="pill">vLLM</span>
                 <span class="pill">HPC</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>
+                <a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer"
+                  >File Organizer <span class="ext">&#8599;</span></a
+                >
+              </h3>
+              <p>
+                AI-powered document organizer using sentence embeddings,
+                keyword extraction, and KMeans clustering to group files by
+                semantic similarity.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Completed prototype</strong></div>
+                <div><span>Contribution</span><strong>End-to-end implementation</strong></div>
+              </div>
+              <p class="project-result"><strong>How I contributed:</strong> I built it solo: text extraction from PDF, DOCX, TXT and XML plus offline audio transcription with Vosk, sentence embeddings with KMeans, YAKE keywords to name each folder, and a dry-run preview before any file moves.</p>
+              <p class="project-result"><strong>What I learned:</strong> applying NLP to messy real-world files; that unsupervised clusters are only useful with readable labels; and that tools which move files should always show a preview first.</p>
+              <div class="pills">
+                <span class="pill">Python</span>
+                <span class="pill">NLP</span>
+                <span class="pill">Clustering</span>
               </div>
             </article>
             <article class="card">
