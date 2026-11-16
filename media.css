@@ -1,107 +1,37 @@
-@media (min-width: 1400px) {
-  :root {
-    --title-fontsize: 2.5rem;
-    --text-fontsize: 1.25rem;
-  }
-
-  .container {
-    max-width: 1300px;
-  }
-
-  #hero h1 {
-    font-size: 5rem;
-  }
+/* below the 1200px container the s6 columns shrink, the text grows and cover would crop the outer delegates:
+   stack background + photo; alone in its row, the photo can safely take an aspect-ratio */
+@media (max-width: 1240px) {
+  .tile.about, .tile.photo { grid-column: span 12; }
+  .photo { min-height: 0; aspect-ratio: 2 / 1; }
 }
 
+/* tablet: context tiles go full width, project tiles pair up — no holes in the grid */
 @media (max-width: 1080px) {
-  .hero-grid {
-    gap: 2rem;
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  #hero h1 {
-    font-size: 3rem;
-  }
+  .tile, .group { grid-column: span 12; }
+  .tile.p { grid-column: span 6; }
+  .tile.intro { grid-column: span 8; }
+  .tile.portrait { grid-column: span 4; }
 }
 
-@media (max-width: 900px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .header-inner {
-    padding: 1rem 1.5rem;
-  }
-
-  .container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+@media (max-width: 680px) {
+  .tile.p, .tile.intro, .tile.portrait { grid-column: span 12; }
+  .photo { aspect-ratio: 3 / 2; }
+  .portrait { min-height: 0; aspect-ratio: 1 / 1; }
+  .focus ul { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; gap: 0.5rem; }
+  .top-inner { padding-inline: 1rem; gap: 0.75rem; }
+  .top nav { gap: 0.8rem; font-size: 0.72rem; }
+  .bento { padding-inline: 1rem; }
+  .intro { padding: 1.75rem 1.25rem; }
+  .tile { padding: 1.25rem; }
 }
 
-@media (max-width: 760px) {
-  :root {
-    --title-fontsize: 1.6rem;
-    --text-fontsize: 1rem;
-    --header-h: 7.5rem;
-  }
-
-  .header-inner {
-    flex-direction: column;
-    padding: 0.75rem 1rem;
-    gap: 0.5rem;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .focus-panel {
-    max-width: 36rem;
-  }
-
-  .nav {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #hero h1 {
-    font-size: 2.25rem;
-  }
-
-  .cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .btn {
-    text-align: center;
-  }
-
-  .contacts {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
+/* phones: nav + actions don't fit on one line — keep the actions, drop the section links */
 @media (max-width: 460px) {
-  :root {
-    --title-fontsize: 1.35rem;
-    --text-fontsize: 0.95rem;
-  }
+  .top nav { display: none; }
+}
 
-  #hero h1 {
-    font-size: 1.85rem;
-  }
-
-  .project-meta {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }

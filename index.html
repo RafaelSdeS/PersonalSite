@@ -3,7 +3,6 @@
   <head>
     <!--PAGE INFO-->
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -12,6 +11,7 @@
     <meta property="og:title" content="Rafael Silva de Souza | Computer Engineering" />
     <meta property="og:description" content="Hardware-aware ML, HPC and quantitative systems." />
     <meta property="og:type" content="website" />
+    <link rel="alternate" hreflang="pt-BR" href="indexpt.html" />
 
     <!--THEME (applied before paint to avoid flash)-->
     <script>
@@ -53,499 +53,264 @@
 
     <title>Rafael Silva de Souza</title>
   </head>
-  <body>
-    <!--HEADER-->
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="logo" href="#hero">RSS</a>
-        <nav class="nav">
-          <a href="#about">About</a>
+<body>
+    <header class="top">
+      <div class="top-inner">
+        <nav aria-label="Sections">
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </nav>
-        <div class="header-actions">
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle dark/light mode"
-            aria-pressed="false"
-            onclick="toggleTheme()"
-          >
-            &#9680;
-          </button>
-          <a class="lang" href="resume.html" title="One-page résumé">CV</a>
-          <a class="lang" href="indexpt.html">PT</a>
+        <div class="actions">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark/light mode" aria-pressed="false" onclick="toggleTheme()">&#9680;</button>
+          <a class="pill" href="resume.html" title="One-page r&eacute;sum&eacute;">CV</a>
+          <a class="pill" href="indexpt.html" hreflang="pt-BR" lang="pt-BR" title="Ver em portugu&ecirc;s">PT</a>
         </div>
       </div>
     </header>
 
-    <!--MAIN-->
-    <main>
-      <section id="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-          <img
-            class="hero-avatar"
-            src="https://github.com/RafaelSdeS.png"
-            alt="Rafael Silva de Souza"
-            width="120"
-            height="120"
-          />
-          <span class="eyebrow">&gt; whoami</span>
-          <h1>Rafael Silva de Souza</h1>
-          <p class="role">
-            Computer Engineering @ UFRGS &middot; Hardware Acceleration, HPC
-            &amp; Quant Finance
-          </p>
-          <p class="tagline">
-            Building faster neural networks and rigorously backtested
-            portfolio models, one kernel at a time.
-          </p>
-          <div class="cta">
-            <a class="btn btn-primary" href="#work">See my work</a>
-            <a
-              class="btn btn-ghost"
-              href="https://github.com/RafaelSdeS"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </div>
-          <div class="pills open-to">
-            <span class="pills-label">Open to</span>
-            <span class="pill">ML Engineering &amp; AI Research</span>
-            <span class="pill">Quantitative Research</span>
-            <span class="pill">HPC</span>
-          </div>
-          </div>
-          <aside class="focus-panel" aria-label="Current focus">
-            <span class="focus-heading">// current-focus</span>
-            <div class="focus-item">
-              <span class="focus-label">Research</span>
-              <strong>Hardware-aware neural networks</strong>
-              <p>Exploring constrained kernels and accelerator-friendly architectures.</p>
-            </div>
-            <div class="focus-item">
-              <span class="focus-label">Build</span>
-              <strong>Quantitative systems</strong>
-              <p>Testing data pipelines and portfolio strategies for the B3 market.</p>
-            </div>
-            <div class="focus-item">
-              <span class="focus-label">Learn</span>
-              <strong>High-performance inference</strong>
-              <p>Studying parallelism, CUDA and the cost of moving computation.</p>
-            </div>
-          </aside>
+    <main class="bento">
+      <!-- ROW: intro + portrait -->
+      <section class="tile s8 intro">
+        <span class="label">Computer Engineering @ UFRGS</span>
+        <h1>Rafael Silva de Souza</h1>
+        <p class="role">Hardware Acceleration, HPC &amp; Quant Finance</p>
+        <p class="tagline">Building faster neural networks and rigorously backtested portfolio models, one kernel at a time.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn" href="resume.html">One-page CV</a>
         </div>
+        <p class="open"><span>Open to</span>ML Engineering &amp; AI Research &middot; Quantitative Research &middot; HPC</p>
       </section>
+      <figure class="tile s4 portrait">
+        <img src="assets/images/rafael-portrait.jpg" alt="Rafael Silva de Souza" width="800" height="1000" />
+      </figure>
 
-      <section id="about">
-        <div class="container about-grid">
-          <div class="about-text">
-            <span class="eyebrow">// about</span>
-            <h2>Background</h2>
-            <p>
-              I'm an undergraduate Computer Engineering student at UFRGS,
-              previously studying Electrical Engineering at UFSC. I work at
-              the intersection of hardware and machine learning: my current
-              research applies hardware-aware constraints &mdash; restricting
-              convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make
-              neural networks a better fit for hardware accelerators.
-            </p>
-            <p>
-              Outside the lab, I build machine-learning portfolio research
-              and backtesting infrastructure for the Brazilian equity market
-              (B3).
-            </p>
-          </div>
-          <div class="stat-card">
-            <ul class="stat-list">
-              <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
-              <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
-              <li><span>Languages</span>Portuguese &middot; English &middot; French &middot; Spanish</li>
-            </ul>
-          </div>
-        </div>
+      <!-- CURRENT WORK -->
+      <div class="group s12" id="work"><span class="label">Current work</span></div>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Undergrad Research — UFRGS — project"><img class="shot" src="assets/images/projects/research.webp" alt="Pareto frontier of top-1 accuracy versus model size across all studied CNNs and quantization levels, from FP32 down to binary" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Research &middot; UFRGS &middot; since 2026</span>
+        <p class="hl">Shrinking CNN kernels to fit Winograd hardware &mdash; and measuring what it costs</p>
+        <div class="metric-label">152 runs in the main kernel-size study &middot; evaluating Verilog Winograd F(2,3), F(4,3), F(6,3) &middot; INT8 on an AMD Alveo U200</div>
+        <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Undergrad Research &mdash; UFRGS <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">Hardware-aware neural networks for Winograd convolution, under Professor Mateus Grellert: how restricting CNN kernels to 2&times;2/3&times;3 affects accuracy, efficiency and INT8 quantization, and evaluating FPGA Winograd accelerators built by a labmate on real networks.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contribute</strong>I run the kernel-size study end to end (152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC). On the FPGA side, I evaluate Verilog Winograd accelerators (F(2,3), F(4,3), F(6,3), INT8) on an AMD Alveo U200: cycle counts from netlist simulation, Fmax and power from Vivado implementation, and accuracy under the accelerator&rsquo;s arithmetic.</p>
+          <p><strong>What I&rsquo;m learning</strong>An arithmetic gain is a ceiling, not throughput &mdash; bigger Winograd tiles need wider data, more logic and harder timing closure, and fixed-point scales can wipe out accuracy; hardware numbers are only trustworthy when checked against a software reference; and power and Fmax have to be measured, not estimated.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>Deep Learning</li><li>FPGA &middot; Vivado</li><li>Quantization</li></ul>
+      </article>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer" aria-label="Quantitative Finance — project"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: B3 prices, CVM filings, delisted companies and macro data feed a point-in-time dataset; a LightGBM alpha model, a risk model and a cost-aware optimizer are evaluated in a walk-forward backtest against BOVA11, equal-weight and 100% CDI baselines"><defs><marker id="ah-q" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">DATA (B3, POINT-IN-TIME)</text><rect class="box" x="30" y="40" width="126" height="42" rx="8"/><text x="93" y="66">prices</text><rect class="box" x="168" y="40" width="126" height="42" rx="8"/><text x="231" y="66">CVM filings</text><rect class="box" x="306" y="40" width="126" height="42" rx="8"/><text x="369" y="66">delisted cos.</text><rect class="box" x="444" y="40" width="126" height="42" rx="8"/><text x="507" y="66">macro</text><path class="arrow" d="M93 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M231 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M369 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M507 82 V122" marker-end="url(#ah-q)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">point-in-time ML dataset</text><text class="muted" x="300" y="165">filing dates, no lookahead, no survivorship bias</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-q)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="243">LightGBM alpha</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-q)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="243">risk model</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-q)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">cost-aware</text><text x="486" y="252">optimizer</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-q)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">walk-forward backtest</text><text class="muted" x="300" y="346">vs BOVA11 · equal-weight · 100% CDI</text></svg></a>
+        <span class="label">Solo project &middot; since 2025</span>
+        <p class="hl">Portfolio construction for B3, tested walk-forward with no lookahead</p>
+        <div class="metric-label">~10,000 tickers in the US-expansion target &middot; LightGBM alpha &rarr; risk model &rarr; cost-aware optimizer &middot; vs BOVA11 and CDI baselines</div>
+        <h3><a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer">Quantitative Finance <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">Machine-learning research for portfolio management on the Brazilian equity market (B3): a point-in-time data pipeline and a LightGBM-based portfolio-construction study under walk-forward backtesting, now expanding to US equities.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contribute</strong>I built the whole pipeline: prices, CVM fundamentals with their real filing dates, delisted companies to avoid survivorship bias, and macro data; then a LightGBM alpha model, a risk model and a cost-aware optimizer. For the US expansion I&rsquo;m adding SEC EDGAR fundamentals and FRED macro data, validated on the top 500 stocks and scaling to ~10,000 tickers.</p>
+          <p><strong>What I&rsquo;m learning</strong>A configuration picked from many backtests means little until it is corrected for multiple testing (a deflated-Sharpe check showed me that); change one variable per experiment and don&rsquo;t add a layer until the one below beats its baseline; and survivorship bias and filing dates matter as much as the model.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>LightGBM</li><li>Walk-Forward Validation</li><li>Portfolio Optimization</li></ul>
+      </article>
+      <aside class="tile s12 focus">
+        <span class="label">Current focus</span>
+        <ul>
+          <li><span class="label">Research</span><strong>Hardware-aware neural networks</strong><p>Exploring constrained kernels and accelerator-friendly architectures.</p></li>
+          <li><span class="label">Build</span><strong>Quantitative systems</strong><p>Testing data pipelines and portfolio strategies for the B3 market.</p></li>
+          <li><span class="label">Learn</span><strong>High-performance inference</strong><p>Studying parallelism, CUDA and the cost of moving computation.</p></li>
+        </ul>
+      </aside>
+
+      <!-- ROW: background + team photo (Rafael sits left in the photo, looking toward the text) -->
+      <section class="tile s6 about">
+        <span class="label">Background</span>
+        <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators.</p>
+        <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
+        <ul class="facts">
+          <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
+          <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
+          <li><span>Languages</span>Portuguese &middot; English &middot; French &middot; Spanish</li>
+        </ul>
       </section>
+      <figure class="tile s6 photo">
+        <img src="assets/images/ufrgsmun-team.jpg" alt="Rafael (left) with two other delegates during a UFRGSMUN committee session" width="1200" height="900" loading="lazy" />
+      </figure>
 
-      <section id="work">
-        <div class="container">
-          <span class="eyebrow">// current-work</span>
-          <h2>Current Work</h2>
-          <div class="card-grid">
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer"
-                  >Undergrad Research &mdash; UFRGS <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                Undergraduate research under Professor Mateus Grellert on
-                hardware-aware neural networks for Winograd convolution. On the
-                software side, I study how restricting CNN kernels to
-                2&times;2/3&times;3 affects accuracy, efficiency and INT8
-                quantization; on the hardware side, I evaluate FPGA Winograd
-                accelerators built by a labmate on real networks.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Ongoing &middot; since 2026</strong></div>
-                <div><span>Role</span><strong>Undergraduate researcher</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contribute:</strong> I run the kernel-size study end to end (152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC). On the FPGA side, I evaluate Verilog Winograd accelerators (F(2,3), F(4,3), F(6,3), INT8) on an AMD Alveo U200: cycle counts from netlist simulation, Fmax and power from Vivado implementation, and accuracy under the accelerator&rsquo;s arithmetic.</p>
-              <p class="project-result"><strong>What I&rsquo;m learning:</strong> an arithmetic gain is a ceiling, not throughput &mdash; bigger Winograd tiles need wider data, more logic and harder timing closure, and fixed-point scales can wipe out accuracy; hardware numbers are only trustworthy when checked against a software reference; and power and Fmax have to be measured, not estimated.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">Deep Learning</span>
-                <span class="pill">FPGA &middot; Vivado</span>
-                <span class="pill">Quantization</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer"
-                  >Quantitative Finance <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                Machine-learning research for portfolio management on the
-                Brazilian equity market (B3): a point-in-time data pipeline and
-                a LightGBM-based portfolio-construction study under walk-forward
-                backtesting, now expanding to US equities.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Ongoing &middot; since 2025</strong></div>
-                <div><span>Role</span><strong>Solo project</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contribute:</strong> I built the whole pipeline: prices, CVM fundamentals with their real filing dates, delisted companies to avoid survivorship bias, and macro data; then a LightGBM alpha model, a risk model and a cost-aware optimizer. For the US expansion I&rsquo;m adding SEC EDGAR fundamentals and FRED macro data, validated on the top 500 stocks and scaling to ~10,000 tickers.</p>
-              <p class="project-result"><strong>What I&rsquo;m learning:</strong> a configuration picked from many backtests means little until it is corrected for multiple testing (a deflated-Sharpe check showed me that); change one variable per experiment and don&rsquo;t add a layer until the one below beats its baseline; and survivorship bias and filing dates matter as much as the model.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">LightGBM</span>
-                <span class="pill">Walk-Forward Validation</span>
-                <span class="pill">Portfolio Optimization</span>
-              </div>
-            </article>
-          </div>
+      <!-- EXPERIENCE -->
+      <div class="group s12" id="experience"><span class="label">Experience</span></div>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
+        <span class="label">LabMetro &middot; UFSC &middot; Vision + embedded</span>
+        <p class="hl">From a laser line on camera to 3D measurements of underwater structures</p>
+        <div class="metric-label">Laser triangulation &middot; camera calibration &middot; GPU-trained laser-line detection &middot; FINEP-funded ROV at UFSC</div>
+        <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code &#8599;</a></div>
+        <p class="desc">VORIS (Remotely Operated Vehicle for Underwater Inspection) is a FINEP-funded project at UFSC&rsquo;s Metrology and Automation Laboratory: an ROV with 3D optical measurement systems that capture textured point clouds of submerged structures. I worked on its laser-triangulation measurement system.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>Camera calibration, laser-line detection and image processing, Arduino and sensor integration, and GPU-accelerated model training to locate the laser line &mdash; the pieces that turn camera images into 3D measurements.</p>
+          <p><strong>What I learned</strong>How a metrology lab approaches computer vision &mdash; a 3D point is only useful when calibration and error are under control; and how to work inside an interdisciplinary, funded research team where my subsystem had to fit everyone else&rsquo;s.</p>
+        </details>
+        <ul class="tags"><li>Computer Vision</li><li>Embedded Systems</li><li>CUDA</li></ul>
+      </article>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Shell Eco-marathon Team — project"><img class="shot" src="assets/images/projects/e3.webp" alt="3D render of E3 UFSC&rsquo;s 2023 Shell Eco-marathon prototype" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Student competition team &middot; Engineering + marketing</span>
+        <div class="metric">525.7<small>km/L</small></div>
+        <div class="metric-label">team&rsquo;s Latin American record (2017)</div>
+        <h3><a href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer">E3 UFSC &mdash; Shell Eco-marathon Team <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks"><a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy &mdash; technical visit &#8599;</a></div>
+        <p class="desc">E3 (UFSC Energy Efficiency Team) designs, builds and validates ultra-efficient gasoline and electric prototype vehicles for the Shell Eco-marathon.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I worked mainly on the car&rsquo;s engineering, including hands-on work with carbon-fiber composites; took part in a technical visit to Nanopoxy, a manufacturer of epoxy resins for composites &mdash; the same family of materials used in the car; and did the team&rsquo;s marketing while also organizing the marketing area.</p>
+          <p><strong>What I learned</strong>How carbon fiber and epoxy resin combine into light, stiff parts for a prototype built for energy efficiency; what goes into the resins themselves, from nanostructured to bio-based epoxies, seen up close at Nanopoxy; and how to organize a team&rsquo;s marketing so its engineering work reaches people outside it.</p>
+        </details>
+        <ul class="tags"><li>Engineering</li><li>Carbon Fiber Composites</li><li>Marketing</li><li>Teamwork</li></ul>
+      </article>
+
+      <!-- PROJECTS -->
+      <div class="group s12" id="projects"><span class="label">Projects</span></div>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — live demo"><img class="shot" src="assets/images/projects/lunax.webp" alt="LUNAX map of the places in Rond&ocirc;nia that burned year after year, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
+        <p class="hl">Forecasts where Brazil will burn next season, cell by cell</p>
+        <div class="metric-label">NASA FIRMS, MODIS + VIIRS merged (2000&ndash;2026) &middot; a simple ratio model beat the ML challenger</div>
+        <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar" target="_blank" rel="noopener noreferrer">LUNAX Fire Calendar <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
+          <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps &#8599;</a>
         </div>
+        <p class="desc">A web app that merges NASA FIRMS fire detections from both satellite sensors into one consistent series and turns it into a monthly burning calendar, piloted in Rond&ocirc;nia and extended to every Brazilian state.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>One of the two main developers (67 commits). I built the fire-season and &ldquo;compared with the usual&rdquo; views, the next-season outlook with per-cell fire chances, the national pilot with IBGE boundaries and field tools (shareable links, &ldquo;where to act first&rdquo;, custom-area upload). I also tested an ML challenger, which did not beat the simpler ratio method, and wrote the pipeline tests.</p>
+          <p><strong>What I learned</strong>Satellite data has to be reconciled across sensors before any analysis means anything; a simple, explainable baseline can beat ML, and reporting that honestly is part of the result; and a hackathon deadline forces hard scoping and fast code review.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>JavaScript</li><li>NASA FIRMS</li><li>Geospatial</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="Conecta+ — IBM SkillsBuild — live demo"><img class="shot" src="assets/images/projects/conecta.webp" alt="Conecta+ dashboard map of Brazil with municipalities grouped by priority" width="685" height="457" loading="lazy" /></a>
+        <span class="label">Online prototype &middot; team of 3</span>
+        <p class="hl">Picks which of Brazil&rsquo;s 5,570 municipalities to connect first &mdash; within budget</p>
+        <div class="metric-label">Payback, NPV and portfolio optimization &middot; IBM Granite explains each pick, checked against the numbers</div>
+        <h3><a href="https://github.com/RafaelSdeS/conecta-mais" target="_blank" rel="noopener noreferrer">Conecta+ &mdash; IBM SkillsBuild <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
+          <a href="https://github.com/RafaelSdeS/conecta-mais/blob/main/DOCUMENTACAO_CONECTA.pdf" target="_blank" rel="noopener noreferrer">Docs (PDF, PT) &#8599;</a>
+        </div>
+        <p class="desc">Decision-support system for the IBM SkillsBuild &amp; Funda&ccedil;&atilde;o Telef&ocirc;nica Vivo challenge: ranks municipalities for connectivity expansion with public data (Anatel, IBGE, INEP), financial analysis, portfolio optimization and an IBM Granite agent that explains each recommendation.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I owned the decision engine: the municipality priority scores, backhaul distances, the financial tool (payback, NPV, sensitivity), portfolio optimization with PuLP/CBC (IBM CPLEX optional) and a 2021&rarr;2025 backtest. I also led integration: the FastAPI backend, checks that Granite&rsquo;s text matches the engine&rsquo;s numbers, CI and the deploy.</p>
+          <p><strong>What I learned</strong>How to turn a business question into an optimization model with real budget constraints; that LLM output must be checked against the data before a manager can trust it; and how to split work so data, engine and UI can move in parallel on mock data.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>Optimization</li><li>IBM watsonx</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer" aria-label="vLLM Parallelism Benchmark — project"><img class="shot" src="assets/images/projects/vllm.webp" alt="Chart of output-token throughput versus concurrency for single-GPU, pipeline-parallel and tensor-parallel runs" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Completed benchmark &middot; team of 3</span>
+        <p class="hl">Splitting a 7B LLM across 4 GPUs: where the bottleneck goes</p>
+        <div class="metric-label">Tensor vs pipeline parallelism &middot; vLLM + Ray on UFRGS&rsquo;s HPC cluster &middot; GPU power and network telemetry</div>
+        <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer">vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF, PT) &#8599;</a>
+          <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/tex/main.pdf" target="_blank" rel="noopener noreferrer">Report (PDF, PT) &#8599;</a>
+        </div>
+        <p class="desc">Course project for UFRGS's Performance Evaluation class: benchmarks Tensor and Pipeline Parallelism for LLM inference (vLLM and Ray) on UFRGS's HPC cluster.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I handled the GPU and network side of the analysis: GPU telemetry (utilization, power draw), network measurements, the statistical-analysis notebooks and graphs, the run scripts and the final slides.</p>
+          <p><strong>What I learned</strong>How to design a performance experiment with factors and repetitions; how tensor and pipeline parallelism move the bottleneck between compute and inter-node communication; and how to run jobs on a shared HPC cluster.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>vLLM</li><li>HPC</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer" aria-label="File Organizer — project"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: PDF, DOCX, TXT, XML and audio files go through text extraction (audio via Vosk), sentence embeddings, KMeans clustering and YAKE keyword naming, ending in a dry-run preview before any file moves"><defs><marker id="ah-f" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">INPUT FILES</text><rect class="box" x="30" y="40" width="96" height="42" rx="8"/><text x="78" y="66">PDF</text><rect class="box" x="141" y="40" width="96" height="42" rx="8"/><text x="189" y="66">DOCX</text><rect class="box" x="252" y="40" width="96" height="42" rx="8"/><text x="300" y="66">TXT</text><rect class="box" x="363" y="40" width="96" height="42" rx="8"/><text x="411" y="66">XML</text><rect class="box" x="474" y="40" width="96" height="42" rx="8"/><text x="522" y="66">audio</text><path class="arrow" d="M78 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M189 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M300 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M411 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M522 82 V122" marker-end="url(#ah-f)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">text extraction</text><text class="muted" x="300" y="165">audio transcribed offline with Vosk</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-f)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="235">sentence</text><text x="114" y="252">embeddings</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-f)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="235">KMeans</text><text x="300" y="252">clusters</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-f)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">YAKE</text><text x="486" y="252">keywords</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-f)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">dry-run preview</text><text class="muted" x="300" y="346">folders named by keyword, before any file moves</text></svg></a>
+        <span class="label">Completed prototype &middot; solo</span>
+        <p class="hl">Sorts a messy folder by meaning, not by filename</p>
+        <div class="metric-label">Sentence embeddings + KMeans &middot; YAKE names each folder &middot; dry-run preview before any move</div>
+        <h3><a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer">File Organizer <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">AI-powered document organizer using sentence embeddings, keyword extraction, and KMeans clustering to group files by semantic similarity.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I built it solo: text extraction from PDF, DOCX, TXT and XML plus offline audio transcription with Vosk, sentence embeddings with KMeans, YAKE keywords to name each folder, and a dry-run preview before any file moves.</p>
+          <p><strong>What I learned</strong>Applying NLP to messy real-world files; that unsupervised clusters are only useful with readable labels; and that tools which move files should always show a preview first.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>NLP</li><li>Clustering</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer" aria-label="Breakout — INF01202 — project"><img class="shot" src="assets/images/projects/breakout.webp" alt="In-game frame of the Breakout game: a ring of green bricks, the ball, the paddle and falling power-ups" width="900" height="600" loading="lazy" /></a>
+        <span class="label">Course project &middot; INF01202 &middot; pair</span>
+        <p class="hl">A full arcade game in C, memory and file I/O handled by hand</p>
+        <div class="metric-label">32 of 38 commits mine &middot; Raylib &middot; binary saves with score ranking</div>
+        <h3><a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer">Breakout &mdash; INF01202 <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">An arcade-style Brick Breaker built in C with Raylib: keyboard-controlled movement, collision detection, lives, scoring, power-ups and multiple levels loaded from files.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I wrote most of the code (32 of 38 commits): modular game states, collisions, power-ups, levels loaded from files, binary save files with score ranking, audio and the HUD.</p>
+          <p><strong>What I learned</strong>Structuring a C program into modules; handling memory and file I/O by hand; and game-loop basics such as state machines, frame timing and collision handling.</p>
+        </details>
+        <ul class="tags"><li>C</li><li>Raylib</li><li>Game Systems</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer" aria-label="PAM UFRGS — pull request"><img class="shot" src="assets/images/projects/pam.webp" alt="Graduation forecast view added to the PAM UFRGS app: a semester-by-semester plan of the remaining courses" width="959" height="640" loading="lazy" /></a>
+        <span class="label">Open-source contribution</span>
+        <p class="hl">An AI course assistant and graduation forecast for UFRGS&rsquo;s enrollment app</p>
+        <div class="metric-label">Open-source pull request &middot; Vue &middot; rate-limited AI endpoint &middot; Vitest tests</div>
+        <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer">PAM UFRGS <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://www.inf.ufrgs.br/~vkveiga/pam/" target="_blank" rel="noopener noreferrer">Live app &#8599;</a>
+          <a href="https://github.com/vkveiga/pam-ufrgs" target="_blank" rel="noopener noreferrer">Upstream repo &#8599;</a>
+        </div>
+        <p class="desc">Pull request to an open-source UFRGS enrollment-assistance app, adding features I missed while using it as a student.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I added an AI assistant for course and schedule questions (scoped to the selected program, with production CORS/CSP and rate limits), a graduation forecast with PDF export, .ics schedule export with side-by-side comparison, and set up Vitest with tests for the core services.</p>
+          <p><strong>What I learned</strong>How to contribute to someone else&rsquo;s codebase: follow its conventions, scope a pull request and explain why each change matters; and how to add tests around code I did not write.</p>
+        </details>
+        <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
+      </article>
+
+      <!-- ROW: skills + contact -->
+      <div class="group s12" id="contact"><span class="label">Stack &amp; contact</span></div>
+      <section class="tile s8 skills">
+        <span class="label">Skills</span>
+        <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li></ul></div>
+        <div class="grp"><strong>ML &amp; Data</strong><ul class="tags"><li>Python</li><li>Deep Learning</li><li>Reinforcement Learning</li><li>LightGBM</li><li>Computer Vision</li></ul></div>
+        <div class="grp"><strong>Software Engineering</strong><ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li></ul></div>
+        <div class="grp"><strong>Languages</strong><ul class="tags"><li>Portuguese (Native)</li><li>English (Fluent)</li><li>French (Proficient)</li><li>Spanish (Proficient)</li></ul></div>
       </section>
-
-      <section id="experience">
-        <div class="container">
-          <span class="eyebrow">// experience</span>
-          <h2>Experience</h2>
-          <div class="card-grid">
-            <article class="card">
-              <h3>
-                <a
-                  href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Projeto VORIS &mdash; LabMetro UFSC
-                  <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                VORIS (Remotely Operated Vehicle for Underwater Inspection) is
-                a FINEP-funded project at UFSC&rsquo;s Metrology and Automation
-                Laboratory: an ROV with 3D optical measurement systems that
-                capture textured point clouds of submerged structures. I worked
-                on its laser-triangulation measurement system.
-              </p>
-              <div class="project-meta">
-                <div><span>Lab</span><strong>LabMetro &middot; UFSC</strong></div>
-                <div><span>Contribution</span><strong>Vision + embedded systems</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> camera calibration, laser-line detection and image processing, Arduino and sensor integration, and GPU-accelerated model training to locate the laser line &mdash; the pieces that turn camera images into 3D measurements.</p>
-              <p class="project-result"><strong>What I learned:</strong> how a metrology lab approaches computer vision &mdash; a 3D point is only useful when calibration and error are under control; and how to work inside an interdisciplinary, funded research team where my subsystem had to fit everyone else&rsquo;s.</p>
-              <div class="pills">
-                <span class="pill">Computer Vision</span>
-                <span class="pill">Embedded Systems</span>
-                <span class="pill">CUDA</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer"
-                  >E3 UFSC &mdash; Shell Eco-marathon Team
-                  <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy &mdash; technical visit <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                E3 (UFSC Energy Efficiency Team) designs, builds and validates
-                ultra-efficient gasoline and electric prototype vehicles for the
-                Shell Eco-marathon. The team holds a Latin American record of
-                525.7&nbsp;km/L (2017).
-              </p>
-              <div class="project-meta">
-                <div><span>Team</span><strong>Student competition team</strong></div>
-                <div><span>Areas</span><strong>Engineering + marketing</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I worked mainly on the car&rsquo;s engineering, including hands-on work with carbon-fiber composites; took part in a technical visit to Nanopoxy, a manufacturer of epoxy resins for composites &mdash; the same family of materials used in the car; and did the team&rsquo;s marketing while also organizing the marketing area.</p>
-              <p class="project-result"><strong>What I learned:</strong> how carbon fiber and epoxy resin combine into light, stiff parts for a prototype built for energy efficiency; what goes into the resins themselves, from nanostructured to bio-based epoxies, seen up close at Nanopoxy; and how to organize a team&rsquo;s marketing so its engineering work reaches people outside it.</p>
-              <div class="pills">
-                <span class="pill">Engineering</span>
-                <span class="pill">Carbon Fiber Composites</span>
-                <span class="pill">Marketing</span>
-                <span class="pill">Teamwork</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects">
-        <div class="container">
-          <span class="eyebrow">// projects</span>
-          <h2>Projects</h2>
-          <div class="card-grid">
-            <article class="card">
-              <h3>
-                <a href="https://github.com/jacquesbelmont/lunax-fire-calendar" target="_blank" rel="noopener noreferrer"
-                  >LUNAX Fire Calendar &mdash; NASA Space Apps <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Live demo <span class="ext">&#8599;</span></a>
-                <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                NASA Space Apps Challenge 2026 project for the &ldquo;Harmonization
-                of MODIS and VIIRS Hot Spots&rdquo; challenge: a web app that merges
-                NASA FIRMS fire detections from both satellite sensors into one
-                consistent series (2000&ndash;2026) and turns it into a monthly
-                burning calendar, piloted in Rond&ocirc;nia and extended to every
-                Brazilian state.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Hackathon &middot; 2026</strong></div>
-                <div><span>Contribution</span><strong>Analysis + forecasting</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> one of the two main developers (67 commits). I built the fire-season and &ldquo;compared with the usual&rdquo; views, the next-season outlook with per-cell fire chances, the national pilot with IBGE boundaries and field tools (shareable links, &ldquo;where to act first&rdquo;, custom-area upload). I also tested an ML challenger, which did not beat the simpler ratio method, and wrote the pipeline tests.</p>
-              <p class="project-result"><strong>What I learned:</strong> satellite data has to be reconciled across sensors before any analysis means anything; a simple, explainable baseline can beat ML, and reporting that honestly is part of the result; and a hackathon deadline forces hard scoping and fast code review.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">NASA FIRMS</span>
-                <span class="pill">Geospatial</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/conecta-mais" target="_blank" rel="noopener noreferrer"
-                  >Conecta+ &mdash; IBM SkillsBuild <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo <span class="ext">&#8599;</span></a>
-                <a href="https://github.com/RafaelSdeS/conecta-mais/blob/main/DOCUMENTACAO_CONECTA.pdf" target="_blank" rel="noopener noreferrer">Documentation (PDF, PT) <span class="ext">&#8599;</span></a>
-                <a href="https://skillsbuild.org/" target="_blank" rel="noopener noreferrer">IBM SkillsBuild <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                Decision-support system built for the IBM SkillsBuild &amp;
-                Funda&ccedil;&atilde;o Telef&ocirc;nica Vivo challenge: it ranks all
-                5,570 Brazilian municipalities for connectivity expansion, combining
-                public data (Anatel, IBGE, INEP) with financial analysis, portfolio
-                optimization and an IBM Granite agent that explains each
-                recommendation.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Online prototype</strong></div>
-                <div><span>Context</span><strong>IBM SkillsBuild &middot; team of 3</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I owned the decision engine: the municipality priority scores, backhaul distances, the financial tool (payback, NPV, sensitivity), portfolio optimization with PuLP/CBC (IBM CPLEX optional) and a 2021&rarr;2025 backtest. I also led integration: the FastAPI backend, checks that Granite&rsquo;s text matches the engine&rsquo;s numbers, CI and the deploy.</p>
-              <p class="project-result"><strong>What I learned:</strong> how to turn a business question into an optimization model with real budget constraints; that LLM output must be checked against the data before a manager can trust it; and how to split work so data, engine and UI can move in parallel on mock data.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">FastAPI</span>
-                <span class="pill">Optimization</span>
-                <span class="pill">IBM watsonx</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer"
-                  >vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Final slides (PDF, PT) <span class="ext">&#8599;</span></a>
-                <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/tex/main.pdf" target="_blank" rel="noopener noreferrer">Report (PDF, PT) <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                Course project for UFRGS's Performance Evaluation class,
-                completed with two teammates. The project benchmarks Tensor
-                and Pipeline Parallelism for LLM inference (Qwen2.5-7B via
-                vLLM and Ray) on 1 to 4 GPUs of UFRGS's HPC cluster.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Completed benchmark</strong></div>
-                <div><span>Context</span><strong>Performance Evaluation · 3-person team</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I handled the GPU and network side of the analysis: GPU telemetry (utilization, power draw), network measurements, the statistical-analysis notebooks and graphs, the run scripts and the final slides.</p>
-              <p class="project-result"><strong>What I learned:</strong> how to design a performance experiment with factors and repetitions; how tensor and pipeline parallelism move the bottleneck between compute and inter-node communication; and how to run jobs on a shared HPC cluster.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">vLLM</span>
-                <span class="pill">HPC</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer"
-                  >File Organizer <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                AI-powered document organizer using sentence embeddings,
-                keyword extraction, and KMeans clustering to group files by
-                semantic similarity.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Completed prototype</strong></div>
-                <div><span>Contribution</span><strong>End-to-end implementation</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I built it solo: text extraction from PDF, DOCX, TXT and XML plus offline audio transcription with Vosk, sentence embeddings with KMeans, YAKE keywords to name each folder, and a dry-run preview before any file moves.</p>
-              <p class="project-result"><strong>What I learned:</strong> applying NLP to messy real-world files; that unsupervised clusters are only useful with readable labels; and that tools which move files should always show a preview first.</p>
-              <div class="pills">
-                <span class="pill">Python</span>
-                <span class="pill">NLP</span>
-                <span class="pill">Clustering</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer"
-                  >Breakout &mdash; INF01202 <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <p>
-                Final project for UFRGS's INF01202 course: an arcade-style
-                Brick Breaker built in C with Raylib. The game includes
-                keyboard-controlled movement, collision detection, lives,
-                scoring, power-ups and multiple levels loaded from files.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Completed course project</strong></div>
-                <div><span>Context</span><strong>INF01202 · pair project</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I wrote most of the code (32 of 38 commits): modular game states, collisions, power-ups, levels loaded from files, binary save files with score ranking, audio and the HUD.</p>
-              <p class="project-result"><strong>What I learned:</strong> structuring a C program into modules; handling memory and file I/O by hand; and game-loop basics such as state machines, frame timing and collision handling.</p>
-              <div class="pills">
-                <span class="pill">C</span>
-                <span class="pill">Raylib</span>
-                <span class="pill">Game Systems</span>
-              </div>
-            </article>
-            <article class="card">
-              <h3>
-                <a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer"
-                  >PAM UFRGS <span class="ext">&#8599;</span></a
-                >
-              </h3>
-              <div class="project-links">
-                <a href="https://www.inf.ufrgs.br/~vkveiga/pam/" target="_blank" rel="noopener noreferrer">Live app <span class="ext">&#8599;</span></a>
-                <a href="https://github.com/vkveiga/pam-ufrgs" target="_blank" rel="noopener noreferrer">Upstream repo <span class="ext">&#8599;</span></a>
-              </div>
-              <p>
-                Pull request to an open-source UFRGS enrollment-assistance app,
-                adding features I missed while using it as a student.
-              </p>
-              <div class="project-meta">
-                <div><span>Status</span><strong>Open-source contribution</strong></div>
-                <div><span>Contribution</span><strong>Features + tests</strong></div>
-              </div>
-              <p class="project-result"><strong>How I contributed:</strong> I added an AI assistant for course and schedule questions (scoped to the selected program, with production CORS/CSP and rate limits), a graduation forecast with PDF export, .ics schedule export with side-by-side comparison, and set up Vitest with tests for the core services.</p>
-              <p class="project-result"><strong>What I learned:</strong> how to contribute to someone else&rsquo;s codebase: follow its conventions, scope a pull request and explain why each change matters; and how to add tests around code I did not write.</p>
-              <div class="pills">
-                <span class="pill">Vue</span>
-                <span class="pill">Vitest</span>
-                <span class="pill">Open Source</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <div class="container">
-          <span class="eyebrow">$ skills --list</span>
-          <h2>Skills</h2>
-
-          <div class="skills-group">
-            <h3>Systems &amp; Acceleration</h3>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">C</span>
-              <span class="pill">C++</span>
-              <span class="pill">CUDA</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <h3>ML &amp; Data</h3>
-            <div class="pills">
-              <span class="pill">Python</span>
-              <span class="pill">Deep Learning</span>
-              <span class="pill">Reinforcement Learning</span>
-              <span class="pill">LightGBM</span>
-              <span class="pill">Computer Vision</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <h3>Software Engineering</h3>
-            <div class="pills">
-              <span class="pill">React</span>
-              <span class="pill">TypeScript</span>
-              <span class="pill">JavaScript</span>
-              <span class="pill">Node.js</span>
-              <span class="pill">Express</span>
-              <span class="pill">Tailwind CSS</span>
-              <span class="pill">Firebase</span>
-            </div>
-          </div>
-
-          <div class="skills-group">
-            <h3>Languages</h3>
-            <div class="pills">
-              <span class="pill">Portuguese (Native)</span>
-              <span class="pill">English (Fluent)</span>
-              <span class="pill">French (Proficient)</span>
-              <span class="pill">Spanish (Proficient)</span>
-            </div>
-          </div>
-        </div>
+      <section class="tile s4 contact">
+        <span class="label">Get in touch</span>
+        <a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a>
+        <a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a>
+        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a>
       </section>
     </main>
-
-    <!--FOOTER-->
-    <footer>
-      <div class="container">
-        <h2>Get in touch</h2>
-        <div class="contacts">
-          <a class="contact" href="mailto:rafael.souza@inf.ufrgs.br">
-            <i class="icon-gmail"></i>
-            <p>rafael.souza@inf.ufrgs.br</p>
-          </a>
-          <a class="contact" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">
-            <i class="icon-github"></i>
-            <p>GitHub</p>
-          </a>
-          <a class="contact" href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer">
-            <svg class="icon-linkedin" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
-            <p>LinkedIn</p>
-          </a>
-        </div>
-        <p class="credit">Rafael Silva de Souza &mdash; 2026</p>
-      </div>
-    </footer>
+    <footer class="credit">Rafael Silva de Souza &mdash; 2026</footer>
+    <!--NAV: border once scrolled + highlight the section in view-->
+    <script>
+      (function () {
+        var top = document.querySelector(".top");
+        var links = document.querySelectorAll(".top nav a");
+        function onScroll() { top.classList.toggle("scrolled", window.scrollY > 8); }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            links.forEach(function (a) { a.classList.toggle("active", a.hash === "#" + e.target.id); });
+          });
+        }, { rootMargin: "-30% 0px -60% 0px" });
+        document.querySelectorAll("main [id]").forEach(function (el) { io.observe(el); });
+      })();
+    </script>
   </body>
 </html>
