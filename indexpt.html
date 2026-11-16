@@ -88,6 +88,7 @@
           >
             &#9680;
           </button>
+          <a class="lang" href="resumept.html" title="Currículo de 1 página">CV</a>
           <a class="lang" href="index.html">EN</a>
         </div>
       </div>
@@ -174,8 +175,8 @@
               hardware.
             </p>
             <p>
-              Fora do laboratório, desenvolvo agentes de trading baseados em
-              aprendizado por reforço e infraestrutura de backtesting para o
+              Fora do laboratório, desenvolvo pesquisa de portfólio com machine
+              learning e infraestrutura de backtesting para o
               mercado de ações brasileiro (B3).
             </p>
           </div>
@@ -202,37 +203,103 @@
           <h2>Trabalho Atual</h2>
           <div class="card-grid">
             <article class="card">
-              <h3>Pesquisa de Graduação</h3>
+              <h3>
+                <a
+                  href="https://github.com/RafaelSdeS/dnn_study"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Iniciação Científica &mdash; UFRGS
+                  <span class="ext">&#8599;</span></a
+                >
+              </h3>
               <p>
-                Realizo pesquisa de graduação sob orientação do Professor Mateus
-                Grellert na UFRGS, com foco em otimização de redes neurais
-                consciente de hardware. O trabalho restringe o tamanho dos
-                kernels convolucionais (2&times;2, 3&times;3) para atingir o
-                algoritmo de convolução de Winograd, avaliado em detecção e
-                segmentação no VOC &mdash; comparando o custo computacional com
-                o trade-off de acurácia para projetar arquiteturas mais
-                adequadas a aceleradores de hardware.
+                Pesquisa de graduação sob orientação do Professor Mateus
+                Grellert sobre redes neurais conscientes de hardware para a
+                convolução de Winograd. No software, estudo como restringir os
+                kernels de CNNs a 2&times;2/3&times;3 afeta acurácia, eficiência
+                e quantização INT8; no hardware, avalio em redes reais
+                aceleradores Winograd em FPGA desenvolvidos por um colega de
+                laboratório.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Em andamento &middot; desde 2026</strong>
+                </div>
+                <div>
+                  <span>Papel</span><strong>Pesquisador de graduação</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuo:</strong> conduzo o estudo de tamanho de
+                kernel de ponta a ponta (152 execuções no estudo principal, além
+                de rodadas de robustez e de híbridos no Tiny ImageNet e no
+                PASCAL VOC). No FPGA, avalio aceleradores Winograd em Verilog
+                (F(2,3), F(4,3), F(6,3), INT8) em uma AMD Alveo U200: ciclos por
+                simulação do netlist, Fmax e potência pela implementação no
+                Vivado e acurácia com a aritmética do acelerador.
+              </p>
+              <p class="project-result">
+                <strong>O que estou aprendendo:</strong> ganho aritmético é um
+                teto, não throughput &mdash; tiles Winograd maiores exigem dados
+                mais largos, mais lógica e um timing mais difícil de fechar, e
+                escalas de ponto fixo podem zerar a acurácia; números de
+                hardware só são confiáveis quando conferidos contra uma
+                referência em software; e potência e Fmax precisam ser medidos,
+                não estimados.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
-                <span class="pill">C++</span>
-                <span class="pill">CUDA</span>
+                <span class="pill">Deep Learning</span>
+                <span class="pill">FPGA &middot; Vivado</span>
+                <span class="pill">Quantização</span>
               </div>
             </article>
             <article class="card">
-              <h3>Finanças Quantitativas</h3>
+              <h3>
+                <a
+                  href="https://github.com/RafaelSdeS/finance_analysis"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Finanças Quantitativas <span class="ext">&#8599;</span></a
+                >
+              </h3>
               <p>
-                Desenvolvo sistemas de ML para gestão de portfólio no mercado de
-                ações brasileiro (B3), testando estratégias sistematicamente nas
-                50 ações mais líquidas da B3. Construo um agente de portfólio
-                EIIE (Ensemble of Identical Independent Evaluators) baseado em
-                aprendizado por reforço, com forte ênfase em engenharia de
-                atributos e validação walk-forward.
+                Pesquisa em machine learning para gestão de portfólio no
+                mercado de ações brasileiro (B3): um pipeline de dados
+                point-in-time e um estudo de construção de portfólio com
+                LightGBM sob backtest walk-forward, agora com expansão para
+                ações dos EUA.
+              </p>
+              <div class="project-meta">
+                <div>
+                  <span>Status</span><strong>Em andamento &middot; desde 2025</strong>
+                </div>
+                <div><span>Papel</span><strong>Projeto individual</strong></div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuo:</strong> construí todo o pipeline:
+                preços, fundamentos da CVM com as datas reais de divulgação,
+                empresas deslistadas para evitar viés de sobrevivência e dados
+                macro; depois, um modelo de alfa com LightGBM, um modelo de
+                risco e um otimizador que considera custos. Na expansão para os
+                EUA, estou adicionando fundamentos do SEC EDGAR e dados macro do
+                FRED, validados nas 500 maiores ações e escalando para ~10.000
+                tickers.
+              </p>
+              <p class="project-result">
+                <strong>O que estou aprendendo:</strong> uma configuração
+                escolhida entre muitos backtests vale pouco até ser corrigida
+                para testes múltiplos (um teste de Sharpe deflacionado me
+                mostrou isso); mudar uma variável por experimento e não
+                adicionar uma camada até a de baixo superar seu baseline; e viés
+                de sobrevivência e datas de divulgação importam tanto quanto o
+                modelo.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
-                <span class="pill">Aprendizado por Reforço</span>
+                <span class="pill">LightGBM</span>
                 <span class="pill">Validação Walk-Forward</span>
+                <span class="pill">Otimização de Portfólio</span>
               </div>
             </article>
           </div>
@@ -250,17 +317,47 @@
                   href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Projeto VORIS &mdash; UFSC
+                  >Projeto VORIS &mdash; LabMetro UFSC
                   <span class="ext">&#8599;</span></a
                 >
               </h3>
+              <div class="project-links">
+                <a
+                  href="https://github.com/diegofabre/triangulacao_v1/branches"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Código da triangulação a laser <span class="ext">&#8599;</span></a
+                >
+              </div>
               <p>
-                Contribuí para um sistema de visão computacional para
-                reconstrução 3D usando triangulação a laser: calibração de
-                câmera, detecção de linha de laser e processamento de imagens,
-                sistemas embarcados (Arduino) e integração de sensores, além de
-                treinamento de modelos acelerado por GPU para localização do
+                O VORIS (Veículo Operado Remotamente para Inspeção Submarina) é
+                um projeto financiado pela FINEP no Laboratório de Metrologia e
+                Automatização da UFSC: um ROV com sistemas ópticos de medição 3D
+                que capturam nuvens de pontos texturizadas de estruturas
+                submersas. Trabalhei no sistema de medição por triangulação a
                 laser.
+              </p>
+              <div class="project-meta">
+                <div><span>Laboratório</span><strong>LabMetro &middot; UFSC</strong></div>
+                <div>
+                  <span>Contribuição</span
+                  ><strong>Visão + sistemas embarcados</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuí:</strong> calibração de câmera, detecção
+                da linha do laser e processamento de imagens, integração de
+                Arduino e sensores e treinamento de modelos acelerado por GPU
+                para localizar a linha do laser &mdash; as partes que
+                transformam imagens da câmera em medições 3D.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> como um laboratório de
+                metrologia encara visão computacional &mdash; um ponto 3D só tem
+                valor quando a calibração e o erro estão sob controle; e a
+                trabalhar em uma equipe de pesquisa interdisciplinar e
+                financiada, em que o meu subsistema precisava se encaixar no de
+                todos.
               </p>
               <div class="pills">
                 <span class="pill">Visão Computacional</span>
@@ -279,9 +376,25 @@
                 >
               </h3>
               <p>
-                Membro da equipe de Shell Eco-marathon da universidade,
-                contribuindo com tarefas gerais de engenharia e marketing para o
-                programa de veículos ultra-eficientes da equipe.
+                A E3 (Equipe UFSC de Eficiência Energética) projeta, constrói e
+                valida protótipos ultraeficientes a gasolina e elétricos para a
+                Shell Eco-marathon. A equipe detém o recorde latino-americano de
+                525,7&nbsp;km/L (2017).
+              </p>
+              <div class="project-meta">
+                <div><span>Equipe</span><strong>Equipe de competição</strong></div>
+                <div><span>Áreas</span><strong>Engenharia + marketing</strong></div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuí:</strong> trabalhei em tarefas gerais de
+                engenharia do programa de protótipos e no marketing da equipe,
+                divulgando o projeto para o público.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> como uma equipe estudantil divide
+                um projeto de veículo entre as áreas mecânica, elétrica, de
+                gestão e de marketing, e a explicar trabalho de engenharia para
+                quem não é da área.
               </p>
               <div class="pills">
                 <span class="pill">Engenharia</span>
@@ -301,6 +414,112 @@
             <article class="card">
               <h3>
                 <a
+                  href="https://github.com/jacquesbelmont/lunax-fire-calendar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LUNAX Fire Calendar &mdash; NASA Space Apps
+                  <span class="ext">&#8599;</span></a
+                >
+              </h3>
+              <div class="project-links">
+                <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Demo online <span class="ext">&#8599;</span></a>
+                <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps <span class="ext">&#8599;</span></a>
+              </div>
+              <p>
+                Projeto do NASA Space Apps Challenge 2026 para o desafio
+                &ldquo;Harmonization of MODIS and VIIRS Hot Spots&rdquo;: um app
+                web que une as detecções de fogo do NASA FIRMS dos dois sensores
+                de satélite em uma série consistente (2000&ndash;2026) e a
+                transforma em um calendário mensal de queimadas, com piloto em
+                Rondônia e expansão para todos os estados do Brasil.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Hackathon &middot; 2026</strong></div>
+                <div>
+                  <span>Contribuição</span><strong>Análise + previsão</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuí:</strong> fui um dos dois principais
+                desenvolvedores (67 commits). Construí as visões de temporada de
+                fogo e &ldquo;comparado com o usual&rdquo;, a previsão da próxima
+                temporada com chance de fogo por célula, o piloto nacional com
+                malhas do IBGE e as ferramentas de campo (link compartilhável,
+                &ldquo;onde agir primeiro&rdquo;, envio de área própria). Também
+                testei um modelo de ML como desafiante, que não superou o método
+                de razão mais simples, e escrevi os testes do pipeline.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> dados de satélite precisam ser
+                conciliados entre sensores antes de qualquer análise fazer
+                sentido; um baseline simples e explicável pode vencer o ML, e
+                relatar isso com honestidade faz parte do resultado; e o prazo de
+                um hackathon obriga a cortar escopo e revisar código rápido.
+              </p>
+              <div class="pills">
+                <span class="pill">Python</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">NASA FIRMS</span>
+                <span class="pill">Geoespacial</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>
+                <a
+                  href="https://github.com/RafaelSdeS/conecta-mais"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Conecta+ &mdash; IBM SkillsBuild
+                  <span class="ext">&#8599;</span></a
+                >
+              </h3>
+              <div class="project-links">
+                <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Demo online <span class="ext">&#8599;</span></a>
+                <a href="https://github.com/RafaelSdeS/conecta-mais/blob/main/DOCUMENTACAO_CONECTA.pdf" target="_blank" rel="noopener noreferrer">Documentação (PDF) <span class="ext">&#8599;</span></a>
+                <a href="https://skillsbuild.org/" target="_blank" rel="noopener noreferrer">IBM SkillsBuild <span class="ext">&#8599;</span></a>
+              </div>
+              <p>
+                Sistema de apoio à decisão criado para o Desafio IBM SkillsBuild
+                &amp; Fundação Telefônica Vivo: prioriza os 5.570 municípios
+                brasileiros para expansão de conectividade, combinando dados
+                públicos (Anatel, IBGE, INEP) com análise financeira, otimização
+                de portfólio e um agente IBM Granite que explica cada
+                recomendação.
+              </p>
+              <div class="project-meta">
+                <div><span>Status</span><strong>Protótipo online</strong></div>
+                <div>
+                  <span>Contexto</span
+                  ><strong>IBM SkillsBuild &middot; equipe de 3</strong>
+                </div>
+              </div>
+              <p class="project-result">
+                <strong>Como contribuí:</strong> fui responsável pelo motor de
+                decisão: os scores de prioridade dos municípios, as distâncias ao
+                backhaul, a ferramenta financeira (payback, VPL, sensibilidade), a
+                otimização de portfólio com PuLP/CBC (IBM CPLEX opcional) e um
+                backtest 2021&rarr;2025. Também liderei a integração: o backend em
+                FastAPI, a conferência dos números dos textos do Granite contra o
+                motor, a CI e o deploy.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a transformar uma pergunta de
+                negócio em um modelo de otimização com restrições reais de
+                orçamento; que a saída de um LLM precisa ser conferida contra os
+                dados antes que um gestor possa confiar nela; e a dividir o
+                trabalho para que dados, motor e interface avancem em paralelo
+                com dados simulados.
+              </p>
+              <div class="pills">
+                <span class="pill">Python</span>
+                <span class="pill">FastAPI</span>
+                <span class="pill">Otimização</span>
+                <span class="pill">IBM watsonx</span>
+              </div>
+            </article>
+            <article class="card">
+              <h3>
+                <a
                   href="https://github.com/diegofabre/triangulacao_v1/branches"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -308,6 +527,9 @@
                   <span class="ext">&#8599;</span></a
                 >
               </h3>
+              <div class="project-links">
+                <a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Página no LabMetro <span class="ext">&#8599;</span></a>
+              </div>
               <p>
                 Sistema de medição por triangulação a laser do projeto VORIS
                 &mdash; calibração de câmera, detecção do laser, sistemas
@@ -322,8 +544,16 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Escopo:</strong> pipeline de medição da calibração da
-                câmera à localização do laser.
+                <strong>Como contribuí:</strong> trabalhei na calibração da
+                câmera, na detecção da linha do laser e no processamento de
+                imagens, integrei o Arduino e os sensores e treinei modelos
+                acelerados por GPU para localizar o laser.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a precisão de uma medição se
+                ganha ou se perde na calibração; a conectar hardware e software
+                de visão; e a treinar modelos para uma tarefa de medição física,
+                e não para um benchmark.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -343,7 +573,10 @@
               <p>
                 Repositório de pesquisa sobre como restringir o tamanho de
                 kernels convolucionais afeta acurácia, eficiência e robustez à
-                quantização, visando a convolução acelerada por Winograd.
+                quantização de CNNs, visando a convolução acelerada por Winograd
+                &mdash; da classificação no Tiny ImageNet (FP32 &rarr; QAT
+                &rarr; INT8) à detecção/segmentação no PASCAL VOC e a uma
+                comparação com ViTs eficientes.
               </p>
               <div class="project-meta">
                 <div><span>Status</span><strong>Pesquisa ativa</strong></div>
@@ -353,8 +586,18 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Questão:</strong> como kernels restritos podem aproximar
-                redes neurais dos aceleradores?
+                <strong>Como contribuí:</strong> conduzo o estudo sob orientação
+                do Prof. Mateus Grellert: planejei as fases dos experimentos,
+                treinei e avaliei os modelos (152 execuções só no estudo
+                principal de tamanho de kernel, além das execuções de robustez e
+                de híbridos) e medi latência, consumo de energia e uso da GPU.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a planejar experimentos
+                controlados em que só um fator muda; por que várias seeds são
+                necessárias antes de confiar em uma diferença; e que a acurácia
+                sozinha esconde custos que aparecem na latência, na energia e na
+                quantização INT8.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -383,8 +626,19 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Escopo:</strong> avaliação sistemática das ações
-                brasileiras mais líquidas.
+                <strong>Como contribuí:</strong> desenvolvi tudo de ponta a
+                ponta: coletores de preços, fundamentos e dados macro (SELIC,
+                CDI, IPCA), um gerador de dataset sem lookahead bias e um
+                previsor LightGBM com modelo de risco e otimizador que considera
+                custos, avaliado com backtest walk-forward. Uma expansão para
+                ações dos EUA está em andamento.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> vazamento de dados é a forma mais
+                fácil de se enganar em finanças, então todo atributo precisa
+                existir no momento da decisão; um backtest só é crível com
+                divisões walk-forward e custos de transação; e vale a pena
+                registrar o que não funciona.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -416,8 +670,17 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Abordagem:</strong> combinar representações semânticas
-                com agrupamento não supervisionado.
+                <strong>Como contribuí:</strong> desenvolvi sozinho: extração de
+                texto de PDF, DOCX, TXT e XML, transcrição de áudio offline com
+                Vosk, embeddings de frases com KMeans, palavras-chave YAKE para
+                nomear cada pasta e uma prévia (dry-run) antes de mover qualquer
+                arquivo.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a aplicar NLP a arquivos reais e
+                bagunçados; que clusters não supervisionados só são úteis com
+                rótulos legíveis; e que ferramentas que movem arquivos devem
+                sempre mostrar uma prévia primeiro.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -435,11 +698,15 @@
                   <span class="ext">&#8599;</span></a
                 >
               </h3>
+              <div class="project-links">
+                <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Slides finais (PDF) <span class="ext">&#8599;</span></a>
+                <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/tex/main.pdf" target="_blank" rel="noopener noreferrer">Relatório (PDF) <span class="ext">&#8599;</span></a>
+              </div>
               <p>
                 Trabalho da disciplina de Avaliação de Desempenho da UFRGS,
                 realizado com mais dois colegas. O projeto avalia Tensor e
-                Pipeline Parallelism na inferência de LLM (Qwen2.5-7B via vLLM)
-                no cluster de HPC da UFRGS.
+                Pipeline Parallelism na inferência de LLM (Qwen2.5-7B via vLLM e
+                Ray) em 1 a 4 GPUs do cluster de HPC da UFRGS.
               </p>
               <div class="project-meta">
                 <div>
@@ -451,8 +718,16 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Foco:</strong> comparar estratégias de inferência
-                paralela para um modelo de 7B parâmetros.
+                <strong>Como contribuí:</strong> fiquei com a parte de GPU e de
+                rede da análise: telemetria de GPU (utilização, consumo de
+                energia), medições de rede, os notebooks de análise estatística e
+                os gráficos, os scripts de execução e os slides finais.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a planejar um experimento de
+                desempenho com fatores e repetições; como tensor e pipeline
+                parallelism deslocam o gargalo entre computação e comunicação
+                entre nós; e a executar jobs em um cluster de HPC compartilhado.
               </p>
               <div class="pills">
                 <span class="pill">Python</span>
@@ -480,13 +755,20 @@
                   <span>Status</span><strong>Projeto de disciplina</strong>
                 </div>
                 <div>
-                  <span>Contribuição</span
-                  ><strong>Lógica e sistemas do jogo</strong>
+                  <span>Contexto</span><strong>INF01202 · dupla</strong>
                 </div>
               </div>
               <p class="project-result">
-                <strong>Foco técnico:</strong> estados modulares, saves
-                binários, ranking, áudio e feedback visual no HUD.
+                <strong>Como contribuí:</strong> escrevi a maior parte do código
+                (32 de 38 commits): estados modulares do jogo, colisões,
+                power-ups, fases carregadas de arquivos, saves binários com
+                ranking, áudio e o HUD.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a estruturar um programa em C em
+                módulos; a lidar com memória e arquivos manualmente; e o básico
+                do loop de jogo, como máquinas de estado, controle de frames e
+                tratamento de colisões.
               </p>
               <div class="pills">
                 <span class="pill">C</span>
@@ -503,10 +785,14 @@
                   >PAM UFRGS <span class="ext">&#8599;</span></a
                 >
               </h3>
+              <div class="project-links">
+                <a href="https://www.inf.ufrgs.br/~vkveiga/pam/" target="_blank" rel="noopener noreferrer">App online <span class="ext">&#8599;</span></a>
+                <a href="https://github.com/vkveiga/pam-ufrgs" target="_blank" rel="noopener noreferrer">Repositório original <span class="ext">&#8599;</span></a>
+              </div>
               <p>
-                Contribuí com um assistente de IA, previsão de formatura,
-                exportações e cobertura de testes via pull request neste app de
-                apoio à matrícula da UFRGS.
+                Pull request para um app open source de apoio à matrícula da
+                UFRGS, com funcionalidades que senti falta usando o app como
+                aluno.
               </p>
               <div class="project-meta">
                 <div>
@@ -518,12 +804,23 @@
                 </div>
               </div>
               <p class="project-result">
-                <strong>Entregue:</strong> assistente, previsão, exportações e
-                cobertura adicional de testes.
+                <strong>Como contribuí:</strong> adicionei um assistente de IA
+                para dúvidas sobre disciplinas e horários (restrito ao curso
+                selecionado, com CORS/CSP e rate limit para produção), uma
+                previsão de formatura com exportação em PDF, exportação do
+                horário em .ics com comparação lado a lado, e configurei o Vitest
+                com testes para os serviços principais.
+              </p>
+              <p class="project-result">
+                <strong>O que aprendi:</strong> a contribuir com o código de
+                outra pessoa: seguir suas convenções, delimitar um pull request e
+                explicar por que cada mudança importa; e a escrever testes para
+                código que não escrevi.
               </p>
               <div class="pills">
                 <span class="pill">Vue</span>
-                <span class="pill">Contribuidor</span>
+                <span class="pill">Vitest</span>
+                <span class="pill">Open Source</span>
               </div>
             </article>
           </div>

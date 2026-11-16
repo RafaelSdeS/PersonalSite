@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="One-page résumé of Rafael Silva de Souza, Computer Engineering student at UFRGS working on machine learning, HPC and quantitative finance."
+    />
+    <link rel="stylesheet" href="resume.css" />
+    <title>Rafael Silva de Souza – Resume</title>
+  </head>
+  <body>
+    <nav class="actions">
+      <button type="button" onclick="print()">Print / Save as PDF</button>
+      <a href="index.html">&larr; Website</a>
+      <a href="resumept.html" lang="pt-BR">Português</a>
+    </nav>
+
+    <header>
+      <h1>Rafael Silva de Souza</h1>
+      <p class="headline">Computer Engineering Student · Machine Learning, HPC &amp; Quantitative Finance</p>
+      <p class="contact">
+        Porto Alegre, RS, Brazil ·
+        <a href="mailto:rafael.souza@inf.ufrgs.br">rafael.souza@inf.ufrgs.br</a> ·
+        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/">linkedin.com/in/rafael-silva-de-souza</a> ·
+        <a href="https://github.com/RafaelSdeS">github.com/RafaelSdeS</a> ·
+        <a href="https://rafaelsdes.github.io/PersonalSite/">rafaelsdes.github.io/PersonalSite</a>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Summary</h2>
+        <p>
+          Computer Engineering student at UFRGS researching hardware-aware neural networks (GPU and FPGA). Open to ML
+          engineering, AI research, quantitative research and HPC roles.
+        </p>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <h3>UFRGS, Federal University of Rio Grande do Sul: B.Eng. Computer Engineering <span>Expected 2030</span></h3>
+        <h3>UFSC, Federal University of Santa Catarina: Electrical Engineering (prior studies)</h3>
+      </section>
+
+      <section>
+        <h2>Research &amp; Experience</h2>
+        <h3>Undergraduate Researcher, UFRGS (advisor: Prof. Mateus Grellert) <span>Ongoing</span></h3>
+        <ul>
+          <li>Study how restricting CNN kernels to Winograd-friendly 2×2/3×3 sizes affects accuracy, efficiency and INT8 (QAT) robustness: a 152-run main study on Tiny ImageNet plus PASCAL VOC detection/segmentation.</li>
+          <li>Evaluate a labmate's FPGA Winograd accelerators (INT8, F(2,3)–F(6,3)) on an AMD Alveo U200: cycles, Fmax, power, accuracy.</li>
+        </ul>
+        <h3>Projeto VORIS, LabMetro UFSC</h3>
+        <ul>
+          <li>3D reconstruction by laser triangulation: camera calibration, laser-line detection, Arduino and sensor integration, and models trained on GPUs for laser localization.</li>
+        </ul>
+        <h3>E3 UFSC, Shell Eco-marathon Team</h3>
+        <ul>
+          <li>Engineering and marketing work for the team's ultra-efficient vehicle program.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects &amp; Competitions</h2>
+        <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar">LUNAX Fire Calendar, NASA Space Apps Challenge</a> <span>2026</span></h3>
+        <ul>
+          <li>Harmonized MODIS and VIIRS (NASA FIRMS) fire detections from 2000 to 2026 into a monthly burning calendar for Brazil.</li>
+          <li>One of two main developers (67 commits): next-season outlook, national pilot and field tools; benchmarked an ML challenger against the ratio baseline.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/conecta-mais">Conecta+, IBM SkillsBuild &amp; Fundação Telefônica Vivo Challenge</a> <span>2026</span></h3>
+        <ul>
+          <li>Owned the decision engine ranking 5,570 municipalities for connectivity expansion: priority scores, NPV/payback, portfolio optimization (PuLP/CBC, IBM CPLEX) and a 2021→2025 backtest. Team of 3.</li>
+          <li>Integrated the FastAPI backend, checks of IBM Granite (watsonx) output against engine numbers, CI and the Docker deploy.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/finance_analysis">Quantitative Finance, Brazilian Equity Market (B3)</a> <span>Ongoing</span></h3>
+        <ul>
+          <li>Point-in-time, survivorship-bias-free pipeline (~290 Brazilian equities + macro); LightGBM, risk model and cost-aware optimizer under walk-forward backtesting; US expansion (SEC EDGAR, FRED).</li>
+        </ul>
+        <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark">vLLM Parallelism Benchmark, UFRGS Performance Evaluation</a></h3>
+        <ul>
+          <li>Benchmarked tensor vs pipeline parallelism for Qwen2.5-7B on 1–4 GPUs (vLLM + Ray, HPC cluster); led the GPU telemetry, network and statistical analysis. Team of 3.</li>
+        </ul>
+        <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1">PAM UFRGS, open-source contribution</a></h3>
+        <ul>
+          <li>Pull request to a UFRGS enrollment app (Vue) adding an AI assistant, a graduation forecast, .ics schedule export and a Vitest test suite.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li><strong>Programming &amp; HPC:</strong> Python, C, C++, CUDA, TypeScript, JavaScript · vLLM, Ray, GPU profiling, FPGA (Vivado)</li>
+          <li><strong>ML &amp; Data:</strong> Deep Learning, Quantization (QAT/INT8), Reinforcement Learning, LightGBM, Computer Vision, NLP</li>
+          <li><strong>Software:</strong> FastAPI, React, Node.js, Express, Firebase, Docker, Git, PuLP</li>
+          <li><strong>Languages:</strong> Portuguese (native) · English (fluent) · French (proficient) · Spanish (proficient)</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

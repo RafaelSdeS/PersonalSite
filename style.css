@@ -259,6 +259,7 @@ h3 {
 #hero {
   background: var(--bg);
   min-height: calc(100vh - var(--header-h));
+  padding: 4rem 0;
   display: flex;
   align-items: center;
 }
@@ -529,6 +530,21 @@ h3 {
 .project-meta strong {
   font: 500 0.85rem var(--font-mono);
   color: var(--text);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.project-links a {
+  font: 500 0.8rem var(--font-mono);
+  color: var(--accent);
+}
+
+.project-links a:hover {
+  text-decoration: underline;
 }
 
 .project-result {

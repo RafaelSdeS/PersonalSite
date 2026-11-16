@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Currículo de 1 página de Rafael Silva de Souza, estudante de Engenharia de Computação na UFRGS com foco em machine learning, HPC e finanças quantitativas."
+    />
+    <link rel="stylesheet" href="resume.css" />
+    <title>Rafael Silva de Souza – Currículo</title>
+  </head>
+  <body>
+    <nav class="actions">
+      <button type="button" onclick="print()">Imprimir / Salvar em PDF</button>
+      <a href="indexpt.html">&larr; Site</a>
+      <a href="resume.html" lang="en">English</a>
+    </nav>
+
+    <header>
+      <h1>Rafael Silva de Souza</h1>
+      <p class="headline">Estudante de Engenharia de Computação · Machine Learning, HPC e Finanças Quantitativas</p>
+      <p class="contact">
+        Porto Alegre, RS, Brasil ·
+        <a href="mailto:rafael.souza@inf.ufrgs.br">rafael.souza@inf.ufrgs.br</a> ·
+        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/">linkedin.com/in/rafael-silva-de-souza</a> ·
+        <a href="https://github.com/RafaelSdeS">github.com/RafaelSdeS</a> ·
+        <a href="https://rafaelsdes.github.io/PersonalSite/indexpt.html">rafaelsdes.github.io/PersonalSite</a>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Resumo</h2>
+        <p>
+          Estudante de Engenharia de Computação na UFRGS, com pesquisa em redes neurais conscientes de hardware (GPU e FPGA).
+          Aberto a vagas em engenharia de ML, pesquisa em IA, pesquisa quantitativa e HPC.
+        </p>
+      </section>
+
+      <section>
+        <h2>Formação</h2>
+        <h3>UFRGS, Universidade Federal do Rio Grande do Sul: Engenharia de Computação <span>Previsão: 2030</span></h3>
+        <h3>UFSC, Universidade Federal de Santa Catarina: Engenharia Elétrica (estudos anteriores)</h3>
+      </section>
+
+      <section>
+        <h2>Pesquisa e Experiência</h2>
+        <h3>Iniciação Científica, UFRGS (orientador: Prof. Mateus Grellert) <span>Em andamento</span></h3>
+        <ul>
+          <li>Estudo o efeito de restringir kernels de CNN a 2×2/3×3 (adequados ao Winograd) na acurácia, eficiência e robustez INT8 (QAT): 152 execuções no Tiny ImageNet, além de detecção/segmentação no PASCAL VOC.</li>
+          <li>Avalio aceleradores Winograd em FPGA de um colega (INT8, F(2,3)–F(6,3)) numa AMD Alveo U200: ciclos, Fmax, potência e acurácia.</li>
+        </ul>
+        <h3>Projeto VORIS, LabMetro UFSC</h3>
+        <ul>
+          <li>Reconstrução 3D por triangulação a laser: calibração de câmera, detecção da linha do laser, integração de Arduino e sensores e modelos treinados em GPU para localizar o laser.</li>
+        </ul>
+        <h3>E3 UFSC, Equipe Shell Eco-marathon</h3>
+        <ul>
+          <li>Engenharia e marketing para o programa de veículos ultraeficientes da equipe.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projetos e Competições</h2>
+        <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar">LUNAX Fire Calendar, NASA Space Apps Challenge</a> <span>2026</span></h3>
+        <ul>
+          <li>Harmonizei detecções de fogo MODIS e VIIRS (NASA FIRMS) de 2000 a 2026 em um calendário mensal de queimadas para o Brasil.</li>
+          <li>Um dos dois principais desenvolvedores (67 commits): previsão da próxima temporada, piloto nacional e ferramentas de campo; comparei um modelo de ML com o baseline de razão.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/conecta-mais">Conecta+, Desafio IBM SkillsBuild &amp; Fundação Telefônica Vivo</a> <span>2026</span></h3>
+        <ul>
+          <li>Responsável pelo motor de decisão que prioriza 5.570 municípios para expansão de conectividade: scores, VPL/payback, otimização de portfólio (PuLP/CBC, IBM CPLEX) e backtest 2021→2025. Equipe de 3.</li>
+          <li>Integrei o backend em FastAPI, a conferência dos textos do IBM Granite (watsonx) contra os números do motor, a CI e o deploy em Docker.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/finance_analysis">Finanças Quantitativas, mercado de ações brasileiro (B3)</a> <span>Em andamento</span></h3>
+        <ul>
+          <li>Pipeline point-in-time sem viés de sobrevivência (~290 ações + dados macro); LightGBM, modelo de risco e otimizador com custos em backtest walk-forward; expansão para os EUA (SEC EDGAR, FRED).</li>
+        </ul>
+        <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark">vLLM Parallelism Benchmark, Avaliação de Desempenho (UFRGS)</a></h3>
+        <ul>
+          <li>Avaliei tensor e pipeline parallelism para o Qwen2.5-7B em 1 a 4 GPUs (vLLM + Ray, cluster de HPC); liderei a telemetria de GPU, a análise de rede e a análise estatística. Equipe de 3.</li>
+        </ul>
+        <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1">PAM UFRGS, contribuição open source</a></h3>
+        <ul>
+          <li>Pull request para um app de matrícula da UFRGS (Vue) com assistente de IA, previsão de formatura, exportação do horário em .ics e suíte de testes com Vitest.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Habilidades</h2>
+        <ul>
+          <li><strong>Programação e HPC:</strong> Python, C, C++, CUDA, TypeScript, JavaScript · vLLM, Ray, profiling de GPU, FPGA (Vivado)</li>
+          <li><strong>ML e Dados:</strong> Deep Learning, Quantização (QAT/INT8), Aprendizado por Reforço, LightGBM, Visão Computacional, NLP</li>
+          <li><strong>Software:</strong> FastAPI, React, Node.js, Express, Firebase, Docker, Git, PuLP</li>
+          <li><strong>Idiomas:</strong> Português (nativo) · Inglês (fluente) · Francês (proficiente) · Espanhol (proficiente)</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

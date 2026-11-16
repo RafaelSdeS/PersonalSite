@@ -1,0 +1,19 @@
+/* ponytail: standalone on purpose, the résumé must not inherit the site's dark theme, fixed header or grid */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { max-width: 210mm; margin: 0 auto; padding: 12mm; font: 10pt/1.3 Arial, Helvetica, sans-serif; color: #111; background: #fff; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1 { font-size: 20pt; }
+.headline { font-size: 11pt; margin-top: 2pt; }
+.contact { margin-top: 4pt; color: #333; }
+h2 { font-size: 10.5pt; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid #888; padding-bottom: 1pt; margin: 9pt 0 3pt; }
+h3 { font-size: 10pt; display: flex; justify-content: space-between; gap: 1em; margin-top: 4pt; }
+h3 span { font-weight: normal; white-space: nowrap; }
+ul { padding-left: 13pt; }
+li { margin-top: 1.5pt; }
+.actions { display: flex; gap: 1rem; align-items: center; margin-bottom: 8mm; }
+.actions button { font: inherit; padding: 0.4rem 0.9rem; border: 1px solid #111; border-radius: 999px; background: #111; color: #fff; cursor: pointer; }
+/* margin 0 stops Chrome from printing its own URL/date header; body padding is the real margin */
+@page { margin: 0; }
+@media print { .actions { display: none; } body { font-size: 9.5pt; padding: 9mm 12mm; } h2 { margin-top: 7pt; } li { margin-top: 1pt; } }
+@media (max-width: 600px) { body { padding: 16px; } }
