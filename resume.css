@@ -15,5 +15,5 @@ li { margin-top: 1.5pt; }
 .actions .dl { padding: 0.4rem 0.9rem; border: 1px solid #111; border-radius: 999px; background: #111; color: #fff; }
 /* margin 0 stops Chrome from printing its own URL/date header; body padding is the real margin */
 @page { margin: 0; }
-@media print { .actions { display: none; } body { font-size: 9.5pt; padding: 9mm 12mm; } h2 { margin-top: 7pt; } li { margin-top: 1pt; } }
+@media print { .actions { display: none; } body { font-size: 9.5pt; line-height: 1.25; padding: 8mm 12mm; } h2 { margin-top: 5pt; } li { margin-top: 1pt; } }
 @media (max-width: 600px) { body { padding: 16px; } }

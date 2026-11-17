@@ -223,6 +223,8 @@ body {
 .sublinks { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; font: 500 0.75rem var(--mono); color: var(--accent); }
 .sublinks a:hover { text-decoration: underline; }
 .desc { margin-top: 0.6rem; color: var(--muted); font-size: 0.92rem; }
+.desc a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.2s; }
+.desc a:hover { color: var(--text); }
 
 /* figure: one per tile, 3:2, and a link to the project (live demo when there is one) */
 .shot-link {
@@ -318,6 +320,17 @@ details p strong { display: block; font-weight: 500; color: var(--text); font-si
 .photo img, .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 .photo img { object-position: 40% 10%; }
 .photo img, .portrait img { transition: transform 0.6s var(--ease); }
+/* caption on a dark scrim over the photo — fixed white/black on purpose: the photo is the same in both themes */
+.photo figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 2.5rem 1.1rem 0.9rem;
+  background: linear-gradient(transparent, rgb(0 0 0 / 0.72));
+  color: #fff;
+  font: 500 0.7rem/1.4 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .photo:hover img, .portrait:hover img { transform: scale(1.03); }
 
 /* skills: full width, groups in two columns */
