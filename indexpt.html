@@ -17,17 +17,28 @@
     <script>
       var t = localStorage.getItem("theme");
       if (t) document.documentElement.setAttribute("data-theme", t);
+      // motion layer (scroll reveal, theme wipe) only when the user hasn't asked for reduced motion
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window)
+        document.documentElement.classList.add("motion");
       function toggleTheme() {
         var d = document.documentElement;
+        var btn = document.querySelector(".theme-toggle");
         var current =
           d.getAttribute("data-theme") ||
           (matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light");
         var next = current === "light" ? "dark" : "light";
-        d.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-        document.querySelector(".theme-toggle").setAttribute("aria-pressed", next === "dark");
+        function apply() {
+          d.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          btn.setAttribute("aria-pressed", next === "dark");
+        }
+        if (!document.startViewTransition || !d.classList.contains("motion")) return apply();
+        var r = btn.getBoundingClientRect();
+        d.style.setProperty("--vx", r.left + r.width / 2 + "px");
+        d.style.setProperty("--vy", r.top + r.height / 2 + "px");
+        document.startViewTransition(apply);
       }
       window.addEventListener("DOMContentLoaded", function () {
         var current = document.documentElement.getAttribute("data-theme") ||
@@ -78,9 +89,9 @@
         <p class="role">Aceleração de Hardware, HPC &amp; Finanças Quantitativas</p>
         <p class="tagline">Construindo redes neurais mais rápidas e modelos de portfólio com backtests rigorosos, um kernel de cada vez.</p>
         <div class="cta">
-          <a class="btn primary" href="#work">Ver meu trabalho</a>
-          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn" href="resumept.html">Currículo de uma página</a>
+          <a class="btn primary" href="#work">Ver meu trabalho <span class="arr d" aria-hidden="true">&darr;</span></a>
+          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
+          <a class="btn" href="resumept.html">Currículo de uma página <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
         <p class="open"><span>Aberto a</span>Engenharia de ML &amp; Pesquisa em IA &middot; Pesquisa Quantitativa &middot; HPC</p>
       </section>
@@ -89,7 +100,7 @@
       </figure>
 
       <!-- CURRENT WORK -->
-      <div class="group s12" id="work"><span class="label">Trabalho atual</span></div>
+      <h2 class="group s12" id="work">Trabalho atual</h2>
       <article class="tile s6 p">
         <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Iniciação Científica — UFRGS — projeto"><img class="shot" src="assets/images/projects/research.webp" alt="Fronteira de Pareto da acurácia top-1 em função do tamanho do modelo, para todas as CNNs estudadas e níveis de quantização, de FP32 a binário" width="960" height="640" loading="lazy" /></a>
         <span class="label">Pesquisa &middot; UFRGS &middot; desde 2026</span>
@@ -127,8 +138,8 @@
         </ul>
       </aside>
 
-      <!-- ROW: background + team photo (Rafael sits left in the photo, looking toward the text) -->
-      <section class="tile s6 about">
+      <!-- ROW: background + photo (Rafael faces left, toward the text) -->
+      <section class="tile s8 about">
         <span class="label">Trajetória</span>
         <p>Sou estudante de graduação em Engenharia de Computação na UFRGS, tendo estudado anteriormente Engenharia Elétrica na UFSC. Trabalho na interseção entre hardware e aprendizado de máquina: minha pesquisa atual aplica restrições conscientes de hardware &mdash; limitando os kernels convolucionais a 2&times;2 e 3&times;3 &mdash; para tornar redes neurais mais adequadas a aceleradores de hardware.</p>
         <p>Fora do laboratório, desenvolvo pesquisa de portfólio com machine learning e infraestrutura de backtesting para o mercado de ações brasileiro (B3).</p>
@@ -138,12 +149,12 @@
           <li><span>Idiomas</span>Português &middot; Inglês &middot; Francês &middot; Espanhol</li>
         </ul>
       </section>
-      <figure class="tile s6 photo">
-        <img src="assets/images/ufrgsmun-team.jpg" alt="Rafael (à esquerda) com outros dois delegados durante uma sessão de comitê do UFRGSMUN" width="1200" height="900" loading="lazy" />
+      <figure class="tile s4 photo">
+        <img src="assets/images/ufrgsmun-rafael.jpg" alt="Rafael falando durante uma sessão de comitê do UFRGSMUN" width="960" height="1200" loading="lazy" />
       </figure>
 
       <!-- EXPERIENCE -->
-      <div class="group s12" id="experience"><span class="label">Experiência</span></div>
+      <h2 class="group s12" id="experience">Experiência</h2>
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — projeto"><img class="shot" src="assets/images/projects/voris.webp" alt="A linha do laser sobre uma mão, vista pela câmera, ao lado da nuvem de pontos 3D reconstruída a partir dela" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; Visão + sistemas embarcados</span>
@@ -176,7 +187,7 @@
       </article>
 
       <!-- PROJECTS -->
-      <div class="group s12" id="projects"><span class="label">Projetos</span></div>
+      <h2 class="group s12" id="projects">Projetos</h2>
       <article class="tile s4 p">
         <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — demo online"><img class="shot" src="assets/images/projects/lunax.webp" alt="Mapa do LUNAX com os lugares de Rondônia que queimaram ano após ano, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
         <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
@@ -278,20 +289,28 @@
         <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
       </article>
 
-      <!-- ROW: skills + contact -->
-      <div class="group s12" id="contact"><span class="label">Habilidades &amp; contato</span></div>
-      <section class="tile s8 skills">
+      <!-- STACK & CONTACT: full-width skills, then the contact band that closes the page -->
+      <h2 class="group s12" id="contact">Habilidades &amp; contato</h2>
+      <section class="tile s12 skills">
         <span class="label">Habilidades</span>
         <div class="grp"><strong>Sistemas &amp; Aceleração</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li></ul></div>
         <div class="grp"><strong>ML &amp; Dados</strong><ul class="tags"><li>Python</li><li>Deep Learning</li><li>Aprendizado por Reforço</li><li>LightGBM</li><li>Visão Computacional</li></ul></div>
         <div class="grp"><strong>Engenharia de Software</strong><ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li></ul></div>
         <div class="grp"><strong>Idiomas</strong><ul class="tags"><li>Português (Nativo)</li><li>Inglês (Fluente)</li><li>Francês (Proficiente)</li><li>Espanhol (Proficiente)</li></ul></div>
       </section>
-      <section class="tile s4 contact">
-        <span class="label">Entre em contato</span>
-        <a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a>
-        <a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a>
-        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a>
+      <section class="tile s12 contact">
+        <div class="pitch">
+          <span class="label">Entre em contato</span>
+          <h3>Vamos conversar.</h3>
+          <p class="open"><span>Aberto a</span>Engenharia de ML &amp; Pesquisa em IA &middot; Pesquisa Quantitativa &middot; HPC</p>
+          <p class="open"><span>Mora em</span>Porto Alegre, Brasil</p>
+        </div>
+        <ul class="links">
+          <li><a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a><button class="pill copy" type="button" data-copy="rafael.souza@inf.ufrgs.br" data-done="Copiado" aria-label="Copiar endere&ccedil;o de e-mail" aria-live="polite">Copiar</button></li>
+          <li><a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a></li>
+          <li><a href="resumept.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 2.5h8l4.5 4.5v14.5H6zM14 2.5V7h4.5M9 12h6M9 16h6"/></svg>Curr&iacute;culo de uma p&aacute;gina</a></li>
+        </ul>
       </section>
     </main>
     <footer class="credit">Rafael Silva de Souza &mdash; 2026</footer>
@@ -299,8 +318,14 @@
     <script>
       (function () {
         var top = document.querySelector(".top");
+        var main = document.querySelector("main");
+        var root = document.documentElement;
         var links = document.querySelectorAll(".top nav a");
-        function onScroll() { top.classList.toggle("scrolled", window.scrollY > 8); }
+        function onScroll() {
+          top.classList.toggle("scrolled", window.scrollY > 8);
+          var max = root.scrollHeight - window.innerHeight;
+          top.style.setProperty("--p", max > 0 ? window.scrollY / max : 0);
+        }
         window.addEventListener("scroll", onScroll, { passive: true });
         onScroll();
         var io = new IntersectionObserver(function (entries) {
@@ -310,6 +335,38 @@
           });
         }, { rootMargin: "-30% 0px -60% 0px" });
         document.querySelectorAll("main [id]").forEach(function (el) { io.observe(el); });
+        // cursor spotlight: pointer position inside the hovered tile
+        main.addEventListener("pointermove", function (e) {
+          var t = e.target.closest(".tile");
+          if (!t) return;
+          var r = t.getBoundingClientRect();
+          t.style.setProperty("--mx", e.clientX - r.left + "px");
+          t.style.setProperty("--my", e.clientY - r.top + "px");
+        });
+        // copy email: the label swaps to data-done for a moment; hidden where the Clipboard API is missing (file://)
+        var copy = document.querySelector(".copy");
+        if (!navigator.clipboard) copy.hidden = true;
+        else {
+          var label = copy.textContent;
+          copy.addEventListener("click", function () {
+            navigator.clipboard.writeText(copy.dataset.copy).then(function () {
+              copy.textContent = copy.dataset.done;
+              copy.classList.add("done");
+              setTimeout(function () { copy.textContent = label; copy.classList.remove("done"); }, 1600);
+            });
+          });
+        }
+        // scroll reveal: each tile rises in once, staggered within the batch that entered together
+        if (root.classList.contains("motion")) {
+          var rv = new IntersectionObserver(function (entries) {
+            entries.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
+              e.target.style.setProperty("--d", i * 70 + "ms");
+              e.target.classList.add("in");
+              rv.unobserve(e.target);
+            });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          Array.prototype.forEach.call(main.children, function (el) { rv.observe(el); });
+        }
       })();
     </script>
   </body>

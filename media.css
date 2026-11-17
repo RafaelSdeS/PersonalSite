@@ -1,23 +1,18 @@
-/* below the 1200px container the s6 columns shrink, the text grows and cover would crop the outer delegates:
-   stack background + photo; alone in its row, the photo can safely take an aspect-ratio */
-@media (max-width: 1240px) {
-  .tile.about, .tile.photo { grid-column: span 12; }
-  .photo { min-height: 0; aspect-ratio: 2 / 1; }
-}
-
-/* tablet: context tiles go full width, project tiles pair up — no holes in the grid */
+/* tablet: context tiles go full width, project tiles pair up, text + photo rows keep 8/4 — no holes in the grid */
 @media (max-width: 1080px) {
   .tile, .group { grid-column: span 12; }
   .tile.p { grid-column: span 6; }
-  .tile.intro { grid-column: span 8; }
-  .tile.portrait { grid-column: span 4; }
+  .tile.intro, .tile.about { grid-column: span 8; }
+  .tile.portrait, .tile.photo { grid-column: span 4; }
 }
 
+/* phone: one column; alone in its row, each photo can safely take an aspect-ratio */
 @media (max-width: 680px) {
-  .tile.p, .tile.intro, .tile.portrait { grid-column: span 12; }
-  .photo { aspect-ratio: 3 / 2; }
+  .tile.p, .tile.intro, .tile.portrait, .tile.about, .tile.photo { grid-column: span 12; }
+  .photo { min-height: 0; aspect-ratio: 4 / 3; }
   .portrait { min-height: 0; aspect-ratio: 1 / 1; }
-  .focus ul { grid-template-columns: 1fr; }
+  .focus ul, .skills { grid-template-columns: 1fr; }
+  .contact a { font-size: 0.85rem; gap: 0.5rem; } /* email + Copy pill share one line at 375px; narrower, the pill wraps under */
   .facts { grid-template-columns: 1fr; gap: 0.5rem; }
   .top-inner { padding-inline: 1rem; gap: 0.75rem; }
   .top nav { gap: 0.8rem; font-size: 0.72rem; }
@@ -33,5 +28,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* tiles not yet scrolled into view must still print */
+@media print {
+  .motion main > * { opacity: 1 !important; animation: none !important; }
 }

@@ -13,6 +13,8 @@
   --sans: 'Space Grotesk', sans-serif;
   --mono: 'JetBrains Mono', monospace;
   --header-h: 4rem;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  interpolate-size: allow-keywords;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme='dark']) {
@@ -68,6 +70,16 @@ body {
   transition: border-color 0.2s;
 }
 .top.scrolled { border-bottom-color: var(--border); }
+/* reading progress: --p (0–1) set by the scroll handler */
+.top::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
 .top-inner {
   max-width: 1200px;
   height: var(--header-h);
@@ -102,11 +114,19 @@ body {
   border-radius: 999px;
   font: 500 0.75rem var(--mono);
   color: var(--muted);
-  transition: color 0.2s, border-color 0.2s, transform 0.15s;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s, transform 0.15s, rotate 0.5s var(--ease);
 }
 .theme-toggle { padding: 0; font-size: 1rem; }
-.theme-toggle:hover, .pill:hover { color: var(--text); border-color: var(--text); }
+.theme-toggle:hover, .pill:hover {
+  color: var(--text);
+  border-color: var(--text);
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+  transform: translateY(-1px);
+}
 .theme-toggle:active, .pill:active { transform: scale(0.94); }
+/* the ◐ turns half a circle with the theme; same selector pair as the light tokens, so no spin on load */
+:root[data-theme='light'] .theme-toggle { rotate: 180deg; }
+@media (prefers-color-scheme: light) { :root:not([data-theme='dark']) .theme-toggle { rotate: 180deg; } }
 
 /* BENTO GRID */
 .bento {
@@ -129,10 +149,12 @@ body {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem;
-  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
+  /* cursor spotlight: --mx/--my come from the body script, --spot fades in on hover */
+  background-image: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot), transparent 70%);
+  transition: border-color 0.2s, transform 0.3s var(--ease), box-shadow 0.3s, background-color 0.2s, --spot 0.3s;
 }
-.tile:hover { border-color: var(--border-hi); }
-.tile.p:hover { transform: translateY(-2px); }
+.tile:hover { border-color: var(--border-hi); --spot: color-mix(in srgb, var(--accent) 7%, transparent); }
+.tile.p:hover { transform: translateY(-4px); box-shadow: 0 14px 30px -20px rgb(0 0 0 / 0.55); }
 
 .label {
   display: block;
@@ -141,8 +163,24 @@ body {
   letter-spacing: 0.08em;
   color: var(--faint);
 }
-.group { padding: 2rem 0.25rem 0.25rem; }
-.group .label { font-size: 0.75rem; color: var(--muted); }
+/* section headings (h2.group): big title + a hairline with an accent lead that fills the row */
+.group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.75rem 0.25rem 0.5rem;
+  font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.15 var(--sans);
+  letter-spacing: -0.02em;
+}
+.group::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent) 0 2.5rem, var(--border-hi) 2.5rem, transparent);
+  transform-origin: left;
+}
+/* eyebrow labels that title a context tile (not the meta line on project cards) */
+.tile:not(.p) > .label, .pitch > .label { font-size: 0.72rem; color: var(--accent); }
 
 /* INTRO + PORTRAIT */
 .intro { padding: 2.5rem; justify-content: center; }
@@ -158,12 +196,17 @@ body {
   border-radius: 10px;
   font-weight: 500;
   border: 1px solid var(--border-hi);
-  transition: border-color 0.2s, background-color 0.2s, opacity 0.2s, transform 0.15s;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.25s, transform 0.2s var(--ease);
 }
-.btn:hover { border-color: var(--text); transform: translateY(-1px); }
+.btn:hover { border-color: var(--text); transform: translateY(-2px); }
 .btn:active { transform: translateY(0) scale(0.98); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-.btn.primary:hover { opacity: 0.9; }
+.btn.primary:hover { box-shadow: 0 8px 22px -10px var(--accent); }
+/* the arrow nudges toward where the button goes: → default, ↓ (.d) scrolls down, ↗ (.e) leaves the site */
+.btn .arr { display: inline-block; transition: transform 0.25s var(--ease); }
+.btn:hover .arr { transform: translateX(3px); }
+.btn:hover .arr.d { transform: translateY(3px); }
+.btn:hover .arr.e { transform: translate(2px, -2px); }
 .open { margin-top: 1.75rem; font-size: 0.92rem; color: var(--muted); }
 .open span { display: block; margin-bottom: 0.3rem; font: 500 0.65rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--faint); }
 
@@ -191,29 +234,36 @@ body {
   border-radius: 10px;
   transition: border-color 0.2s;
 }
-.shot { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.35s ease; }
+.shot { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.5s var(--ease); }
 .shot-link:hover { border-color: var(--border-hi); }
-.shot-link:hover .shot, .shot-link:focus-visible .shot { transform: scale(1.03); }
-.shot-link::after {
-  content: '\2197';
+.tile.p:hover .shot, .shot-link:focus-visible .shot { transform: scale(1.04); }
+/* ↗ badge: ::before is the circle, ::after the arrow — an SVG mask (not a font glyph) so it is
+   optically centred (path sits 1 unit down-left so the head's weight balances) and takes --accent in both themes. z-index keeps both above the zoomed image.
+   border-box is explicit: the global `*` reset doesn't reach pseudo-elements, and the ring's 1px
+   border would otherwise make it 2px bigger than the arrow box and shift its centre */
+.shot-link::before, .shot-link::after {
+  content: '';
+  box-sizing: border-box;
   position: absolute;
-  top: 0.6rem;
-  right: 0.6rem;
-  width: 1.9rem;
-  height: 1.9rem;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--border-hi);
-  border-radius: 50%;
-  background: var(--tile);
-  color: var(--accent);
-  font: 500 0.85rem var(--mono);
+  z-index: 1;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   opacity: 0;
   transform: translateY(4px);
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s, transform 0.25s var(--ease);
 }
-.shot-link:hover::after, .shot-link:focus-visible::after { opacity: 1; transform: none; }
-@media (hover: none) { .shot-link::after { opacity: 0.9; transform: none; } }
+.shot-link::before { border: 1px solid var(--border-hi); border-radius: 50%; background: var(--tile); }
+.shot-link::after {
+  z-index: 2;
+  background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 16 8M7 8h9v9'/%3E%3C/svg%3E") center / 1.125rem no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 18 16 8M7 8h9v9'/%3E%3C/svg%3E") center / 1.125rem no-repeat;
+}
+.tile.p:hover .shot-link::before, .tile.p:hover .shot-link::after,
+.shot-link:focus-visible::before, .shot-link:focus-visible::after { opacity: 1; transform: none; }
+@media (hover: none) { .shot-link::before, .shot-link::after { opacity: 0.9; transform: none; } }
 
 /* schematic diagrams (no data): same 3:2 frame as the figures, drawn in the page palette */
 .diagram { background: var(--bg); }
@@ -224,6 +274,8 @@ body {
 .diagram text.sub { font-size: 11px; letter-spacing: 0.08em; fill: var(--faint); text-anchor: start; }
 .diagram .arrow { stroke: var(--accent); stroke-width: 1.5; fill: none; }
 .diagram .head { fill: var(--accent); }
+/* hovering the card makes the pipeline arrows flow */
+.tile:hover .diagram .arrow { stroke-dasharray: 5 4; animation: flow 0.8s linear infinite; }
 
 details { margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.75rem; }
 summary {
@@ -236,8 +288,12 @@ summary {
   transition: color 0.2s;
 }
 summary::-webkit-details-marker { display: none; }
-summary::before { content: '+'; display: inline-block; width: 1.1em; color: var(--accent); transition: transform 0.2s; }
-details[open] summary::before { content: '\2212'; }
+summary::before { content: '+'; display: inline-block; width: 1.1em; color: var(--accent); transition: transform 0.3s var(--ease); }
+details[open] summary::before { content: '\2212'; transform: rotate(180deg); }
+/* slides open where ::details-content + interpolate-size exist; elsewhere it opens instantly, as before */
+details::details-content { block-size: 0; overflow: clip; transition: block-size 0.35s var(--ease), content-visibility 0.35s allow-discrete; }
+details[open]::details-content { block-size: auto; }
+details[open] p { animation: rise 0.4s var(--ease) backwards; }
 summary:hover { color: var(--text); }
 details p { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); }
 details p strong { display: block; font-weight: 500; color: var(--text); font-size: 0.85rem; }
@@ -258,25 +314,59 @@ details p strong { display: block; font-weight: 500; color: var(--text); font-si
 /* photo tiles: height follows the row. no aspect-ratio here — with a stretched height it would
    compute a wider width and overflow the column (media.css adds it only where the photo is alone in its row) */
 .photo, .portrait { position: relative; margin: 0; padding: 0; overflow: hidden; min-height: 320px; }
-/* calibration knob: keeps Rafael (left) and all three heads in frame when the tile crops the 4:3 shot */
-.photo img, .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 40%; }
-.portrait img { object-position: 50% 30%; }
+/* calibration knob: where cover crops each 4:5 shot — keeps the face (and, for .photo, the hand) in frame */
+.photo img, .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.photo img { object-position: 40% 10%; }
+.photo img, .portrait img { transition: transform 0.6s var(--ease); }
+.photo:hover img, .portrait:hover img { transform: scale(1.03); }
 
+/* skills: full width, groups in two columns */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+.skills > .label { grid-column: 1 / -1; }
 .skills .grp { margin-top: 1rem; }
 .skills .tags { margin-top: 0.4rem; padding-top: 0; }
+
+/* contact: full-width band that closes the page — pitch left, link rows right */
+/* two columns only while each gets ≥ 22rem, so the email row never runs out of room */
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.5rem 3rem; align-items: center; }
+.contact h3 { margin-top: 0.75rem; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+.contact .open + .open { margin-top: 1rem; }
+/* the address never breaks; on a very narrow phone the Copy pill wraps under it instead */
+.contact li { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.5rem; border-top: 1px solid var(--border); }
+.contact li:last-child { border-bottom: 1px solid var(--border); }
 .contact a {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.7rem 0;
-  border-top: 1px solid var(--border);
+  padding: 0.8rem 0;
   color: var(--muted);
-  overflow-wrap: anywhere;
-  transition: color 0.2s;
+  white-space: nowrap;
+  transition: color 0.2s, padding-left 0.25s var(--ease);
 }
+.copy { margin-block: 0.4rem; }
+.copy.done { color: var(--accent); border-color: var(--accent); }
 .contact a::after { content: '\2192'; margin-left: auto; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
-.contact a:hover { color: var(--text); }
+.contact a:hover { color: var(--text); padding-left: 0.35rem; }
 .contact a:hover::after, .contact a:focus-visible::after { opacity: 1; transform: none; }
 .contact i { font-size: 1.2rem; color: var(--accent); }
 .contact svg { width: 1.1rem; height: 1.1rem; flex: none; color: var(--accent); }
 .credit { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 2.5rem; font: 400 0.75rem var(--mono); color: var(--faint); }
+
+/* MOTION — .motion is set on <html> by the head script, only when reduced motion is off */
+@property --spot { syntax: '<color>'; inherits: false; initial-value: transparent; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
+@keyframes flow { to { stroke-dashoffset: -9; } }
+@keyframes draw { from { transform: scaleX(0); } }
+.motion .group.in::after { animation: draw 0.9s var(--ease) var(--d, 0s) backwards; }
+/* scroll reveal: each tile rises in once, staggered by --d.
+   `backwards`, not `both`: once done it hands transform back to :hover */
+.motion main > :not(.in) { opacity: 0; }
+.motion main > .in { animation: rise 0.6s var(--ease) var(--d, 0s) backwards; }
+/* theme switch: the new theme grows as a circle from the toggle (--vx/--vy set in toggleTheme) */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: theme-wipe 0.55s var(--ease); }
+@keyframes theme-wipe {
+  from { clip-path: circle(0 at var(--vx) var(--vy)); }
+  to { clip-path: circle(150vmax at var(--vx) var(--vy)); }
+}

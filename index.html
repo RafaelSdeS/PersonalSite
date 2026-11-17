@@ -17,17 +17,28 @@
     <script>
       var t = localStorage.getItem("theme");
       if (t) document.documentElement.setAttribute("data-theme", t);
+      // motion layer (scroll reveal, theme wipe) only when the user hasn't asked for reduced motion
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window)
+        document.documentElement.classList.add("motion");
       function toggleTheme() {
         var d = document.documentElement;
+        var btn = document.querySelector(".theme-toggle");
         var current =
           d.getAttribute("data-theme") ||
           (matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light");
         var next = current === "light" ? "dark" : "light";
-        d.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-        document.querySelector(".theme-toggle").setAttribute("aria-pressed", next === "dark");
+        function apply() {
+          d.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          btn.setAttribute("aria-pressed", next === "dark");
+        }
+        if (!document.startViewTransition || !d.classList.contains("motion")) return apply();
+        var r = btn.getBoundingClientRect();
+        d.style.setProperty("--vx", r.left + r.width / 2 + "px");
+        d.style.setProperty("--vy", r.top + r.height / 2 + "px");
+        document.startViewTransition(apply);
       }
       window.addEventListener("DOMContentLoaded", function () {
         var current = document.documentElement.getAttribute("data-theme") ||
@@ -78,9 +89,9 @@
         <p class="role">Hardware Acceleration, HPC &amp; Quant Finance</p>
         <p class="tagline">Building faster neural networks and rigorously backtested portfolio models, one kernel at a time.</p>
         <div class="cta">
-          <a class="btn primary" href="#work">See my work</a>
-          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn" href="resume.html">One-page CV</a>
+          <a class="btn primary" href="#work">See my work <span class="arr d" aria-hidden="true">&darr;</span></a>
+          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
+          <a class="btn" href="resume.html">One-page CV <span class="arr" aria-hidden="true">&rarr;</span></a>
         </div>
         <p class="open"><span>Open to</span>ML Engineering &amp; AI Research &middot; Quantitative Research &middot; HPC</p>
       </section>
@@ -89,7 +100,7 @@
       </figure>
 
       <!-- CURRENT WORK -->
-      <div class="group s12" id="work"><span class="label">Current work</span></div>
+      <h2 class="group s12" id="work">Current work</h2>
       <article class="tile s6 p">
         <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Undergrad Research — UFRGS — project"><img class="shot" src="assets/images/projects/research.webp" alt="Pareto frontier of top-1 accuracy versus model size across all studied CNNs and quantization levels, from FP32 down to binary" width="960" height="640" loading="lazy" /></a>
         <span class="label">Research &middot; UFRGS &middot; since 2026</span>
@@ -127,8 +138,8 @@
         </ul>
       </aside>
 
-      <!-- ROW: background + team photo (Rafael sits left in the photo, looking toward the text) -->
-      <section class="tile s6 about">
+      <!-- ROW: background + photo (Rafael faces left, toward the text) -->
+      <section class="tile s8 about">
         <span class="label">Background</span>
         <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators.</p>
         <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
@@ -138,12 +149,12 @@
           <li><span>Languages</span>Portuguese &middot; English &middot; French &middot; Spanish</li>
         </ul>
       </section>
-      <figure class="tile s6 photo">
-        <img src="assets/images/ufrgsmun-team.jpg" alt="Rafael (left) with two other delegates during a UFRGSMUN committee session" width="1200" height="900" loading="lazy" />
+      <figure class="tile s4 photo">
+        <img src="assets/images/ufrgsmun-rafael.jpg" alt="Rafael speaking during a UFRGSMUN committee session" width="960" height="1200" loading="lazy" />
       </figure>
 
       <!-- EXPERIENCE -->
-      <div class="group s12" id="experience"><span class="label">Experience</span></div>
+      <h2 class="group s12" id="experience">Experience</h2>
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; Vision + embedded</span>
@@ -176,7 +187,7 @@
       </article>
 
       <!-- PROJECTS -->
-      <div class="group s12" id="projects"><span class="label">Projects</span></div>
+      <h2 class="group s12" id="projects">Projects</h2>
       <article class="tile s4 p">
         <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — live demo"><img class="shot" src="assets/images/projects/lunax.webp" alt="LUNAX map of the places in Rond&ocirc;nia that burned year after year, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
         <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
@@ -278,20 +289,28 @@
         <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
       </article>
 
-      <!-- ROW: skills + contact -->
-      <div class="group s12" id="contact"><span class="label">Stack &amp; contact</span></div>
-      <section class="tile s8 skills">
+      <!-- STACK & CONTACT: full-width skills, then the contact band that closes the page -->
+      <h2 class="group s12" id="contact">Stack &amp; contact</h2>
+      <section class="tile s12 skills">
         <span class="label">Skills</span>
         <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li></ul></div>
         <div class="grp"><strong>ML &amp; Data</strong><ul class="tags"><li>Python</li><li>Deep Learning</li><li>Reinforcement Learning</li><li>LightGBM</li><li>Computer Vision</li></ul></div>
         <div class="grp"><strong>Software Engineering</strong><ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li></ul></div>
         <div class="grp"><strong>Languages</strong><ul class="tags"><li>Portuguese (Native)</li><li>English (Fluent)</li><li>French (Proficient)</li><li>Spanish (Proficient)</li></ul></div>
       </section>
-      <section class="tile s4 contact">
-        <span class="label">Get in touch</span>
-        <a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a>
-        <a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a>
-        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a>
+      <section class="tile s12 contact">
+        <div class="pitch">
+          <span class="label">Get in touch</span>
+          <h3>Let&rsquo;s talk.</h3>
+          <p class="open"><span>Open to</span>ML Engineering &amp; AI Research &middot; Quantitative Research &middot; HPC</p>
+          <p class="open"><span>Based in</span>Porto Alegre, Brazil</p>
+        </div>
+        <ul class="links">
+          <li><a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a><button class="pill copy" type="button" data-copy="rafael.souza@inf.ufrgs.br" data-done="Copied" aria-label="Copy email address" aria-live="polite">Copy</button></li>
+          <li><a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a></li>
+          <li><a href="resume.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 2.5h8l4.5 4.5v14.5H6zM14 2.5V7h4.5M9 12h6M9 16h6"/></svg>One-page CV</a></li>
+        </ul>
       </section>
     </main>
     <footer class="credit">Rafael Silva de Souza &mdash; 2026</footer>
@@ -299,8 +318,14 @@
     <script>
       (function () {
         var top = document.querySelector(".top");
+        var main = document.querySelector("main");
+        var root = document.documentElement;
         var links = document.querySelectorAll(".top nav a");
-        function onScroll() { top.classList.toggle("scrolled", window.scrollY > 8); }
+        function onScroll() {
+          top.classList.toggle("scrolled", window.scrollY > 8);
+          var max = root.scrollHeight - window.innerHeight;
+          top.style.setProperty("--p", max > 0 ? window.scrollY / max : 0);
+        }
         window.addEventListener("scroll", onScroll, { passive: true });
         onScroll();
         var io = new IntersectionObserver(function (entries) {
@@ -310,6 +335,38 @@
           });
         }, { rootMargin: "-30% 0px -60% 0px" });
         document.querySelectorAll("main [id]").forEach(function (el) { io.observe(el); });
+        // cursor spotlight: pointer position inside the hovered tile
+        main.addEventListener("pointermove", function (e) {
+          var t = e.target.closest(".tile");
+          if (!t) return;
+          var r = t.getBoundingClientRect();
+          t.style.setProperty("--mx", e.clientX - r.left + "px");
+          t.style.setProperty("--my", e.clientY - r.top + "px");
+        });
+        // copy email: the label swaps to data-done for a moment; hidden where the Clipboard API is missing (file://)
+        var copy = document.querySelector(".copy");
+        if (!navigator.clipboard) copy.hidden = true;
+        else {
+          var label = copy.textContent;
+          copy.addEventListener("click", function () {
+            navigator.clipboard.writeText(copy.dataset.copy).then(function () {
+              copy.textContent = copy.dataset.done;
+              copy.classList.add("done");
+              setTimeout(function () { copy.textContent = label; copy.classList.remove("done"); }, 1600);
+            });
+          });
+        }
+        // scroll reveal: each tile rises in once, staggered within the batch that entered together
+        if (root.classList.contains("motion")) {
+          var rv = new IntersectionObserver(function (entries) {
+            entries.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
+              e.target.style.setProperty("--d", i * 70 + "ms");
+              e.target.classList.add("in");
+              rv.unobserve(e.target);
+            });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          Array.prototype.forEach.call(main.children, function (el) { rv.observe(el); });
+        }
       })();
     </script>
   </body>
