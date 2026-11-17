@@ -224,8 +224,8 @@ body {
 .sublinks { margin-top: 0.35rem; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; font: 500 0.75rem var(--mono); color: var(--accent); }
 .sublinks a:hover { text-decoration: underline; }
 .desc { margin-top: 0.6rem; color: var(--muted); font-size: 0.92rem; }
-.desc a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.2s; }
-.desc a:hover { color: var(--text); }
+.desc a, .about p a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.2s; }
+.desc a:hover, .about p a:hover { color: var(--text); }
 
 /* figure: one per tile, 3:2, and a link to the project (live demo when there is one) */
 .shot-link {

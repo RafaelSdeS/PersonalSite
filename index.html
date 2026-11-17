@@ -137,10 +137,10 @@
         <div class="metric-label">152-run kernel-size study on Tiny ImageNet &middot; Winograd FPGA accelerators (INT8) on an AMD Alveo U200</div>
         <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Undergrad Research &mdash; UFRGS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/RafaelSdeS/dnn_study/blob/main/report/ic_report/ic_report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
-        <p class="desc">Hardware-aware neural networks for Winograd convolution, under Professor Mateus Grellert: how restricting CNN kernels to 2&times;2/3&times;3 affects accuracy, efficiency and INT8 quantization, and evaluating FPGA Winograd accelerators built by a labmate on real networks.</p>
+        <p class="desc">Hardware-aware neural networks for Winograd convolution: how restricting CNN kernels to 2&times;2/3&times;3 affects accuracy, efficiency and INT8 quantization, and evaluating FPGA Winograd accelerators built by a labmate on real networks. Advised by <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, of UFRGS&rsquo;s Microelectronics Group, whose research centers on efficient algorithms and architectures for machine learning, and to whom this work owes a great deal.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
-          <p><strong>How I contribute</strong>I run the kernel-size study end to end (152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC). On the FPGA side, I evaluate Verilog Winograd accelerators (F(2,3), F(4,3), F(6,3), INT8) on an AMD Alveo U200: cycle counts from netlist simulation, Fmax and power from Vivado implementation, and accuracy under the accelerator&rsquo;s arithmetic.</p>
+          <p><strong>How I contribute</strong>I run the kernel-size study end to end on PCAD, UFRGS&rsquo;s HPC cluster, through Slurm (152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC). On the FPGA side, I evaluate Verilog Winograd accelerators (F(2,3), F(4,3), F(6,3), INT8) on an AMD Alveo U200: cycle counts from netlist simulation, Fmax and power from Vivado implementation, and accuracy under the accelerator&rsquo;s arithmetic.</p>
           <p><strong>What I&rsquo;m learning</strong>An arithmetic gain is a ceiling, not throughput: bigger Winograd tiles need wider data and harder timing closure, and hardware numbers only count once checked against a software reference. Beyond the technical side: keeping a 152-run study organized and reproducible, reporting results to my advisor with their limits and not just the good news, and evaluating a labmate&rsquo;s accelerator in a way that helps improve it.</p>
         </details>
         <ul class="tags"><li>Python</li><li>Deep Learning</li><li>FPGA &middot; Vivado</li><li>Quantization</li></ul>
@@ -171,7 +171,7 @@
       <!-- ROW: background + photo (Rafael faces left, toward the text) -->
       <section class="tile s8 about">
         <span class="label">Background</span>
-        <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators.</p>
+        <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators. I owe much of this work to my advisor, <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, whose mentorship shaped how I do research.</p>
         <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
         <p>At UFSC I built a laser 3D scanner for an underwater-inspection ROV project and worked on the Shell Eco-marathon team. Since then I&rsquo;ve led a team of three in an IBM challenge, built a fire-season forecast at NASA Space Apps and, outside engineering, negotiated counter-terrorism and cybersecurity policy at UFRGSMUN.</p>
         <ul class="facts">
@@ -189,7 +189,7 @@
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; 2025 &middot; Vision + embedded</span>
-        <p class="hl">Laser 3D scanner: geometry won on accuracy, ML on robustness at the edges</p>
+        <p class="hl">Low-cost laser 3D scanner for underwater inspection, from hardware to point cloud</p>
         <div class="metric-label">Camera, laser and encoder-driven rotating mirror (Arduino) &middot; subpixel laser-line extraction &middot; gradient-boosted depth model &middot; FINEP-funded ROV at UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
@@ -260,13 +260,13 @@
         <a class="shot-link" href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer" aria-label="vLLM Parallelism Benchmark — project"><img class="shot" src="assets/images/projects/vllm.webp" alt="Chart of output-token throughput versus concurrency for single-GPU, pipeline-parallel and tensor-parallel runs" width="960" height="640" loading="lazy" /></a>
         <span class="label">Completed benchmark &middot; team of 3</span>
         <p class="hl">Across nodes, tensor parallelism spent up to 97% of GPU time on communication</p>
-        <div class="metric-label">Qwen2.5-7B on 1&ndash;4 GPUs &middot; vLLM + Ray on UFRGS&rsquo;s HPC cluster &middot; takeaway: if the model fits on one GPU, don&rsquo;t split it</div>
+        <div class="metric-label">Qwen2.5-7B on 1&ndash;4 GPUs &middot; vLLM + Ray on PCAD, UFRGS&rsquo;s HPC cluster &middot; takeaway: if the model fits on one GPU, don&rsquo;t split it</div>
         <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer">vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
           <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF, PT) &#8599;</a>
           <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/tex/main.pdf" target="_blank" rel="noopener noreferrer">Report (PDF, PT) &#8599;</a>
         </div>
-        <p class="desc">Course project for UFRGS's Performance Evaluation class: benchmarks Tensor and Pipeline Parallelism for LLM inference (vLLM and Ray) on UFRGS's HPC cluster.</p>
+        <p class="desc">Course project for UFRGS's Performance Evaluation class: benchmarks Tensor and Pipeline Parallelism for LLM inference (vLLM and Ray) on <a href="https://pcad.inf.ufrgs.br/" target="_blank" rel="noopener noreferrer">PCAD</a>, UFRGS's HPC cluster.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I handled the GPU and network side of the analysis: GPU telemetry (utilization, power draw), network measurements, the statistical-analysis notebooks and graphs, the run scripts and the final slides.</p>
@@ -352,7 +352,7 @@
       <h2 class="group s12" id="contact">Stack &amp; contact</h2>
       <section class="tile s12 skills">
         <span class="label">Skills</span>
-        <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li></ul></div>
+        <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li><li>Slurm (PCAD cluster)</li></ul></div>
         <div class="grp"><strong>ML &amp; Data</strong><ul class="tags"><li>Python</li><li>Deep Learning</li><li>Reinforcement Learning</li><li>LightGBM</li><li>Computer Vision</li></ul></div>
         <div class="grp"><strong>Software Engineering</strong><ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li></ul></div>
         <div class="grp"><strong>Languages</strong><ul class="tags"><li>Portuguese (Native)</li><li>English (Fluent)</li><li>French (Proficient)</li><li>Spanish (Proficient)</li></ul></div>
