@@ -240,11 +240,15 @@ body {
 .shot { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.5s var(--ease); }
 .shot-link:hover { border-color: var(--border-hi); }
 .tile.p:hover .shot, .shot-link:focus-visible .shot { transform: scale(1.04); }
-/* wide card (Activities): the .tile.p shape across the row: figure | text, then details and tags at full width.
-   Inside details, .cols repeats the split (photo | text) so the open card stays balanced */
+/* wide card (Quant, Activities): the .tile.p shape across the row: figure | text, then details and tags at full width.
+   Inside details, .cols repeats the split (photo or text | text) so the open card stays balanced */
 .tile.p.wide, .wide .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; align-items: start; }
 .wide .shot-link { margin-bottom: 0; }
 .wide > details, .wide > .tags { grid-column: 1 / -1; }
+/* .flip mirrors it (text left, photos right), so the text sits under the details toggle and the two wide cards differ.
+   Explicit cells: plain auto-placement would push the figure below the full-width details */
+.wide.flip > div, .flip .cols > div { grid-column: 1; grid-row: 1; }
+.wide.flip > .shot-link, .flip .cols > .pic { grid-column: 2; grid-row: 1; }
 /* ↗ badge: ::before is the circle, ::after the arrow — an SVG mask (not a font glyph) so it is
    optically centred (path sits 1 unit down-left so the head's weight balances) and takes --accent in both themes. z-index keeps both above the zoomed image.
    border-box is explicit: the global `*` reset doesn't reach pseudo-elements, and the ring's 1px

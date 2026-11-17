@@ -14,6 +14,9 @@
   .portrait { min-height: 0; aspect-ratio: 1 / 1; }
   .tile.p.wide, .wide .cols { grid-template-columns: 1fr; }
   .wide .shot-link { margin-bottom: 1.25rem; }
+  /* one column: figure first, as on every card (same selectors as style.css so this later rule wins) */
+  .wide.flip > div, .flip .cols > div, .wide.flip > .shot-link, .flip .cols > .pic { grid-column: auto; grid-row: auto; }
+  .flip .cols > .pic { order: 1; } /* inside details: text first, right under the toggle, then the photo */
   .focus ul, .skills { grid-template-columns: 1fr; }
   .contact a { font-size: 0.85rem; gap: 0.5rem; } /* email + Copy pill share one line at 375px; narrower, the pill wraps under */
   .facts { grid-template-columns: 1fr; gap: 0.5rem; }
