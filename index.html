@@ -99,6 +99,7 @@
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="#activities">Activities</a>
           <a href="#contact">Contact</a>
         </nav>
         <div class="actions">
@@ -132,28 +133,29 @@
       <article class="tile s6 p">
         <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Undergrad Research — UFRGS — project"><img class="shot" src="assets/images/projects/research.webp" alt="Pareto frontier of top-1 accuracy versus model size across all studied CNNs and quantization levels, from FP32 down to binary" width="960" height="640" loading="lazy" /></a>
         <span class="label">Research &middot; UFRGS &middot; since 2026</span>
-        <p class="hl">Shrinking CNN kernels to fit Winograd hardware &mdash; and measuring what it costs</p>
-        <div class="metric-label">152 runs in the main kernel-size study &middot; evaluating Verilog Winograd F(2,3), F(4,3), F(6,3) &middot; INT8 on an AMD Alveo U200</div>
+        <p class="hl">Alternating 3&times;3 and 2&times;2 kernels: 24% fewer MACs, no measurable accuracy loss</p>
+        <div class="metric-label">152-run kernel-size study on Tiny ImageNet &middot; Winograd FPGA accelerators (INT8) on an AMD Alveo U200</div>
         <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Undergrad Research &mdash; UFRGS <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks"><a href="https://github.com/RafaelSdeS/dnn_study/blob/main/report/ic_report/ic_report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
         <p class="desc">Hardware-aware neural networks for Winograd convolution, under Professor Mateus Grellert: how restricting CNN kernels to 2&times;2/3&times;3 affects accuracy, efficiency and INT8 quantization, and evaluating FPGA Winograd accelerators built by a labmate on real networks.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contribute</strong>I run the kernel-size study end to end (152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC). On the FPGA side, I evaluate Verilog Winograd accelerators (F(2,3), F(4,3), F(6,3), INT8) on an AMD Alveo U200: cycle counts from netlist simulation, Fmax and power from Vivado implementation, and accuracy under the accelerator&rsquo;s arithmetic.</p>
-          <p><strong>What I&rsquo;m learning</strong>An arithmetic gain is a ceiling, not throughput &mdash; bigger Winograd tiles need wider data, more logic and harder timing closure, and fixed-point scales can wipe out accuracy; hardware numbers are only trustworthy when checked against a software reference; and power and Fmax have to be measured, not estimated.</p>
+          <p><strong>What I&rsquo;m learning</strong>An arithmetic gain is a ceiling, not throughput: bigger Winograd tiles need wider data and harder timing closure, and hardware numbers only count once checked against a software reference. Beyond the technical side: keeping a 152-run study organized and reproducible, reporting results to my advisor with their limits and not just the good news, and evaluating a labmate&rsquo;s accelerator in a way that helps improve it.</p>
         </details>
         <ul class="tags"><li>Python</li><li>Deep Learning</li><li>FPGA &middot; Vivado</li><li>Quantization</li></ul>
       </article>
       <article class="tile s6 p">
         <a class="shot-link" href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer" aria-label="Quantitative Finance — project"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: B3 prices, CVM filings, delisted companies and macro data feed a point-in-time dataset; a LightGBM alpha model, a risk model and a cost-aware optimizer are evaluated in a walk-forward backtest against BOVA11, equal-weight and 100% CDI baselines"><defs><marker id="ah-q" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">DATA (B3, POINT-IN-TIME)</text><rect class="box" x="30" y="40" width="126" height="42" rx="8"/><text x="93" y="66">prices</text><rect class="box" x="168" y="40" width="126" height="42" rx="8"/><text x="231" y="66">CVM filings</text><rect class="box" x="306" y="40" width="126" height="42" rx="8"/><text x="369" y="66">delisted cos.</text><rect class="box" x="444" y="40" width="126" height="42" rx="8"/><text x="507" y="66">macro</text><path class="arrow" d="M93 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M231 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M369 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M507 82 V122" marker-end="url(#ah-q)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">point-in-time ML dataset</text><text class="muted" x="300" y="165">filing dates, no lookahead, no survivorship bias</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-q)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="243">LightGBM alpha</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-q)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="243">risk model</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-q)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">cost-aware</text><text x="486" y="252">optimizer</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-q)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">walk-forward backtest</text><text class="muted" x="300" y="346">vs BOVA11 · equal-weight · 100% CDI</text></svg></a>
         <span class="label">Solo project &middot; since 2025</span>
-        <p class="hl">Portfolio construction for B3, tested walk-forward with no lookahead</p>
+        <p class="hl">ML portfolios for B3, backtested with no lookahead or survivorship bias</p>
         <div class="metric-label">~10,000 tickers in the US-expansion target &middot; LightGBM alpha &rarr; risk model &rarr; cost-aware optimizer &middot; vs BOVA11 and CDI baselines</div>
         <h3><a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer">Quantitative Finance <span class="ext">&#8599;</span></a></h3>
         <p class="desc">Machine-learning research for portfolio management on the Brazilian equity market (B3): a point-in-time data pipeline and a LightGBM-based portfolio-construction study under walk-forward backtesting, now expanding to US equities.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contribute</strong>I built the whole pipeline: prices, CVM fundamentals with their real filing dates, delisted companies to avoid survivorship bias, and macro data; then a LightGBM alpha model, a risk model and a cost-aware optimizer. For the US expansion I&rsquo;m adding SEC EDGAR fundamentals and FRED macro data, validated on the top 500 stocks and scaling to ~10,000 tickers.</p>
-          <p><strong>What I&rsquo;m learning</strong>A configuration picked from many backtests means little until it is corrected for multiple testing (a deflated-Sharpe check showed me that); change one variable per experiment and don&rsquo;t add a layer until the one below beats its baseline; and survivorship bias and filing dates matter as much as the model.</p>
+          <p><strong>What I&rsquo;m learning</strong>A configuration picked from many backtests means little until it is corrected for multiple testing (a deflated-Sharpe check showed me that), and survivorship bias and filing dates matter as much as the model. Running a long project alone taught me self-management: set my own milestones, change one variable per experiment, and act as my own reviewer, so no layer goes in until the one below beats its baseline.</p>
         </details>
         <ul class="tags"><li>Python</li><li>LightGBM</li><li>Walk-Forward Validation</li><li>Portfolio Optimization</li></ul>
       </article>
@@ -171,7 +173,6 @@
         <span class="label">Background</span>
         <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators.</p>
         <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
-        <p>Outside engineering: at UFRGSMUN 2026 I represented Israel at the UN Office of Counter-Terrorism (UNOCT), in English, debating terrorism in the Sahel and cyberterrorism. I was one of four delegates the press team chose for a special interview in front of all participants, to defend my delegation&rsquo;s position and answer a controversial question.</p>
         <ul class="facts">
           <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
           <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
@@ -179,8 +180,7 @@
         </ul>
       </section>
       <figure class="tile s4 photo">
-        <img src="assets/images/ufrgsmun-rafael.jpg" alt="Rafael speaking as the delegate of Israel in the UNOCT committee at UFRGSMUN 2026" width="960" height="1200" loading="lazy" />
-        <figcaption>UFRGSMUN 2026 &middot; Delegate of Israel, UNOCT</figcaption>
+        <img src="assets/images/ufrgsmun-rafael.jpg" alt="Rafael speaking during a debate" width="960" height="1200" loading="lazy" />
       </figure>
 
       <!-- EXPERIENCE -->
@@ -188,7 +188,7 @@
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; 2025 &middot; Vision + embedded</span>
-        <p class="hl">From a laser line on camera to 3D measurements of underwater structures</p>
+        <p class="hl">3D measurements of underwater structures from a laser line</p>
         <div class="metric-label">Laser triangulation &middot; camera calibration &middot; GPU-trained laser-line detection &middot; FINEP-funded ROV at UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code &#8599;</a></div>
@@ -196,7 +196,7 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>Camera calibration, laser-line detection and image processing, Arduino and sensor integration, and GPU-accelerated model training to locate the laser line &mdash; the pieces that turn camera images into 3D measurements.</p>
-          <p><strong>What I learned</strong>How a metrology lab approaches computer vision &mdash; a 3D point is only useful when calibration and error are under control; and how to work inside an interdisciplinary, funded research team where my subsystem had to fit everyone else&rsquo;s.</p>
+          <p><strong>What I learned</strong>A 3D point is only useful when calibration and error are under control. In an interdisciplinary, funded team I learned to explain my subsystem to people from other fields, agree on interfaces early and deliver on the project&rsquo;s schedule, because other parts depended on mine.</p>
         </details>
         <ul class="tags"><li>Computer Vision</li><li>Embedded Systems</li><li>CUDA</li></ul>
       </article>
@@ -204,13 +204,14 @@
         <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Shell Eco-marathon Team — project"><img class="shot" src="assets/images/projects/e3.webp" alt="3D render of E3 UFSC&rsquo;s 2023 Shell Eco-marathon prototype" width="960" height="640" loading="lazy" /></a>
         <span class="label">Student competition team &middot; 2025 &middot; Engineering + marketing</span>
         <div class="metric">525.7<small>km/L</small></div>
-        <div class="metric-label">team&rsquo;s Latin American record (2017)</div>
+        <p class="hl">on a single liter of gasoline, about 40&times; an ordinary car</p>
+        <div class="metric-label">E3 prototype &middot; Shell Eco-marathon Brasil 2017 &middot; gasoline category</div>
         <h3><a href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer">E3 UFSC &mdash; Shell Eco-marathon Team <span class="ext">&#8599;</span></a></h3>
         <p class="desc">E3 (UFSC Energy Efficiency Team) designs, builds and validates ultra-efficient gasoline and electric prototype vehicles for the Shell Eco-marathon. I worked on the car&rsquo;s engineering and took part in a technical visit to <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy</a>, a manufacturer of epoxy resins for composites.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I worked mainly on the car&rsquo;s engineering, including hands-on work with carbon-fiber composites; took part in a technical visit to Nanopoxy, a manufacturer of epoxy resins for composites &mdash; the same family of materials used in the car; and did the team&rsquo;s marketing while also organizing the marketing area.</p>
-          <p><strong>What I learned</strong>How carbon fiber and epoxy resin combine into light, stiff parts for a prototype built for energy efficiency; what goes into the resins themselves, from nanostructured to bio-based epoxies, seen up close at Nanopoxy; and how to organize a team&rsquo;s marketing so its engineering work reaches people outside it.</p>
+          <p><strong>What I learned</strong>How carbon fiber and epoxy resin combine into light, stiff parts, and, at Nanopoxy, what goes into the resins themselves. Organizing the marketing area taught me to split tasks among teammates, set deadlines and follow up; balancing it with engineering taught me to prioritize and to explain technical work to people outside the team.</p>
         </details>
         <ul class="tags"><li>Engineering</li><li>Carbon Fiber Composites</li><li>Marketing</li><li>Teamwork</li></ul>
       </article>
@@ -221,25 +222,26 @@
         <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — live demo"><img class="shot" src="assets/images/projects/lunax.webp" alt="LUNAX map of the places in Rond&ocirc;nia that burned year after year, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
         <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
         <p class="hl">Forecasts where Brazil will burn next season, cell by cell</p>
-        <div class="metric-label">NASA FIRMS, MODIS + VIIRS merged (2000&ndash;2026) &middot; a simple ratio model beat the ML challenger</div>
+        <div class="metric-label">NASA FIRMS, MODIS + VIIRS merged (2000&ndash;2026) &middot; a simple ratio model beat the ML challenger &middot; Galactic Problem Solver certificate</div>
         <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar" target="_blank" rel="noopener noreferrer">LUNAX Fire Calendar <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
           <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
           <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps &#8599;</a>
+          <a href="assets/images/nasa-space-apps-certificate.jpg" target="_blank" rel="noopener noreferrer">NASA certificate &#8599;</a>
         </div>
         <p class="desc">A web app that merges NASA FIRMS fire detections from both satellite sensors into one consistent series and turns it into a monthly burning calendar, piloted in Rond&ocirc;nia and extended to every Brazilian state.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>One of the two main developers (67 commits). I built the fire-season and &ldquo;compared with the usual&rdquo; views, the next-season outlook with per-cell fire chances, the national pilot with IBGE boundaries and field tools (shareable links, &ldquo;where to act first&rdquo;, custom-area upload). I also tested an ML challenger, which did not beat the simpler ratio method, and wrote the pipeline tests.</p>
-          <p><strong>What I learned</strong>Satellite data has to be reconciled across sensors before any analysis means anything; a simple, explainable baseline can beat ML, and reporting that honestly is part of the result; and a hackathon deadline forces hard scoping and fast code review.</p>
+          <p><strong>What I learned</strong>Satellite data has to be reconciled across sensors before any analysis means anything, and a simple, explainable baseline can beat ML; reporting that honestly is part of the result. The hackathon taught me to code under pressure: cut scope early, ship the core first, split the work clearly with the other main developer, review each other&rsquo;s code fast, and keep tests so speed doesn&rsquo;t break what already works.</p>
         </details>
         <ul class="tags"><li>Python</li><li>JavaScript</li><li>NASA FIRMS</li><li>Geospatial</li></ul>
       </article>
       <article class="tile s4 p">
         <a class="shot-link" href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="Conecta+ — IBM SkillsBuild — live demo"><img class="shot" src="assets/images/projects/conecta.webp" alt="Conecta+ dashboard map of Brazil with municipalities grouped by priority" width="685" height="457" loading="lazy" /></a>
-        <span class="label">Online prototype &middot; team of 3</span>
-        <p class="hl">Picks which of Brazil&rsquo;s 5,570 municipalities to connect first &mdash; within budget</p>
-        <div class="metric-label">Payback, NPV and portfolio optimization &middot; IBM Granite explains each pick, checked against the numbers</div>
+        <span class="label">Online prototype &middot; led a team of 3</span>
+        <p class="hl">Budget-optimal connectivity plan for Brazil&rsquo;s 5,570 municipalities</p>
+        <div class="metric-label">NPV, payback and portfolio optimization &middot; IBM Granite explanations checked against the numbers &middot; 230 automated tests</div>
         <h3><a href="https://github.com/RafaelSdeS/conecta-mais" target="_blank" rel="noopener noreferrer">Conecta+ &mdash; IBM SkillsBuild <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
           <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
@@ -248,16 +250,16 @@
         <p class="desc">Decision-support system for the IBM SkillsBuild &amp; Funda&ccedil;&atilde;o Telef&ocirc;nica Vivo challenge: ranks municipalities for connectivity expansion with public data (Anatel, IBGE, INEP), financial analysis, portfolio optimization and an IBM Granite agent that explains each recommendation.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
-          <p><strong>How I contributed</strong>I owned the decision engine: the municipality priority scores, backhaul distances, the financial tool (payback, NPV, sensitivity), portfolio optimization with PuLP/CBC (IBM CPLEX optional) and a 2021&rarr;2025 backtest. I also led integration: the FastAPI backend, checks that Granite&rsquo;s text matches the engine&rsquo;s numbers, CI and the deploy.</p>
-          <p><strong>What I learned</strong>How to turn a business question into an optimization model with real budget constraints; that LLM output must be checked against the data before a manager can trust it; and how to split work so data, engine and UI can move in parallel on mock data.</p>
+          <p><strong>How I contributed</strong>I led the team of three that built it and owned the decision engine: the municipality priority scores, backhaul distances, the financial tool (payback, NPV, sensitivity), portfolio optimization with PuLP/CBC (IBM CPLEX optional) and a 2021&rarr;2025 backtest. I also led integration: the FastAPI backend, checks that Granite&rsquo;s text matches the engine&rsquo;s numbers, CI and the deploy.</p>
+          <p><strong>What I learned</strong>How to turn a business question into an optimization model with real budget constraints, and why LLM output must be checked against the data. Leading the team taught me to assign responsibilities by each person&rsquo;s strengths, agree on interfaces and mock data early so data, engine and UI could move in parallel, keep everyone aligned on the deadline, and make the final calls when the pieces had to fit together.</p>
         </details>
         <ul class="tags"><li>Python</li><li>FastAPI</li><li>Optimization</li><li>IBM watsonx</li></ul>
       </article>
       <article class="tile s4 p">
         <a class="shot-link" href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer" aria-label="vLLM Parallelism Benchmark — project"><img class="shot" src="assets/images/projects/vllm.webp" alt="Chart of output-token throughput versus concurrency for single-GPU, pipeline-parallel and tensor-parallel runs" width="960" height="640" loading="lazy" /></a>
         <span class="label">Completed benchmark &middot; team of 3</span>
-        <p class="hl">Splitting a 7B LLM across 4 GPUs: where the bottleneck goes</p>
-        <div class="metric-label">Tensor vs pipeline parallelism &middot; vLLM + Ray on UFRGS&rsquo;s HPC cluster &middot; GPU power and network telemetry</div>
+        <p class="hl">Across nodes, tensor parallelism spent up to 97% of GPU time on communication</p>
+        <div class="metric-label">Qwen2.5-7B on 1&ndash;4 GPUs &middot; vLLM + Ray on UFRGS&rsquo;s HPC cluster &middot; takeaway: if the model fits on one GPU, don&rsquo;t split it</div>
         <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer">vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
           <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Slides (PDF, PT) &#8599;</a>
@@ -267,7 +269,7 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I handled the GPU and network side of the analysis: GPU telemetry (utilization, power draw), network measurements, the statistical-analysis notebooks and graphs, the run scripts and the final slides.</p>
-          <p><strong>What I learned</strong>How to design a performance experiment with factors and repetitions; how tensor and pipeline parallelism move the bottleneck between compute and inter-node communication; and how to run jobs on a shared HPC cluster.</p>
+          <p><strong>What I learned</strong>How to design a performance experiment with factors and repetitions, and how tensor and pipeline parallelism move the bottleneck between compute and communication. Owning one part of a team study taught me to agree on the plan up front, deliver data the others could use directly, and plan runs around a shared HPC cluster&rsquo;s queue.</p>
         </details>
         <ul class="tags"><li>Python</li><li>vLLM</li><li>HPC</li></ul>
       </article>
@@ -281,7 +283,7 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I built it solo: text extraction from PDF, DOCX, TXT and XML plus offline audio transcription with Vosk, sentence embeddings with KMeans, YAKE keywords to name each folder, and a dry-run preview before any file moves.</p>
-          <p><strong>What I learned</strong>Applying NLP to messy real-world files; that unsupervised clusters are only useful with readable labels; and that tools which move files should always show a preview first.</p>
+          <p><strong>What I learned</strong>Applying NLP to messy real-world files, and that unsupervised clusters are only useful with readable labels. Building it alone taught me to scope down to a working prototype first and to design for the user&rsquo;s trust: a tool that moves files must always show a preview.</p>
         </details>
         <ul class="tags"><li>Python</li><li>NLP</li><li>Clustering</li></ul>
       </article>
@@ -295,14 +297,14 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I wrote most of the code (32 of 38 commits): modular game states, collisions, power-ups, levels loaded from files, binary save files with score ranking, audio and the HUD.</p>
-          <p><strong>What I learned</strong>Structuring a C program into modules; handling memory and file I/O by hand; and game-loop basics such as state machines, frame timing and collision handling.</p>
+          <p><strong>What I learned</strong>Structuring a C program into modules and handling memory and file I/O by hand. Working in a pair taught me to split the game into modules each of us could own, agree on the interfaces between them and use Git to keep our work in sync.</p>
         </details>
         <ul class="tags"><li>C</li><li>Raylib</li><li>Game Systems</li></ul>
       </article>
       <article class="tile s4 p">
         <a class="shot-link" href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer" aria-label="PAM UFRGS — pull request"><img class="shot" src="assets/images/projects/pam.webp" alt="Graduation forecast view added to the PAM UFRGS app: a semester-by-semester plan of the remaining courses" width="959" height="640" loading="lazy" /></a>
         <span class="label">Open-source contribution</span>
-        <p class="hl">An AI course assistant and graduation forecast for UFRGS&rsquo;s enrollment app</p>
+        <p class="hl">AI course assistant and graduation forecast for UFRGS students</p>
         <div class="metric-label">Open-source pull request &middot; Vue &middot; rate-limited AI endpoint &middot; Vitest tests</div>
         <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer">PAM UFRGS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
@@ -313,9 +315,36 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I added an AI assistant for course and schedule questions (scoped to the selected program, with production CORS/CSP and rate limits), a graduation forecast with PDF export, .ics schedule export with side-by-side comparison, and set up Vitest with tests for the core services.</p>
-          <p><strong>What I learned</strong>How to contribute to someone else&rsquo;s codebase: follow its conventions, scope a pull request and explain why each change matters; and how to add tests around code I did not write.</p>
+          <p><strong>What I learned</strong>How to contribute to someone else&rsquo;s codebase: follow its conventions, keep a pull request focused and explain why each change matters so the maintainer can review it quickly; and how to add tests around code I did not write.</p>
         </details>
         <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
+      </article>
+
+      <!-- ACTIVITIES: one wide card, figure left and text right (.tile.p.wide) -->
+      <h2 class="group s12" id="activities">Activities</h2>
+      <article class="tile s12 p wide">
+        <a class="shot-link" href="https://www.ufrgs.br/ufrgsmun/xxiiiedicao/" target="_blank" rel="noopener noreferrer" aria-label="UFRGSMUN 2026 — event site"><img class="shot" src="assets/images/ufrgsmun-press.jpg" alt="Rafael, behind the Israel placard, answering the special press interview at UFRGSMUN 2026" width="1200" height="800" loading="lazy" /></a>
+        <div>
+          <span class="label">Model UN &middot; 2026 &middot; in English</span>
+          <p class="hl">Negotiated counter-terrorism and cybersecurity policy; chosen by the press for a special interview</p>
+          <div class="metric-label">UN Office of Counter-Terrorism &middot; terrorism in the Sahel and cyberterrorism &middot; one of four delegates interviewed before the whole conference</div>
+          <h3><a href="https://www.ufrgs.br/ufrgsmun/xxiiiedicao/" target="_blank" rel="noopener noreferrer">UFRGSMUN 2026 &mdash; Delegate of Israel, UNOCT <span class="ext">&#8599;</span></a></h3>
+          <div class="sublinks">
+            <a href="https://www.instagram.com/ufrgsmun/" target="_blank" rel="noopener noreferrer">Instagram &#8599;</a>
+          </div>
+          <p class="desc">UFRGS&rsquo;s Model United Nations conference. As the delegate of Israel at the UN Office of Counter-Terrorism (UNOCT), I debated terrorism in the Sahel and cyberterrorism in English, negotiating with delegations whose positions were often far from mine.</p>
+        </div>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <div class="cols">
+            <img src="assets/images/ufrgsmun-committee.jpg" alt="The UNOCT committee at UFRGSMUN 2026, each delegate holding a country placard; Rafael holds Israel&rsquo;s in the back row" width="815" height="805" loading="lazy" />
+            <div>
+              <p><strong>How I contributed</strong>To prepare, I followed current events closely, especially cyberterrorism and cybersecurity. In committee I represented Israel&rsquo;s position and worked in caucuses with other delegations to find common ground on counter-terrorism measures, building alliances where interests met and holding my line where they did not. The press team chose me as one of four delegates for a special interview in front of all participants, where I defended my delegation&rsquo;s position and answered a controversial question.</p>
+              <p><strong>What I learned</strong>Diplomacy starts with listening: understanding why another delegation holds its position is what makes a compromise possible. I learned to work with people whose views differ sharply from the ones I represented, to negotiate wording several sides could accept, to collaborate in a bloc toward a shared text, and to stay calm and precise defending a difficult position in public, in English. I also learned that a credible position has to be current: cyber threats change fast, so my arguments had to keep up with the latest cybersecurity news and policy debates.</p>
+            </div>
+          </div>
+        </details>
+        <ul class="tags"><li>Diplomacy</li><li>Negotiation</li><li>Public Speaking</li><li>Cybersecurity</li></ul>
       </article>
 
       <!-- STACK & CONTACT: full-width skills, then the contact band that closes the page -->
@@ -385,6 +414,26 @@
             });
           });
         }
+        // "Contribution & learnings" grows only its own card: grid rows stretch every card to the tallest one, so on the
+        // summary click (before the toggle) the other cards in that row are pinned to their current height; the pins go
+        // once the whole row is closed again (after the 0.35s slide). Rows reflow on resize, so pins reset there too.
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".tile.p"));
+        function rowOf(card) { return cards.filter(function (t) { return t.offsetTop === card.offsetTop; }); }
+        function isOpen(t) { return !!t.querySelector("details[open]"); }
+        function unpin(list) { list.forEach(function (t) { t.style.height = ""; }); }
+        cards.forEach(function (card) {
+          var d = card.querySelector("details");
+          if (!d) return;
+          d.querySelector("summary").addEventListener("click", function () {
+            rowOf(card).forEach(function (t) { if (t !== card) t.style.height = t.offsetHeight + "px"; });
+            card.style.height = "";
+          });
+          d.addEventListener("toggle", function () {
+            var row = rowOf(card);
+            setTimeout(function () { if (!row.some(isOpen)) unpin(row); }, 400);
+          });
+        });
+        addEventListener("resize", function () { unpin(cards); });
         // scroll reveal: each tile rises in once, staggered within the batch that entered together
         if (root.classList.contains("motion")) {
           var rv = new IntersectionObserver(function (entries) {

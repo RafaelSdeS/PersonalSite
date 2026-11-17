@@ -2,6 +2,7 @@
 @media (max-width: 1080px) {
   .tile, .group { grid-column: span 12; }
   .tile.p { grid-column: span 6; }
+  .tile.p.wide { grid-column: span 12; }
   .tile.intro, .tile.about { grid-column: span 8; }
   .tile.portrait, .tile.photo { grid-column: span 4; }
 }
@@ -11,6 +12,8 @@
   .tile.p, .tile.intro, .tile.portrait, .tile.about, .tile.photo { grid-column: span 12; }
   .photo { min-height: 0; aspect-ratio: 4 / 3; }
   .portrait { min-height: 0; aspect-ratio: 1 / 1; }
+  .tile.p.wide, .wide .cols { grid-template-columns: 1fr; }
+  .wide .shot-link { margin-bottom: 1.25rem; }
   .focus ul, .skills { grid-template-columns: 1fr; }
   .contact a { font-size: 0.85rem; gap: 0.5rem; } /* email + Copy pill share one line at 375px; narrower, the pill wraps under */
   .facts { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -21,8 +24,9 @@
   .tile { padding: 1.25rem; }
 }
 
-/* phones: nav + actions don't fit on one line — keep the actions, drop the section links */
-@media (max-width: 460px) {
+/* phones: nav + actions don't fit on one line — keep the actions, drop the section links.
+   calibration knob: the PT nav (5 links) needs ~530px */
+@media (max-width: 540px) {
   .top nav { display: none; }
 }
 
