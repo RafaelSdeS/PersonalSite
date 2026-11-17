@@ -6,7 +6,7 @@ Portfolio of a Computer Engineering student at UFRGS (Brazil) working on hardwar
 
 ## What's on it
 
-- **Current work:** undergraduate research on restricting CNN kernels for Winograd accelerators (GPU and FPGA), and an ML portfolio-construction study for the Brazilian stock market (B3).
+- **Current work:** undergraduate research on restricting CNN kernels for Winograd hardware, the Winograd FPGA accelerators I work on with Thomas Schmitz (co-author of two papers in submission), and an ML portfolio-construction study for the Brazilian stock market (B3).
 - **Experience:** Projeto VORIS (laser-triangulation 3D measurement at LabMetro, UFSC) and E3 UFSC (Shell Eco-marathon team).
 - **Projects:** LUNAX Fire Calendar (NASA Space Apps 2026), Conecta+ (IBM SkillsBuild challenge, team lead), a vLLM parallelism benchmark, File Organizer, Breakout in C and an open-source contribution to PAM UFRGS.
 - **Activities:** UFRGSMUN 2026, UN Office of Counter-Terrorism committee.

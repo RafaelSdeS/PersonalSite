@@ -49,7 +49,7 @@
         <h2>Pesquisa e Experiência</h2>
         <h3>Iniciação Científica, UFRGS (orientador: Prof. Mateus Grellert) <span>Em andamento</span></h3>
         <ul>
-          <li>Estudo o efeito de restringir kernels de CNN a 2×2/3×3 (adequados ao Winograd) na acurácia, eficiência e robustez INT8 (QAT): 152 execuções no Tiny ImageNet, além de detecção/segmentação no PASCAL VOC.</li>
+          <li>Estudo o efeito de restringir kernels de CNN a 2×2/3×3 (adequados ao Winograd) na acurácia, eficiência e robustez INT8 (QAT), com 152 execuções no PCAD: alternar 3×3/2×2 cortou 24% dos MACs sem perda mensurável de acurácia.</li>
           <li>Com Thomas Schmitz: avaliei seus aceleradores Winograd em FPGA em 16 redes e treinei a rede de 4 bits (68,51% de top-1 no ImageNet). Coautor: IEEE OJCAS (em prep.), ISCAS (em avaliação).</li>
         </ul>
         <h3>Projeto VORIS, LabMetro UFSC <span>2025</span></h3>
@@ -80,7 +80,7 @@
         </ul>
         <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark">vLLM Parallelism Benchmark, Avaliação de Desempenho (UFRGS)</a></h3>
         <ul>
-          <li>Avaliei tensor e pipeline parallelism para o Qwen2.5-7B em 1 a 4 GPUs (vLLM + Ray, cluster PCAD); liderei a telemetria de GPU, a análise de rede e a análise estatística. Equipe de 3.</li>
+          <li>Tensor vs pipeline parallelism para o Qwen2.5-7B em 1 a 4 GPUs (vLLM + Ray, PCAD): entre nós, o tensor parallelism gastou até 97% do tempo de GPU em comunicação; liderei a telemetria e a estatística (equipe de 3).</li>
         </ul>
         <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1">PAM UFRGS, contribuição open source</a></h3>
         <ul>
@@ -102,7 +102,7 @@
         <h2>Atividades</h2>
         <h3>UFRGSMUN, Delegado de Israel no Escritório da ONU de Combate ao Terrorismo (UNOCT) <span>2026</span></h3>
         <ul>
-          <li>Comitê em inglês sobre terrorismo no Sahel e ciberterrorismo; um dos quatro delegados escolhidos pela imprensa para uma entrevista especial diante de todos, defendendo a posição da delegação numa pergunta polêmica.</li>
+          <li>Comitê em inglês sobre terrorismo no Sahel e ciberterrorismo: negociei medidas antiterror e de cibersegurança; um dos quatro delegados escolhidos pela imprensa para uma entrevista especial.</li>
         </ul>
       </section>
     </main>
