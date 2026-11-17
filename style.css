@@ -163,7 +163,7 @@ body {
   letter-spacing: 0.08em;
   color: var(--faint);
 }
-/* section headings (h2.group): big title + a hairline with an accent lead that fills the row */
+/* section headings (h2.group): big title + a hairline that starts in the accent and fades out across the row */
 .group {
   display: flex;
   align-items: center;
@@ -176,7 +176,7 @@ body {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--accent) 0 2.5rem, var(--border-hi) 2.5rem, transparent);
+  background: linear-gradient(90deg, var(--accent), var(--border-hi) 8rem, transparent); /* accent melts into the hairline, which then fades out */
   transform-origin: left;
 }
 /* eyebrow labels that title a context tile (not the meta line on project cards) */

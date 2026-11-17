@@ -2,7 +2,7 @@
 
 Portfolio of a Computer Engineering student at UFRGS (Brazil) working on hardware-aware machine learning, HPC and quantitative finance.
 
-**Live:** [English](https://rafaelsdes.github.io/PersonalSite/) · [Português](https://rafaelsdes.github.io/PersonalSite/indexpt.html) · [Résumé (PDF)](https://rafaelsdes.github.io/PersonalSite/resume.pdf) · [Currículo (PDF)](https://rafaelsdes.github.io/PersonalSite/resumept.pdf)
+**Live:** [English](https://rafaelsdes.github.io/) · [Português](https://rafaelsdes.github.io/indexpt.html) · [Résumé (PDF)](https://rafaelsdes.github.io/resume.pdf) · [Currículo (PDF)](https://rafaelsdes.github.io/resumept.pdf)
 
 ## What's on it
 

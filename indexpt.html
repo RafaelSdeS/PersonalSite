@@ -11,17 +11,17 @@
     <meta property="og:title" content="Rafael Silva de Souza | Engenharia de Computação" />
     <meta property="og:description" content="ML consciente de hardware, HPC e sistemas quantitativos." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rafaelsdes.github.io/PersonalSite/indexpt.html" />
+    <meta property="og:url" content="https://rafaelsdes.github.io/indexpt.html" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:image" content="https://rafaelsdes.github.io/PersonalSite/assets/images/og-pt.jpg" />
+    <meta property="og:image" content="https://rafaelsdes.github.io/assets/images/og-pt.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Rafael Silva de Souza — Engenharia de Computação @ UFRGS: Aceleração de Hardware, HPC &amp; Finanças Quantitativas" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://rafaelsdes.github.io/PersonalSite/indexpt.html" />
-    <link rel="alternate" hreflang="en" href="https://rafaelsdes.github.io/PersonalSite/" />
-    <link rel="alternate" hreflang="pt-BR" href="https://rafaelsdes.github.io/PersonalSite/indexpt.html" />
-    <link rel="alternate" hreflang="x-default" href="https://rafaelsdes.github.io/PersonalSite/" />
+    <link rel="canonical" href="https://rafaelsdes.github.io/indexpt.html" />
+    <link rel="alternate" hreflang="en" href="https://rafaelsdes.github.io/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://rafaelsdes.github.io/indexpt.html" />
+    <link rel="alternate" hreflang="x-default" href="https://rafaelsdes.github.io/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <!--STRUCTURED DATA (identical in both languages)-->
@@ -30,8 +30,8 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Rafael Silva de Souza",
-        "url": "https://rafaelsdes.github.io/PersonalSite/",
-        "image": "https://rafaelsdes.github.io/PersonalSite/assets/images/rafael-portrait.jpg",
+        "url": "https://rafaelsdes.github.io/",
+        "image": "https://rafaelsdes.github.io/assets/images/rafael-portrait.jpg",
         "jobTitle": "Computer Engineering student",
         "affiliation": { "@type": "CollegeOrUniversity", "name": "Universidade Federal do Rio Grande do Sul (UFRGS)" },
         "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
@@ -193,7 +193,7 @@
         <div class="metric-label">Câmera, laser e espelho rotativo com encoder (Arduino) &middot; extração subpixel da linha laser &middot; modelo de profundidade com gradient boosting &middot; ROV financiado pela FINEP na UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Código da triangulação a laser &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Relatório de pesquisa (PDF) &#8599;</a></div>
-        <p class="desc">O VORIS (Veículo Operado Remotamente para Inspeção Submarina) é um projeto financiado pela FINEP no Laboratório de Metrologia e Automatização da UFSC: um ROV com sistemas ópticos de medição 3D para estruturas submersas. Na minha iniciação científica, construí e avaliei sua bancada de triangulação a laser: uma câmera, um laser e um espelho rotativo que varrem a cena e a transformam em uma nuvem de pontos 3D.</p>
+        <p class="desc">O VORIS (Veículo Operado Remotamente para Inspeção Submarina) é um projeto financiado pela FINEP no Laboratório de Metrologia e Automatização da UFSC, com a Petrobras como interessada: um ROV com sistemas ópticos de medição 3D para estruturas submersas. Na minha iniciação científica, construí e avaliei sua bancada de triangulação a laser: uma câmera, um laser e um espelho rotativo que varrem a cena e a transformam em uma nuvem de pontos 3D.</p>
         <details>
           <summary>Contribuição &amp; aprendizados</summary>
           <p><strong>Como contribuí</strong>Construí o sistema de ponta a ponta: o hardware (um Arduino Uno R4 acionando um espelho com motor de passo lido por um encoder absoluto, controle do laser por PWM e captura de imagens sincronizada com o ângulo de varredura), a extração subpixel da linha laser por centroide ponderado pela intensidade (muito menos ruído que a limiarização), o modelo geométrico de triangulação (normalização da câmera, geometria câmera&ndash;laser e correção do ângulo do espelho), um modelo de regressão com gradient boosting treinado em varreduras rotuladas para corrigir erros sistemáticos de profundidade e uma interface gráfica para operar tudo.</p>
