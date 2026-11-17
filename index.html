@@ -116,7 +116,7 @@
         <span class="label">Computer Engineering @ UFRGS</span>
         <h1>Rafael Silva de Souza</h1>
         <p class="role">Hardware Acceleration, HPC &amp; Quant Finance</p>
-        <p class="tagline">Building faster neural networks and rigorously backtested portfolio models, one kernel at a time.</p>
+        <p class="tagline">I work on making neural networks cheaper to run on real hardware, from CNNs on FPGAs to LLMs across GPUs, and research ML portfolios for the Brazilian stock market.</p>
         <div class="cta">
           <a class="btn primary" href="#work">See my work <span class="arr d" aria-hidden="true">&darr;</span></a>
           <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
@@ -173,6 +173,7 @@
         <span class="label">Background</span>
         <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators.</p>
         <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
+        <p>At UFSC I built a laser 3D scanner for an underwater-inspection ROV project and worked on the Shell Eco-marathon team. Since then I&rsquo;ve led a team of three in an IBM challenge, built a fire-season forecast at NASA Space Apps and, outside engineering, negotiated counter-terrorism and cybersecurity policy at UFRGSMUN.</p>
         <ul class="facts">
           <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
           <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
@@ -188,17 +189,17 @@
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; 2025 &middot; Vision + embedded</span>
-        <p class="hl">3D measurements of underwater structures from a laser line</p>
-        <div class="metric-label">Laser triangulation &middot; camera calibration &middot; GPU-trained laser-line detection &middot; FINEP-funded ROV at UFSC</div>
+        <p class="hl">Laser 3D scanner: geometry won on accuracy, ML on robustness at the edges</p>
+        <div class="metric-label">Camera, laser and encoder-driven rotating mirror (Arduino) &middot; subpixel laser-line extraction &middot; gradient-boosted depth model &middot; FINEP-funded ROV at UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
-        <p class="desc">VORIS (Remotely Operated Vehicle for Underwater Inspection) is a FINEP-funded project at UFSC&rsquo;s Metrology and Automation Laboratory: an ROV with 3D optical measurement systems that capture textured point clouds of submerged structures. I worked on its laser-triangulation measurement system.</p>
+        <p class="desc">VORIS (Remotely Operated Vehicle for Underwater Inspection) is a FINEP-funded project at UFSC&rsquo;s Metrology and Automation Laboratory: an ROV with 3D optical measurement systems for submerged structures. In my undergraduate research I built and evaluated its laser-triangulation testbed: a camera, a laser and a rotating mirror that sweep a scene and turn it into a 3D point cloud.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
-          <p><strong>How I contributed</strong>Camera calibration, laser-line detection and image processing, Arduino and sensor integration, and GPU-accelerated model training to locate the laser line &mdash; the pieces that turn camera images into 3D measurements.</p>
-          <p><strong>What I learned</strong>A 3D point is only useful when calibration and error are under control. In an interdisciplinary, funded team I learned to explain my subsystem to people from other fields, agree on interfaces early and deliver on the project&rsquo;s schedule, because other parts depended on mine.</p>
+          <p><strong>How I contributed</strong>I built the system end to end: the hardware (an Arduino Uno R4 driving a stepper-motor mirror read by an absolute encoder, PWM laser control and image capture synchronized to the scan angle), subpixel laser-line extraction with an intensity-weighted centroid (far less noise than thresholding), the geometric triangulation model (camera normalization, camera&ndash;laser geometry and mirror-angle correction), a gradient-boosted regression model trained on labeled scans to correct systematic depth errors, and a graphical interface to run it all.</p>
+          <p><strong>What I learned</strong>A model is only as good as its calibration: geometry was accurate near the center of the view, but small errors in calibration and laser angle grew toward the edges. Learning those errors from data reduced the artifacts there, but only as far as the training data reached, which points to a hybrid with geometry as the backbone. In an interdisciplinary, funded team I also learned to explain my subsystem to people from other fields and deliver on the project&rsquo;s schedule.</p>
         </details>
-        <ul class="tags"><li>Computer Vision</li><li>Embedded Systems</li><li>CUDA</li></ul>
+        <ul class="tags"><li>Computer Vision</li><li>Embedded Systems</li><li>3D Reconstruction</li><li>Machine Learning</li></ul>
       </article>
       <article class="tile s6 p">
         <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Shell Eco-marathon Team — project"><img class="shot" src="assets/images/projects/e3.webp" alt="3D render of E3 UFSC&rsquo;s 2023 Shell Eco-marathon prototype" width="960" height="640" loading="lazy" /></a>
@@ -337,7 +338,7 @@
         <details>
           <summary>Contribution &amp; learnings</summary>
           <div class="cols">
-            <img src="assets/images/ufrgsmun-committee.jpg" alt="The UNOCT committee at UFRGSMUN 2026, each delegate holding a country placard; Rafael holds Israel&rsquo;s in the back row" width="815" height="805" loading="lazy" />
+            <div class="pic"><img src="assets/images/ufrgsmun-committee.jpg" alt="The UNOCT committee at UFRGSMUN 2026, each delegate holding a country placard; Rafael holds Israel&rsquo;s in the back row" width="815" height="805" loading="lazy" /></div>
             <div>
               <p><strong>How I contributed</strong>To prepare, I followed current events closely, especially cyberterrorism and cybersecurity. In committee I represented Israel&rsquo;s position and worked in caucuses with other delegations to find common ground on counter-terrorism measures, building alliances where interests met and holding my line where they did not. The press team chose me as one of four delegates for a special interview in front of all participants, where I defended my delegation&rsquo;s position and answered a controversial question.</p>
               <p><strong>What I learned</strong>Diplomacy starts with listening: understanding why another delegation holds its position is what makes a compromise possible. I learned to work with people whose views differ sharply from the ones I represented, to negotiate wording several sides could accept, to collaborate in a bloc toward a shared text, and to stay calm and precise defending a difficult position in public, in English. I also learned that a credible position has to be current: cyber threats change fast, so my arguments had to keep up with the latest cybersecurity news and policy debates.</p>

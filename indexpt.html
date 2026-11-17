@@ -116,7 +116,7 @@
         <span class="label">Engenharia de Computação @ UFRGS</span>
         <h1>Rafael Silva de Souza</h1>
         <p class="role">Aceleração de Hardware, HPC &amp; Finanças Quantitativas</p>
-        <p class="tagline">Construindo redes neurais mais rápidas e modelos de portfólio com backtests rigorosos, um kernel de cada vez.</p>
+        <p class="tagline">Trabalho para que redes neurais custem menos para rodar em hardware real, de CNNs em FPGAs a LLMs em várias GPUs, e pesquiso portfólios com ML para a bolsa brasileira.</p>
         <div class="cta">
           <a class="btn primary" href="#work">Ver meu trabalho <span class="arr d" aria-hidden="true">&darr;</span></a>
           <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
@@ -173,6 +173,7 @@
         <span class="label">Trajetória</span>
         <p>Sou estudante de graduação em Engenharia de Computação na UFRGS, tendo estudado anteriormente Engenharia Elétrica na UFSC. Trabalho na interseção entre hardware e aprendizado de máquina: minha pesquisa atual aplica restrições conscientes de hardware &mdash; limitando os kernels convolucionais a 2&times;2 e 3&times;3 &mdash; para tornar redes neurais mais adequadas a aceleradores de hardware.</p>
         <p>Fora do laboratório, desenvolvo pesquisa de portfólio com machine learning e infraestrutura de backtesting para o mercado de ações brasileiro (B3).</p>
+        <p>Na UFSC, construí um scanner 3D a laser para um projeto de ROV de inspeção submarina e participei da equipe da Shell Eco-marathon. Desde então, liderei uma equipe de três num desafio da IBM, desenvolvi uma previsão de queimadas no NASA Space Apps e, fora da engenharia, negociei políticas de combate ao terrorismo e cibersegurança no UFRGSMUN.</p>
         <ul class="facts">
           <li><span>Universidade</span>UFRGS &mdash; Engenharia de Computação</li>
           <li><span>Anteriormente</span>UFSC &mdash; Engenharia Elétrica</li>
@@ -188,17 +189,17 @@
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — projeto"><img class="shot" src="assets/images/projects/voris.webp" alt="A linha do laser sobre uma mão, vista pela câmera, ao lado da nuvem de pontos 3D reconstruída a partir dela" width="960" height="640" loading="lazy" /></a>
         <span class="label">LabMetro &middot; UFSC &middot; 2025 &middot; Visão + sistemas embarcados</span>
-        <p class="hl">Medições 3D de estruturas submersas a partir de uma linha de laser</p>
-        <div class="metric-label">Triangulação a laser &middot; calibração de câmera &middot; detecção da linha do laser treinada em GPU &middot; ROV financiado pela FINEP na UFSC</div>
+        <p class="hl">Scanner 3D a laser: a geometria venceu em precisão; o ML, em robustez nas bordas</p>
+        <div class="metric-label">Câmera, laser e espelho rotativo com encoder (Arduino) &middot; extração subpixel da linha laser &middot; modelo de profundidade com gradient boosting &middot; ROV financiado pela FINEP na UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Código da triangulação a laser &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Relatório de pesquisa (PDF) &#8599;</a></div>
-        <p class="desc">O VORIS (Veículo Operado Remotamente para Inspeção Submarina) é um projeto financiado pela FINEP no Laboratório de Metrologia e Automatização da UFSC: um ROV com sistemas ópticos de medição 3D que capturam nuvens de pontos texturizadas de estruturas submersas. Trabalhei no sistema de medição por triangulação a laser.</p>
+        <p class="desc">O VORIS (Veículo Operado Remotamente para Inspeção Submarina) é um projeto financiado pela FINEP no Laboratório de Metrologia e Automatização da UFSC: um ROV com sistemas ópticos de medição 3D para estruturas submersas. Na minha iniciação científica, construí e avaliei sua bancada de triangulação a laser: uma câmera, um laser e um espelho rotativo que varrem a cena e a transformam em uma nuvem de pontos 3D.</p>
         <details>
           <summary>Contribuição &amp; aprendizados</summary>
-          <p><strong>Como contribuí</strong>Calibração de câmera, detecção da linha do laser e processamento de imagens, integração de Arduino e sensores e treinamento de modelos acelerado por GPU para localizar a linha do laser &mdash; as partes que transformam imagens da câmera em medições 3D.</p>
-          <p><strong>O que aprendi</strong>Um ponto 3D só tem valor quando a calibração e o erro estão sob controle. Numa equipe interdisciplinar e financiada, aprendi a explicar meu subsistema para pessoas de outras áreas, a combinar as interfaces cedo e a cumprir o cronograma do projeto, porque outras partes dependiam da minha.</p>
+          <p><strong>Como contribuí</strong>Construí o sistema de ponta a ponta: o hardware (um Arduino Uno R4 acionando um espelho com motor de passo lido por um encoder absoluto, controle do laser por PWM e captura de imagens sincronizada com o ângulo de varredura), a extração subpixel da linha laser por centroide ponderado pela intensidade (muito menos ruído que a limiarização), o modelo geométrico de triangulação (normalização da câmera, geometria câmera&ndash;laser e correção do ângulo do espelho), um modelo de regressão com gradient boosting treinado em varreduras rotuladas para corrigir erros sistemáticos de profundidade e uma interface gráfica para operar tudo.</p>
+          <p><strong>O que aprendi</strong>Um modelo vale o que vale a sua calibração: a geometria foi precisa no centro do campo de visão, mas pequenos erros de calibração e do ângulo do laser cresceram em direção às bordas. Aprender esses erros a partir dos dados reduziu os artefatos ali, mas só até onde os dados de treino alcançavam, o que aponta para um modelo híbrido com a geometria como base. Numa equipe interdisciplinar e financiada, também aprendi a explicar meu subsistema para pessoas de outras áreas e a cumprir o cronograma do projeto.</p>
         </details>
-        <ul class="tags"><li>Visão Computacional</li><li>Sistemas Embarcados</li><li>CUDA</li></ul>
+        <ul class="tags"><li>Visão Computacional</li><li>Sistemas Embarcados</li><li>Reconstrução 3D</li><li>Aprendizado de Máquina</li></ul>
       </article>
       <article class="tile s6 p">
         <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Equipe Shell Eco-marathon — projeto"><img class="shot" src="assets/images/projects/e3.webp" alt="Render 3D do protótipo 2023 da E3 UFSC para a Shell Eco-marathon" width="960" height="640" loading="lazy" /></a>
@@ -337,7 +338,7 @@
         <details>
           <summary>Contribuição &amp; aprendizados</summary>
           <div class="cols">
-            <img src="assets/images/ufrgsmun-committee.jpg" alt="O comitê do UNOCT no UFRGSMUN 2026, cada delegado com a placa de um país; Rafael segura a de Israel, na fileira de trás" width="815" height="805" loading="lazy" />
+            <div class="pic"><img src="assets/images/ufrgsmun-committee.jpg" alt="O comitê do UNOCT no UFRGSMUN 2026, cada delegado com a placa de um país; Rafael segura a de Israel, na fileira de trás" width="815" height="805" loading="lazy" /></div>
             <div>
               <p><strong>Como contribuí</strong>Para me preparar, acompanhei de perto os acontecimentos atuais, especialmente sobre ciberterrorismo e cibersegurança. No comitê, representei a posição de Israel e, nas negociações informais (caucuses) com outras delegações, busquei pontos em comum sobre medidas de combate ao terrorismo, formando alianças onde os interesses se encontravam e mantendo minha linha onde não se encontravam. A imprensa me escolheu como um dos quatro delegados para uma entrevista especial diante de todos os participantes, na qual defendi a posição da delegação e respondi a uma pergunta polêmica.</p>
               <p><strong>O que aprendi</strong>Diplomacia começa por ouvir: entender por que outra delegação defende sua posição é o que torna um acordo possível. Aprendi a trabalhar com pessoas cujas visões divergem muito das que eu representava, a negociar textos que vários lados pudessem aceitar, a colaborar em bloco por um texto comum e a manter a calma e a precisão ao defender uma posição difícil em público, em inglês. Também aprendi que uma posição só convence quando está atualizada: ameaças cibernéticas mudam rápido, então meus argumentos precisavam acompanhar as notícias mais recentes de cibersegurança e os debates sobre políticas públicas.</p>

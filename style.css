@@ -301,11 +301,14 @@ details[open] summary::before { content: '\2212'; transform: rotate(180deg); }
 /* slides open where ::details-content + interpolate-size exist; elsewhere it opens instantly, as before */
 details::details-content { block-size: 0; overflow: clip; transition: block-size 0.35s var(--ease), content-visibility 0.35s allow-discrete; }
 details[open]::details-content { block-size: auto; }
-details[open] :is(p, img) { animation: rise 0.4s var(--ease) backwards; }
+details[open] :is(p, .pic) { animation: rise 0.4s var(--ease) backwards; }
 summary:hover { color: var(--text); }
 details p { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); }
-/* one extra photo per card, shown only when "Contribution & learnings" is open */
-details img { display: block; width: 100%; height: auto; margin-top: 0.75rem; border: 1px solid var(--border); border-radius: 10px; }
+/* one extra photo per card, shown only when "Contribution & learnings" is open; the .pic frame clips it so it can
+   zoom on hover like the card figures (.shot) */
+details .pic { margin-top: 0.75rem; overflow: hidden; border: 1px solid var(--border); border-radius: 10px; }
+details .pic img { display: block; width: 100%; height: auto; transition: transform 0.5s var(--ease); }
+details .pic:hover img { transform: scale(1.04); }
 details p strong { display: block; font-weight: 500; color: var(--text); font-size: 0.85rem; }
 
 .tags { margin-top: auto; padding-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
