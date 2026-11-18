@@ -43,7 +43,8 @@
 
     <!--THEME (applied before paint to avoid flash)-->
     <script>
-      var t = localStorage.getItem("theme");
+      var t;
+      try { t = localStorage.getItem("theme"); } catch (e) {} // throws when site data is blocked
       if (t) document.documentElement.setAttribute("data-theme", t);
       // motion layer (scroll reveal, theme wipe) only when the user hasn't asked for reduced motion
       if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window)
@@ -59,7 +60,7 @@
         var next = current === "light" ? "dark" : "light";
         function apply() {
           d.setAttribute("data-theme", next);
-          localStorage.setItem("theme", next);
+          try { localStorage.setItem("theme", next); } catch (e) {}
           btn.setAttribute("aria-pressed", next === "dark");
         }
         if (!document.startViewTransition || !d.classList.contains("motion")) return apply();
@@ -116,7 +117,7 @@
         <span class="label">Computer Engineering @ UFRGS</span>
         <h1>Rafael Silva de Souza</h1>
         <p class="role">Hardware Acceleration, HPC &amp; Quant Finance</p>
-        <p class="tagline">I work on making neural networks cheaper to run on real hardware, from CNNs on FPGAs to LLMs across GPUs, and research ML portfolios for the Brazilian stock market.</p>
+        <p class="tagline">I work on making neural networks cheaper to run on real hardware, from CNNs on FPGAs to LLMs across GPUs, and build market-data pipelines and ML portfolio research for Brazilian and US stocks.</p>
         <div class="cta">
           <a class="btn primary" href="#work">See my work <span class="arr d" aria-hidden="true">&darr;</span></a>
           <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
@@ -131,17 +132,17 @@
       <!-- CURRENT WORK -->
       <h2 class="group s12" id="work">Current work</h2>
       <article class="tile s6 p">
-        <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Undergrad Research — UFRGS — project"><img class="shot" src="assets/images/projects/research.webp" alt="Pareto frontier of top-1 accuracy versus model size across all studied CNNs and quantization levels, from FP32 down to binary" width="960" height="640" loading="lazy" /></a>
+        <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Kernel-size study for Winograd hardware — project"><img class="shot" src="assets/images/projects/research.webp" alt="Pareto frontier of top-1 accuracy versus model size across all studied CNNs and quantization levels, from FP32 down to binary" width="960" height="640" loading="lazy" /></a>
         <span class="label">Research &middot; UFRGS &middot; since 2026</span>
         <p class="hl">Alternating 3&times;3 and 2&times;2 kernels: 24% fewer MACs, no measurable accuracy loss</p>
         <div class="metric-label">152-run kernel-size study on Tiny ImageNet, plus PASCAL VOC detection and segmentation &middot; FP32 &rarr; QAT &rarr; INT8 &middot; runs on PCAD (Slurm)</div>
-        <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Undergrad Research &mdash; UFRGS <span class="ext">&#8599;</span></a></h3>
+        <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Kernel-size study for Winograd hardware <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/RafaelSdeS/dnn_study/blob/main/report/ic_report/ic_report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
-        <p class="desc">Hardware-aware neural networks: how restricting CNN kernels to the 2&times;2 and 3&times;3 sizes that Winograd hardware handles well affects accuracy, efficiency and INT8 quantization. Advised by <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, of UFRGS&rsquo;s Microelectronics Group, whose research centers on efficient algorithms and architectures for machine learning, and to whom this work owes a great deal.</p>
+        <p class="desc">Hardware-aware neural networks: how restricting CNN kernels to the 2&times;2 and 3&times;3 sizes that Winograd hardware handles well affects accuracy, efficiency and INT8 quantization. Advised by <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, of UFRGS&rsquo;s Microelectronics Group.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contribute</strong>I run the kernel-size study end to end on PCAD, UFRGS&rsquo;s HPC cluster, through Slurm: 152 runs in the main study, plus robustness and hybrid rounds on Tiny ImageNet and PASCAL VOC, each trained in FP32, then quantization-aware, then converted to INT8.</p>
-          <p><strong>What I&rsquo;m learning</strong>Measure the seed noise before trusting a difference: a 2-point gap means little when the seed alone moves results by 0.7. Beyond the technical side: keeping a 152-run study organized and reproducible, and reporting results to my advisor with their limits and not just the good news.</p>
+          <p><strong>What I&rsquo;m learning</strong>Measure the seed noise before trusting a difference: between two single runs, the seed alone moves the gap by 0.7 to 1 point, so anything inside that band is a tie, and the best of 24 configurations had to be rerun with two more seeds before I trusted it. Beyond the technical side: keeping a 152-run study organized and reproducible, and reporting results to my advisor with their limits and not just the good news.</p>
         </details>
         <ul class="tags"><li>Python</li><li>Deep Learning</li><li>Quantization</li><li>HPC</li></ul>
       </article>
@@ -163,35 +164,35 @@
         <a class="shot-link" href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer" aria-label="Quantitative Finance — project"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: B3 prices, CVM filings, delisted companies and macro data feed a point-in-time dataset; a LightGBM alpha model, a risk model and a cost-aware optimizer are evaluated in a walk-forward backtest against BOVA11, equal-weight and 100% CDI baselines"><defs><marker id="ah-q" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">DATA (B3, POINT-IN-TIME)</text><rect class="box" x="30" y="40" width="126" height="42" rx="8"/><text x="93" y="66">prices</text><rect class="box" x="168" y="40" width="126" height="42" rx="8"/><text x="231" y="66">CVM filings</text><rect class="box" x="306" y="40" width="126" height="42" rx="8"/><text x="369" y="66">delisted cos.</text><rect class="box" x="444" y="40" width="126" height="42" rx="8"/><text x="507" y="66">macro</text><path class="arrow" d="M93 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M231 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M369 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M507 82 V122" marker-end="url(#ah-q)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">point-in-time ML dataset</text><text class="muted" x="300" y="165">filing dates, no lookahead, no survivorship bias</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-q)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="243">LightGBM alpha</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-q)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="243">risk model</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-q)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">cost-aware</text><text x="486" y="252">optimizer</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-q)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">walk-forward backtest</text><text class="muted" x="300" y="346">vs BOVA11 · equal-weight · 100% CDI</text></svg></a>
         <div>
           <span class="label">Solo project &middot; since 2025</span>
-          <p class="hl">ML portfolios for B3, backtested with no lookahead or survivorship bias</p>
-          <div class="metric-label">~10,000 tickers in the US-expansion target &middot; LightGBM alpha &rarr; risk model &rarr; cost-aware optimizer &middot; vs BOVA11 and CDI baselines</div>
+          <p class="hl">Point-in-time market data for B3 and ~9,600 US stocks, free of lookahead and survivorship bias</p>
+          <div class="metric-label">B3 since 2000, delisted companies included &middot; US: 34M price rows, SEC EDGAR fundamentals back to the 1990s, FRED macro &middot; LightGBM portfolio research on top, in progress</div>
           <h3><a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer">Quantitative Finance <span class="ext">&#8599;</span></a></h3>
           <p class="desc">Machine-learning research for portfolio management on the Brazilian equity market (B3): a point-in-time data pipeline and a LightGBM-based portfolio-construction study under walk-forward backtesting, now expanding to US equities.</p>
         </div>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <div class="cols">
-            <p><strong>How I contribute</strong>I built the whole pipeline: prices, CVM fundamentals with their real filing dates, delisted companies to avoid survivorship bias, and macro data; then a LightGBM alpha model, a risk model and a cost-aware optimizer. For the US expansion I&rsquo;m adding SEC EDGAR fundamentals and FRED macro data, validated on the top 500 stocks and scaling to ~10,000 tickers.</p>
+            <p><strong>How I contribute</strong>I built the whole pipeline: prices, CVM fundamentals with their real filing dates, delisted companies to avoid survivorship bias, and macro data; then a LightGBM alpha model, a risk model and a cost-aware optimizer. For the US expansion I&rsquo;ve collected prices for ~9,600 tickers (34M rows), SEC EDGAR fundamentals back to the 1990s and FRED macro data.</p>
             <p><strong>What I&rsquo;m learning</strong>A configuration picked from many backtests means little until it is corrected for multiple testing (a deflated-Sharpe check showed me that), and survivorship bias and filing dates matter as much as the model. Running a long project alone taught me self-management: set my own milestones, change one variable per experiment, and act as my own reviewer, so no layer goes in until the one below beats its baseline.</p>
           </div>
         </details>
         <ul class="tags"><li>Python</li><li>LightGBM</li><li>Walk-Forward Validation</li><li>Portfolio Optimization</li></ul>
       </article>
       <aside class="tile s12 focus">
-        <span class="label">Current focus</span>
+        <span class="label">Next steps</span>
         <ul>
-          <li><span class="label">Research</span><strong>Hardware-aware neural networks</strong><p>Exploring constrained kernels and accelerator-friendly architectures.</p></li>
-          <li><span class="label">Build</span><strong>Quantitative systems</strong><p>Testing data pipelines and portfolio strategies for the B3 market.</p></li>
-          <li><span class="label">Learn</span><strong>High-performance inference</strong><p>Studying parallelism, CUDA and the cost of moving computation.</p></li>
+          <li><span class="label">Research</span><strong>Publishing the Winograd work</strong><p>Finishing the invited IEEE OJCAS article with Thomas Schmitz and awaiting the ISCAS decision.</p></li>
+          <li><span class="label">Build</span><strong>The full US dataset</strong><p>Scaling the US build to all ~9,600 tickers, then a first US backtest.</p></li>
+          <li><span class="label">Learn</span><strong>High-performance inference</strong><p>Going deeper into CUDA, parallelism and the cost of moving computation.</p></li>
         </ul>
       </aside>
 
       <!-- ROW: background + photo (Rafael faces left, toward the text) -->
       <section class="tile s8 about">
         <span class="label">Background</span>
-        <p>I'm an undergraduate Computer Engineering student at UFRGS, previously studying Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research applies hardware-aware constraints &mdash; restricting convolutional kernels to 2&times;2 and 3&times;3 &mdash; to make neural networks a better fit for hardware accelerators. I owe much of this work to my advisor, <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, whose mentorship shaped how I do research.</p>
-        <p>Outside the lab, I build machine-learning portfolio research and backtesting infrastructure for the Brazilian equity market (B3).</p>
-        <p>At UFSC I built a laser 3D scanner for an underwater-inspection ROV project and worked on the Shell Eco-marathon team. Since then I&rsquo;ve led a team of three in an IBM challenge, built a fire-season forecast at NASA Space Apps and, outside engineering, negotiated counter-terrorism and cybersecurity policy at UFRGSMUN.</p>
+        <p>I'm an undergraduate Computer Engineering student at UFRGS, one of Brazil&rsquo;s most prestigious universities, rated the country&rsquo;s best federal university by the Ministry of Education in 2022. Before that, I studied Electrical Engineering at UFSC. I work at the intersection of hardware and machine learning: my current research makes neural networks a better fit for hardware accelerators. I owe much of this work to my advisor, <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, whose mentorship shaped how I do research.</p>
+        <p>Outside the lab, I build point-in-time market data and ML portfolio research for B3 and US stocks.</p>
+        <p>At UFSC I built a laser 3D scanner for an underwater-inspection ROV project and worked on the Shell Eco-marathon team. Since then I&rsquo;ve led a team of three in the IBM SkillsBuild challenge, built a fire-season forecast at NASA Space Apps and, outside engineering, took part in UFRGSMUN, negotiating proposals and reconciling opposing views.</p>
         <ul class="facts">
           <li><span>University</span>UFRGS &mdash; Computer Engineering</li>
           <li><span>Previously</span>UFSC &mdash; Electrical Engineering</li>
@@ -206,31 +207,30 @@
       <h2 class="group s12" id="experience">Experience</h2>
       <article class="tile s6 p">
         <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — project"><img class="shot" src="assets/images/projects/voris.webp" alt="Laser line on a hand as seen by the camera, next to the 3D point cloud reconstructed from it" width="960" height="640" loading="lazy" /></a>
-        <span class="label">LabMetro &middot; UFSC &middot; 2025 &middot; Vision + embedded</span>
+        <span class="label">LABMETRO &middot; UFSC &middot; 2025 &middot; Vision + embedded</span>
         <p class="hl">Low-cost laser 3D scanner for underwater inspection, from hardware to point cloud</p>
         <div class="metric-label">Camera, laser and encoder-driven rotating mirror (Arduino) &middot; subpixel laser-line extraction &middot; gradient-boosted depth model &middot; FINEP-funded ROV at UFSC</div>
         <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Laser-triangulation code &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Research report (PDF, PT) &#8599;</a></div>
-        <p class="desc">VORIS (Remotely Operated Vehicle for Underwater Inspection) is a FINEP-funded project at UFSC&rsquo;s Metrology and Automation Laboratory, with Petrobras as an interested party: an ROV with 3D optical measurement systems for submerged structures. In my undergraduate research I built and evaluated its laser-triangulation testbed: a camera, a laser and a rotating mirror that sweep a scene and turn it into a 3D point cloud.</p>
+        <p class="desc">VORIS (Remotely Operated Vehicle for Underwater Inspection) is a FINEP-funded project at UFSC&rsquo;s Metrology and Automation Laboratory (LABMETRO), with Petrobras as an interested party: an ROV with 3D optical measurement systems for submerged structures. In my undergraduate research, working with <a href="http://lattes.cnpq.br/5099028947205509" target="_blank" rel="noopener noreferrer">Prof. Diego Fabre</a>, I built and evaluated its laser-triangulation testbed: a camera, a laser and a rotating mirror that sweep a scene and turn it into a 3D point cloud.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I built the system end to end: the hardware (an Arduino Uno R4 driving a stepper-motor mirror read by an absolute encoder, PWM laser control and image capture synchronized to the scan angle), subpixel laser-line extraction with an intensity-weighted centroid (far less noise than thresholding), the geometric triangulation model (camera normalization, camera&ndash;laser geometry and mirror-angle correction), a gradient-boosted regression model trained on labeled scans to correct systematic depth errors, and a graphical interface to run it all.</p>
-          <p><strong>What I learned</strong>A model is only as good as its calibration: geometry was accurate near the center of the view, but small errors in calibration and laser angle grew toward the edges. Learning those errors from data reduced the artifacts there, but only as far as the training data reached, which points to a hybrid with geometry as the backbone. In an interdisciplinary, funded team I also learned to explain my subsystem to people from other fields and deliver on the project&rsquo;s schedule.</p>
+          <p><strong>What I learned</strong>A model is only as good as its calibration: geometry was accurate near the center of the view, but small errors in calibration and laser angle grew toward the edges. Learning those errors from data reduced the artifacts there, but only as far as the training data reached, which points to a hybrid with geometry as the backbone. Working at <a href="https://pdpetro.com.br/anais/repositorio/12pdpetro/59240705082024200.pdf" target="_blank" rel="noopener noreferrer">LABMETRO</a> also put me, an electrical-engineering student, in a mechanical-engineering lab alongside metrologists and computer-vision researchers, working with professors from different specialties: I learned to explain my subsystem in each of their terms, to turn their critiques into improvements to the testbed, and to deliver on a funded project&rsquo;s schedule.</p>
         </details>
         <ul class="tags"><li>Computer Vision</li><li>Embedded Systems</li><li>3D Reconstruction</li><li>Machine Learning</li></ul>
       </article>
       <article class="tile s6 p">
         <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Shell Eco-marathon Team — project"><img class="shot" src="assets/images/projects/e3.webp" alt="3D render of E3 UFSC&rsquo;s 2023 Shell Eco-marathon prototype" width="960" height="640" loading="lazy" /></a>
         <span class="label">Student competition team &middot; 2025 &middot; Engineering + marketing</span>
-        <div class="metric">525.7<small>km/L</small></div>
-        <p class="hl">on a single liter of gasoline, about 40&times; an ordinary car</p>
-        <div class="metric-label">E3 prototype &middot; Shell Eco-marathon Brasil 2017 &middot; gasoline category</div>
+        <p class="hl">Carbon-fiber composites on an ultra-efficient prototype, and the team&rsquo;s marketing</p>
+        <div class="metric-label">Shell Eco-marathon team &middot; gasoline and electric prototypes &middot; technical visit to Nanopoxy (epoxy resins)</div>
         <h3><a href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer">E3 UFSC &mdash; Shell Eco-marathon Team <span class="ext">&#8599;</span></a></h3>
-        <p class="desc">E3 (UFSC Energy Efficiency Team) designs, builds and validates ultra-efficient gasoline and electric prototype vehicles for the Shell Eco-marathon. I worked on the car&rsquo;s engineering and took part in a technical visit to <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy</a>, a manufacturer of epoxy resins for composites.</p>
+        <p class="desc">E3 (UFSC Energy Efficiency Team) designs, builds and validates ultra-efficient gasoline and electric prototype vehicles for the Shell Eco-marathon. I joined in 2025 and worked on the car&rsquo;s engineering and the team&rsquo;s marketing.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
-          <p><strong>How I contributed</strong>I worked mainly on the car&rsquo;s engineering, including hands-on work with carbon-fiber composites; took part in a technical visit to Nanopoxy, a manufacturer of epoxy resins for composites &mdash; the same family of materials used in the car; and did the team&rsquo;s marketing while also organizing the marketing area.</p>
-          <p><strong>What I learned</strong>How carbon fiber and epoxy resin combine into light, stiff parts, and, at Nanopoxy, what goes into the resins themselves. Organizing the marketing area taught me to split tasks among teammates, set deadlines and follow up; balancing it with engineering taught me to prioritize and to explain technical work to people outside the team.</p>
+          <p><strong>How I contributed</strong>I worked mainly on the car&rsquo;s engineering, including hands-on work with carbon-fiber composites; took part in a technical visit to <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy</a>, a manufacturer of epoxy resins for composites &mdash; the same family of materials used in the car; and did the team&rsquo;s marketing while also organizing the marketing area.</p>
+          <p><strong>What I learned</strong>How carbon fiber and epoxy resin combine into light, stiff parts, and, at Nanopoxy, what goes into the resins themselves. Organizing the marketing area meant splitting tasks among teammates, setting deadlines and following up; doing it alongside the engineering work forced me to prioritize, and to explain the car&rsquo;s technical side in terms people outside engineering could follow.</p>
         </details>
         <ul class="tags"><li>Engineering</li><li>Carbon Fiber Composites</li><li>Marketing</li><li>Teamwork</li></ul>
       </article>
@@ -241,12 +241,12 @@
         <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — live demo"><img class="shot" src="assets/images/projects/lunax.webp" alt="LUNAX map of the places in Rond&ocirc;nia that burned year after year, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
         <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
         <p class="hl">Forecasts where Brazil will burn next season, cell by cell</p>
-        <div class="metric-label">NASA FIRMS, MODIS + VIIRS merged (2000&ndash;2026) &middot; a simple ratio model beat the ML challenger &middot; Galactic Problem Solver certificate</div>
+        <div class="metric-label">NASA FIRMS, MODIS + VIIRS merged (2000&ndash;2026) &middot; a simple ratio model beat the ML challenger &middot; participation certificate</div>
         <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar" target="_blank" rel="noopener noreferrer">LUNAX Fire Calendar <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
           <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
           <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps &#8599;</a>
-          <a href="assets/images/nasa-space-apps-certificate.jpg" target="_blank" rel="noopener noreferrer">NASA certificate &#8599;</a>
+          <a href="assets/images/nasa-space-apps-certificate.jpg" target="_blank" rel="noopener noreferrer">Participation certificate &#8599;</a>
         </div>
         <p class="desc">A web app that merges NASA FIRMS fire detections from both satellite sensors into one consistent series and turns it into a monthly burning calendar, piloted in Rond&ocirc;nia and extended to every Brazilian state.</p>
         <details>
@@ -263,14 +263,14 @@
         <div class="metric-label">NPV, payback and portfolio optimization &middot; IBM Granite explanations checked against the numbers &middot; 230 automated tests</div>
         <h3><a href="https://github.com/RafaelSdeS/conecta-mais" target="_blank" rel="noopener noreferrer">Conecta+ &mdash; IBM SkillsBuild <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
-          <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo &#8599;</a>
+          <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo (may take ~1 min to wake up) &#8599;</a>
           <a href="https://github.com/RafaelSdeS/conecta-mais/blob/main/DOCUMENTACAO_CONECTA.pdf" target="_blank" rel="noopener noreferrer">Docs (PDF, PT) &#8599;</a>
         </div>
         <p class="desc">Decision-support system for the IBM SkillsBuild &amp; Funda&ccedil;&atilde;o Telef&ocirc;nica Vivo challenge: ranks municipalities for connectivity expansion with public data (Anatel, IBGE, INEP), financial analysis, portfolio optimization and an IBM Granite agent that explains each recommendation.</p>
         <details>
           <summary>Contribution &amp; learnings</summary>
           <p><strong>How I contributed</strong>I led the team of three that built it and owned the decision engine: the municipality priority scores, backhaul distances, the financial tool (payback, NPV, sensitivity), portfolio optimization with PuLP/CBC (IBM CPLEX optional) and a 2021&rarr;2025 backtest. I also led integration: the FastAPI backend, checks that Granite&rsquo;s text matches the engine&rsquo;s numbers, CI and the deploy.</p>
-          <p><strong>What I learned</strong>How to turn a business question into an optimization model with real budget constraints, and why LLM output must be checked against the data. Leading the team taught me to assign responsibilities by each person&rsquo;s strengths, agree on interfaces and mock data early so data, engine and UI could move in parallel, keep everyone aligned on the deadline, and make the final calls when the pieces had to fit together.</p>
+          <p><strong>What I learned</strong>How to turn a business question into an optimization model with real budget constraints, and why LLM output must be checked against the data. Leading it, I learned to split the work by who knew what best, to fix interfaces and mock data early so data, engine and UI could move in parallel, and to make the final calls when the pieces had to fit together before the deadline.</p>
         </details>
         <ul class="tags"><li>Python</li><li>FastAPI</li><li>Optimization</li><li>IBM watsonx</li></ul>
       </article>
@@ -307,27 +307,13 @@
         <ul class="tags"><li>Python</li><li>NLP</li><li>Clustering</li></ul>
       </article>
       <article class="tile s4 p">
-        <a class="shot-link" href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer" aria-label="Breakout — INF01202 — project"><img class="shot" src="assets/images/projects/breakout.webp" alt="In-game frame of the Breakout game: a ring of green bricks, the ball, the paddle and falling power-ups" width="900" height="600" loading="lazy" /></a>
-        <span class="label">Course project &middot; INF01202 &middot; pair</span>
-        <p class="hl">A full arcade game in C, memory and file I/O handled by hand</p>
-        <div class="metric-label">32 of 38 commits mine &middot; Raylib &middot; binary saves with score ranking</div>
-        <h3><a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer">Breakout &mdash; INF01202 <span class="ext">&#8599;</span></a></h3>
-        <p class="desc">An arcade-style Brick Breaker built in C with Raylib: keyboard-controlled movement, collision detection, lives, scoring, power-ups and multiple levels loaded from files.</p>
-        <details>
-          <summary>Contribution &amp; learnings</summary>
-          <p><strong>How I contributed</strong>I wrote most of the code (32 of 38 commits): modular game states, collisions, power-ups, levels loaded from files, binary save files with score ranking, audio and the HUD.</p>
-          <p><strong>What I learned</strong>Structuring a C program into modules and handling memory and file I/O by hand. Working in a pair taught me to split the game into modules each of us could own, agree on the interfaces between them and use Git to keep our work in sync.</p>
-        </details>
-        <ul class="tags"><li>C</li><li>Raylib</li><li>Game Systems</li></ul>
-      </article>
-      <article class="tile s4 p">
         <a class="shot-link" href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer" aria-label="PAM UFRGS — pull request"><img class="shot" src="assets/images/projects/pam.webp" alt="Graduation forecast view added to the PAM UFRGS app: a semester-by-semester plan of the remaining courses" width="959" height="640" loading="lazy" /></a>
         <span class="label">Open-source contribution</span>
         <p class="hl">AI course assistant and graduation forecast for UFRGS students</p>
-        <div class="metric-label">Open-source pull request &middot; Vue &middot; rate-limited AI endpoint &middot; Vitest tests</div>
+        <div class="metric-label">Pull request, not merged (upstream no longer maintained) &middot; Vue &middot; rate-limited AI endpoint &middot; Vitest tests</div>
         <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer">PAM UFRGS <span class="ext">&#8599;</span></a></h3>
         <div class="sublinks">
-          <a href="https://www.inf.ufrgs.br/~vkveiga/pam/" target="_blank" rel="noopener noreferrer">Live app &#8599;</a>
+          <a href="https://github.com/RafaelSdeS/pam-ufrgs" target="_blank" rel="noopener noreferrer">My fork &#8599;</a>
           <a href="https://github.com/vkveiga/pam-ufrgs" target="_blank" rel="noopener noreferrer">Upstream repo &#8599;</a>
         </div>
         <p class="desc">Pull request to an open-source UFRGS enrollment-assistance app, adding features I missed while using it as a student.</p>
@@ -337,6 +323,20 @@
           <p><strong>What I learned</strong>How to contribute to someone else&rsquo;s codebase: follow its conventions, keep a pull request focused and explain why each change matters so the maintainer can review it quickly; and how to add tests around code I did not write.</p>
         </details>
         <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer" aria-label="Breakout — project"><img class="shot" src="assets/images/projects/breakout.webp" alt="In-game frame of the Breakout game: a ring of green bricks, the ball, the paddle and falling power-ups" width="900" height="600" loading="lazy" /></a>
+        <span class="label">Course project &middot; Algorithms &amp; Programming (INF01202) &middot; pair</span>
+        <p class="hl">A full arcade game in C, memory and file I/O handled by hand</p>
+        <div class="metric-label">32 of 38 commits mine &middot; Raylib &middot; binary saves with score ranking</div>
+        <h3><a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer">Breakout <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">An arcade-style Brick Breaker built in C with Raylib: keyboard-controlled movement, collision detection, lives, scoring, power-ups and multiple levels loaded from files.</p>
+        <details>
+          <summary>Contribution &amp; learnings</summary>
+          <p><strong>How I contributed</strong>I wrote most of the code (32 of 38 commits): modular game states, collisions, power-ups, levels loaded from files, binary save files with score ranking, audio and the HUD.</p>
+          <p><strong>What I learned</strong>Structuring a C program into modules and handling memory and file I/O by hand. Working in a pair taught me to split the game into modules each of us could own, agree on the interfaces between them and use Git to keep our work in sync.</p>
+        </details>
+        <ul class="tags"><li>C</li><li>Raylib</li><li>Game Systems</li></ul>
       </article>
 
       <!-- ACTIVITIES: one wide card, figure left and text right (.tile.p.wide) -->
@@ -358,8 +358,8 @@
           <div class="cols">
             <div class="pic"><img src="assets/images/ufrgsmun-committee.jpg" alt="The UNOCT committee at UFRGSMUN 2026, each delegate holding a country placard; Rafael holds Israel&rsquo;s in the back row" width="815" height="805" loading="lazy" /></div>
             <div>
-              <p><strong>How I contributed</strong>To prepare, I followed current events closely, especially cyberterrorism and cybersecurity. In committee I represented Israel&rsquo;s position and worked in caucuses with other delegations to find common ground on counter-terrorism measures, building alliances where interests met and holding my line where they did not. The press team chose me as one of four delegates for a special interview in front of all participants, where I defended my delegation&rsquo;s position and answered a controversial question.</p>
-              <p><strong>What I learned</strong>Diplomacy starts with listening: understanding why another delegation holds its position is what makes a compromise possible. I learned to work with people whose views differ sharply from the ones I represented, to negotiate wording several sides could accept, to collaborate in a bloc toward a shared text, and to stay calm and precise defending a difficult position in public, in English. I also learned that a credible position has to be current: cyber threats change fast, so my arguments had to keep up with the latest cybersecurity news and policy debates.</p>
+              <p><strong>How I contributed</strong>To prepare, I followed the news on cyberterrorism, cybersecurity and the Sahel closely. In committee I represented Israel and negotiated in caucuses with other delegations over the wording of counter-terrorism measures, conceding where it cost little and holding firm on the points Israel could not give up. The press team chose me as one of four delegates for a special interview in front of all participants, where I defended my delegation&rsquo;s position and answered a critical question from the journalists.</p>
+              <p><strong>What I learned</strong>Agreements came from understanding why each delegation held its position, not from repeating mine. I learned to work with delegations whose views were far from Israel&rsquo;s, to negotiate wording several sides could accept, to build a bloc around a shared text, and to defend a difficult position in public, in English, without losing precision. The preparation also became a habit: I keep up with cybersecurity and geopolitics day to day, from new attacks and vulnerabilities to regional conflicts and the security debates around them, because an argument only holds when it reflects the current picture.</p>
             </div>
           </div>
         </details>
@@ -370,9 +370,9 @@
       <h2 class="group s12" id="contact">Stack &amp; contact</h2>
       <section class="tile s12 skills">
         <span class="label">Skills</span>
-        <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>Python</li><li>C</li><li>C++</li><li>CUDA</li><li>Slurm (PCAD cluster)</li></ul></div>
-        <div class="grp"><strong>ML &amp; Data</strong><ul class="tags"><li>Python</li><li>Deep Learning</li><li>Reinforcement Learning</li><li>LightGBM</li><li>Computer Vision</li></ul></div>
-        <div class="grp"><strong>Software Engineering</strong><ul class="tags"><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li></ul></div>
+        <div class="grp"><strong>Systems &amp; Acceleration</strong><ul class="tags"><li>C</li><li>C++</li><li>CUDA</li><li>FPGA (Vivado)</li><li>vLLM</li><li>Ray</li><li>Slurm (PCAD cluster)</li></ul></div>
+        <div class="grp"><strong>ML &amp; Data</strong><ul class="tags"><li>Python</li><li>PyTorch</li><li>Quantization (QAT/INT8)</li><li>Deep Learning</li><li>Reinforcement Learning</li><li>LightGBM</li><li>Computer Vision</li><li>NLP</li></ul></div>
+        <div class="grp"><strong>Software Engineering</strong><ul class="tags"><li>FastAPI</li><li>Vue</li><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li><li>Docker</li><li>Git</li></ul></div>
         <div class="grp"><strong>Languages</strong><ul class="tags"><li>Portuguese (Native)</li><li>English (Fluent)</li><li>French (Proficient)</li><li>Spanish (Proficient)</li></ul></div>
       </section>
       <section class="tile s12 contact">

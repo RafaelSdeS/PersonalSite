@@ -211,9 +211,6 @@ body {
 .open span { display: block; margin-bottom: 0.3rem; font: 500 0.65rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--faint); }
 
 /* WORK / EXPERIENCE / PROJECT TILES */
-.metric { margin-top: 1.25rem; font: 500 2.6rem/1 var(--mono); letter-spacing: -0.03em; color: var(--accent); }
-.metric small { font-size: 0.45em; letter-spacing: 0; margin-left: 0.15em; }
-.metric + .hl { margin-top: 0.4rem; } /* E3: the line that says what the big number means sits right under it */
 .metric-label { margin-top: 0.4rem; font-size: 0.8rem; color: var(--faint); }
 /* headline: what the project shows, in words; .metric-label under it carries the hard facts */
 .hl { margin-top: 1.25rem; font: 500 1.08rem/1.35 var(--sans); color: var(--accent); text-wrap: balance; }
