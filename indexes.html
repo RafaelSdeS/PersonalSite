@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!--PAGE INFO-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rafael Silva de Souza es estudiante de Ingeniería de Computación y trabaja en aceleración de hardware, machine learning, HPC y finanzas cuantitativas."
+    />
+    <meta property="og:title" content="Rafael Silva de Souza | Ingeniería de Computación" />
+    <meta property="og:description" content="ML consciente del hardware, HPC y sistemas cuantitativos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rafaelsdes.github.io/indexes.html" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="https://rafaelsdes.github.io/assets/images/og-es.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rafael Silva de Souza — Ingeniería de Computación @ UFRGS: aceleración de hardware, HPC y finanzas cuantitativas" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://rafaelsdes.github.io/indexes.html" />
+    <link rel="alternate" hreflang="en" href="https://rafaelsdes.github.io/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://rafaelsdes.github.io/indexpt.html" />
+    <link rel="alternate" hreflang="es" href="https://rafaelsdes.github.io/indexes.html" />
+    <link rel="alternate" hreflang="fr" href="https://rafaelsdes.github.io/indexfr.html" />
+    <link rel="alternate" hreflang="x-default" href="https://rafaelsdes.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!--STRUCTURED DATA (identical in both languages)-->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rafael Silva de Souza",
+        "url": "https://rafaelsdes.github.io/",
+        "image": "https://rafaelsdes.github.io/assets/images/rafael-portrait.jpg",
+        "jobTitle": "Computer Engineering student",
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "Universidade Federal do Rio Grande do Sul (UFRGS)" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Porto Alegre", "addressRegion": "RS", "addressCountry": "BR" },
+        "email": "mailto:rafael.souza@inf.ufrgs.br",
+        "sameAs": ["https://github.com/RafaelSdeS", "https://www.linkedin.com/in/rafael-silva-de-souza/"],
+        "knowsAbout": ["Hardware acceleration", "Machine learning", "High-performance computing", "Quantitative finance"]
+      }
+    </script>
+
+    <!--THEME (applied before paint to avoid flash)-->
+    <script>
+      var t;
+      try { t = localStorage.getItem("theme"); } catch (e) {} // throws when site data is blocked
+      if (t) document.documentElement.setAttribute("data-theme", t);
+      // motion layer (scroll reveal, theme wipe) only when the user hasn't asked for reduced motion
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window)
+        document.documentElement.classList.add("motion");
+      function toggleTheme() {
+        var d = document.documentElement;
+        var btn = document.querySelector(".theme-toggle");
+        var current =
+          d.getAttribute("data-theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        var next = current === "light" ? "dark" : "light";
+        function apply() {
+          d.setAttribute("data-theme", next);
+          try { localStorage.setItem("theme", next); } catch (e) {}
+          btn.setAttribute("aria-pressed", next === "dark");
+        }
+        if (!document.startViewTransition || !d.classList.contains("motion")) return apply();
+        var r = btn.getBoundingClientRect();
+        d.style.setProperty("--vx", r.left + r.width / 2 + "px");
+        d.style.setProperty("--vy", r.top + r.height / 2 + "px");
+        document.startViewTransition(apply);
+      }
+      window.addEventListener("DOMContentLoaded", function () {
+        var current = document.documentElement.getAttribute("data-theme") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.querySelector(".theme-toggle").setAttribute("aria-pressed", current === "dark");
+      });
+    </script>
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--ICONS-->
+    <link rel="stylesheet" href="assets/icons/style.css" />
+
+    <title>Rafael Silva de Souza</title>
+  </head>
+<body>
+    <header class="top">
+      <div class="top-inner">
+        <nav aria-label="Secciones">
+          <a href="#work">Trabajo</a>
+          <a href="#experience">Experiencia</a>
+          <a href="#projects">Proyectos</a>
+          <a href="#activities">Actividades</a>
+          <a href="#contact">Contacto</a>
+        </nav>
+        <div class="actions">
+          <button class="theme-toggle" type="button" aria-label="Cambiar entre modo oscuro y claro" aria-pressed="false" onclick="toggleTheme()">&#9680;</button>
+          <a class="pill" href="resumees.html" title="Currículum de una página">CV</a>
+          <a class="pill" href="index.html" hreflang="en" lang="en" title="View in English">EN</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="bento">
+      <!-- ROW: intro + portrait -->
+      <section class="tile s8 intro">
+        <span class="label">Ingeniería de Computación @ UFRGS</span>
+        <h1>Rafael Silva de Souza</h1>
+        <p class="role">Aceleración de hardware, HPC y finanzas cuantitativas</p>
+        <p class="tagline">Trabajo para que las redes neuronales cuesten menos de ejecutar en hardware real, desde CNN en FPGA hasta LLM en varias GPU, y construyo pipelines de datos de mercado e investigación de carteras con ML para acciones de Brasil y EE.&nbsp;UU.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">Ver mi trabajo <span class="arr d" aria-hidden="true">&darr;</span></a>
+          <a class="btn" href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer">GitHub <span class="arr e" aria-hidden="true">&#8599;</span></a>
+          <a class="btn" href="resumees.html">CV de una página <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <p class="open"><span>Abierto a</span>Ingeniería de ML e investigación en IA &middot; Investigación cuantitativa &middot; HPC</p>
+      </section>
+      <figure class="tile s4 portrait">
+        <img src="assets/images/rafael-portrait.jpg" alt="Rafael Silva de Souza" width="800" height="1000" />
+      </figure>
+
+      <!-- CURRENT WORK -->
+      <h2 class="group s12" id="work">Trabajo actual</h2>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer" aria-label="Estudio de tamaño de kernel para hardware Winograd — proyecto"><img class="shot" src="assets/images/projects/research.webp" alt="Frontera de Pareto de la precisión top-1 frente al tamaño del modelo para todas las CNN estudiadas y todos los niveles de cuantización, de FP32 a binario" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Investigación &middot; UFRGS &middot; desde 2026</span>
+        <p class="hl">Kernels de 3&times;3 y 2&times;2 alternados: 24&nbsp;% menos MAC, sin pérdida de precisión medible</p>
+        <div class="metric-label">Estudio de tamaño de kernel con 152 ejecuciones en Tiny ImageNet, más detección y segmentación en PASCAL VOC &middot; FP32 &rarr; QAT &rarr; INT8 &middot; ejecuciones en PCAD (Slurm)</div>
+        <h3><a href="https://github.com/RafaelSdeS/dnn_study" target="_blank" rel="noopener noreferrer">Estudio de tamaño de kernel para hardware Winograd <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks"><a href="https://github.com/RafaelSdeS/dnn_study/blob/main/report/ic_report/ic_report.pdf" target="_blank" rel="noopener noreferrer">Informe de investigación (PDF, PT) &#8599;</a></div>
+        <p class="desc">Redes neuronales conscientes del hardware: cómo limitar los kernels de una CNN a los tamaños 2&times;2 y 3&times;3, que el hardware Winograd maneja bien, afecta la precisión, la eficiencia y la cuantización INT8. Bajo la dirección del <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, del Grupo de Microelectrónica de la UFRGS.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuyo</strong>Llevo el estudio de tamaño de kernel de principio a fin en PCAD, el clúster de HPC de la UFRGS, mediante Slurm: 152 ejecuciones en el estudio principal, más rondas de robustez e híbridas en Tiny ImageNet y PASCAL VOC, cada una entrenada en FP32, luego con entrenamiento consciente de la cuantización y después convertida a INT8.</p>
+          <p><strong>Qué estoy aprendiendo</strong>A medir el ruido de la semilla antes de confiar en una diferencia: entre dos ejecuciones únicas, la semilla por sí sola mueve la diferencia entre 0,7 y 1 punto, así que todo lo que cae dentro de esa franja es un empate, y la mejor de 24 configuraciones tuvo que repetirse con dos semillas más antes de que confiara en ella. Más allá de lo técnico: mantener organizado y reproducible un estudio de 152 ejecuciones, y presentar los resultados a mi director con sus límites, no solo las buenas noticias.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>Deep Learning</li><li>Cuantización</li><li>HPC</li></ul>
+      </article>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://github.com/thschmitz" target="_blank" rel="noopener noreferrer" aria-label="Aceleradores Winograd en FPGA — Thomas Schmitz en GitHub"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Flujo Winograd F(m,3) para un tile: el tile de entrada y el filtro 3×3 se transforman en U y V, se multiplican elemento a elemento en bloques DSP48E2 con cuatro productos de 4 bits por DSP y se transforman de vuelta en el tile de salida, seguido de bias, ReLU y max-pooling"><defs><marker id="ah-w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">WINOGRAD F(m,3), UN TILE</text><rect class="box" x="30" y="40" width="250" height="42" rx="8"/><text x="155" y="66">tile de entrada d</text><rect class="box" x="320" y="40" width="250" height="42" rx="8"/><text x="445" y="66">filtro 3×3 g</text><path class="arrow" d="M155 82 V122" marker-end="url(#ah-w)"/><path class="arrow" d="M445 82 V122" marker-end="url(#ah-w)"/><rect class="box" x="30" y="126" width="250" height="48" rx="8"/><text x="155" y="148">U = B<tspan dy="-6" font-size="11">T</tspan><tspan dy="6"> d B</tspan></text><text class="muted" x="155" y="165">transformada de la entrada</text><rect class="box" x="320" y="126" width="250" height="48" rx="8"/><text x="445" y="148">V = G g G<tspan dy="-6" font-size="11">T</tspan></text><text class="muted" x="445" y="165">transformada del filtro</text><path class="arrow" d="M155 174 V210" marker-end="url(#ah-w)"/><path class="arrow" d="M445 174 V210" marker-end="url(#ah-w)"/><rect class="box" x="30" y="214" width="540" height="48" rx="8"/><text x="300" y="236">M = U ⊙ V</text><text class="muted" x="300" y="253">DSP48E2: cuatro productos por DSP a 4 bits</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-w)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">Y = A<tspan dy="-6" font-size="11">T</tspan><tspan dy="6"> M A</tspan></text><text class="muted" x="300" y="346">tile de salida, luego bias · ReLU · max-pool</text></svg></a>
+        <span class="label">Colaboración en investigación &middot; UFRGS &middot; desde 2026</span>
+        <p class="hl">Winograd de 4 bits en FPGA: cuatro productos por DSP, 1,98&times; el rendimiento de 8 bits</p>
+        <div class="metric-label">3379 GOPS en VGG16 con 1024 DSP (ZCU104) &middot; la red de 4 bits que entrené: 68,51&nbsp;% top-1 en ImageNet, 3,08 puntos por debajo de la versión en punto flotante</div>
+        <h3><a href="https://github.com/thschmitz" target="_blank" rel="noopener noreferrer">Aceleradores Winograd en FPGA &mdash; con Thomas Schmitz <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">Aceleradores en Verilog para convolución 3&times;3 con el algoritmo de Winograd (F(2,3), F(4,3), F(6,3); INT8 y 4 bits), diseñados por mi compañero de laboratorio <a href="https://github.com/thschmitz" target="_blank" rel="noopener noreferrer">Thomas Schmitz</a>; yo aporto el lado de la red y de la precisión. Coautor de un artículo invitado en IEEE OJCAS que amplía el artículo de Thomas en SBCCI 2026 (en preparación) y de un artículo en ISCAS en revisión.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuyo</strong>Evalúo las líneas de aceleradores de Thomas en 16 redes adaptadas a kernels 3&times;3 en una AMD Alveo U200: conteo de ciclos a partir de la simulación del netlist, Fmax y potencia de Vivado, y precisión con la aritmética del propio acelerador. Para el artículo de OJCAS entrené la red de 4 bits directamente en el dominio de Winograd (escalas por filtro, tres semillas), la llevé al RTL con bias y revisé los números y el texto del artículo.</p>
+          <p><strong>Qué estoy aprendiendo</strong>Una ganancia aritmética es un techo, no rendimiento: tiles más grandes exigen datos más anchos y un cierre de timing más difícil, y los números de hardware solo cuentan cuando coinciden bit a bit con una referencia en software. Trabajar sobre el diseño de otra persona me enseñó a mejorarlo sin tocarlo: medir a través de su batería de pruebas, informar lo que falla y dejar que el diseñador decida.</p>
+        </details>
+        <ul class="tags"><li>FPGA</li><li>Vivado</li><li>Winograd</li><li>Cuantización</li></ul>
+      </article>
+      <article class="tile s12 p wide">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer" aria-label="Finanzas cuantitativas — proyecto"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: precios de B3, informes de la CVM, empresas deslistadas y datos macro alimentan un dataset point-in-time; un modelo de alfa LightGBM, un modelo de riesgo y un optimizador con costos se evalúan en un backtest walk-forward frente a BOVA11, una cartera de pesos iguales y 100 % CDI"><defs><marker id="ah-q" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">DATOS (B3, POINT-IN-TIME)</text><rect class="box" x="30" y="40" width="126" height="42" rx="8"/><text x="93" y="66">precios</text><rect class="box" x="168" y="40" width="126" height="42" rx="8"/><text x="231" y="66">informes CVM</text><rect class="box" x="306" y="40" width="126" height="42" rx="8"/><text x="369" y="66">deslistadas</text><rect class="box" x="444" y="40" width="126" height="42" rx="8"/><text x="507" y="66">macro</text><path class="arrow" d="M93 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M231 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M369 82 V122" marker-end="url(#ah-q)"/><path class="arrow" d="M507 82 V122" marker-end="url(#ah-q)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">dataset de ML point-in-time</text><text class="muted" x="300" y="165">fechas de publicación, sin lookahead ni sesgo de supervivencia</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-q)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="243">alfa LightGBM</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-q)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="243">modelo de riesgo</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-q)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">optimizador</text><text x="486" y="252">con costos</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-q)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">backtest walk-forward</text><text class="muted" x="300" y="346">vs BOVA11 · pesos iguales · 100&nbsp;% CDI</text></svg></a>
+        <div>
+          <span class="label">Proyecto individual &middot; desde 2025</span>
+          <p class="hl">Datos de mercado point-in-time para B3 y ~9600 acciones de EE.&nbsp;UU., sin sesgo de anticipación ni de supervivencia</p>
+          <div class="metric-label">B3 desde 2000, empresas deslistadas incluidas &middot; EE.&nbsp;UU.: 34&nbsp;M de filas de precios, fundamentales de SEC EDGAR desde los años noventa, macro de FRED &middot; investigación de carteras con LightGBM sobre esa base, en curso</div>
+          <h3><a href="https://github.com/RafaelSdeS/finance_analysis" target="_blank" rel="noopener noreferrer">Finanzas cuantitativas <span class="ext">&#8599;</span></a></h3>
+          <p class="desc">Investigación con machine learning para la gestión de carteras en el mercado de acciones brasileño (B3): un pipeline de datos point-in-time y un estudio de construcción de carteras basado en LightGBM con backtesting walk-forward, que ahora se amplía a acciones de EE.&nbsp;UU.</p>
+        </div>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <div class="cols">
+            <p><strong>Cómo contribuyo</strong>Construí todo el pipeline: precios, fundamentales de la CVM con sus fechas reales de publicación, empresas deslistadas para evitar el sesgo de supervivencia y datos macro; luego un modelo de alfa LightGBM, un modelo de riesgo y un optimizador que tiene en cuenta los costos. Para la expansión a EE.&nbsp;UU. reuní precios de ~9600 tickers (34&nbsp;M de filas), fundamentales de SEC EDGAR desde los años noventa y datos macro de FRED.</p>
+            <p><strong>Qué estoy aprendiendo</strong>Una configuración elegida entre muchos backtests significa poco hasta que se corrige por pruebas múltiples (una prueba de Sharpe deflactado me lo mostró), y el sesgo de supervivencia y las fechas de publicación importan tanto como el modelo. Llevar solo un proyecto largo me enseñó a gestionarme: fijar mis propias metas, cambiar una variable por experimento y ser mi propio revisor, de modo que ninguna capa entra hasta que la de abajo supera su línea base.</p>
+          </div>
+        </details>
+        <ul class="tags"><li>Python</li><li>LightGBM</li><li>Validación walk-forward</li><li>Optimización de carteras</li></ul>
+      </article>
+      <aside class="tile s12 focus">
+        <span class="label">Próximos pasos</span>
+        <ul>
+          <li><span class="label">Investigación</span><strong>Publicar el trabajo sobre Winograd</strong><p>Terminar el artículo invitado en IEEE OJCAS con Thomas Schmitz y esperar la decisión de ISCAS.</p></li>
+          <li><span class="label">Construir</span><strong>El dataset completo de EE.&nbsp;UU.</strong><p>Escalar la construcción de EE.&nbsp;UU. a los ~9600 tickers y luego un primer backtest en EE.&nbsp;UU.</p></li>
+          <li><span class="label">Aprender</span><strong>Inferencia de alto rendimiento</strong><p>Profundizar en CUDA, el paralelismo y el costo de mover el cómputo.</p></li>
+        </ul>
+      </aside>
+
+      <!-- ROW: background + photo (Rafael faces left, toward the text) -->
+      <section class="tile s8 about">
+        <span class="label">Trayectoria</span>
+        <p>Estudio Ingeniería de Computación en la UFRGS, una de las universidades más prestigiosas de Brasil, calificada en 2022 por el Ministerio de Educación como la mejor universidad federal del país. Antes estudié Ingeniería Eléctrica en la UFSC. Trabajo en la intersección entre hardware y machine learning: mi investigación actual busca que las redes neuronales se adapten mejor a los aceleradores de hardware. Debo gran parte de este trabajo a mi director, el <a href="https://www.inf.ufrgs.br/site/docente/mateus-grellert-da-silva/" target="_blank" rel="noopener noreferrer">Prof. Mateus Grellert</a>, cuya orientación definió mi manera de investigar.</p>
+        <p>Fuera del laboratorio, construyo datos de mercado point-in-time e investigación de carteras con ML para acciones de B3 y EE.&nbsp;UU.</p>
+        <p>En la UFSC construí un escáner láser 3D para un proyecto de ROV de inspección submarina y trabajé en el equipo de la Shell Eco-marathon. Desde entonces lideré un equipo de tres en el desafío IBM SkillsBuild, construí un pronóstico de la temporada de incendios en el NASA Space Apps y, fuera de la ingeniería, participé en el UFRGSMUN, negociando propuestas y conciliando posiciones opuestas.</p>
+        <ul class="facts">
+          <li><span>Universidad</span>UFRGS &mdash; Ingeniería de Computación</li>
+          <li><span>Antes</span>UFSC &mdash; Ingeniería Eléctrica</li>
+          <li><span>Idiomas</span>Portugués &middot; Inglés &middot; Francés &middot; Español</li>
+        </ul>
+      </section>
+      <figure class="tile s4 photo">
+        <img src="assets/images/ufrgsmun-rafael.jpg" alt="Rafael hablando durante un debate" width="960" height="1200" loading="lazy" />
+      </figure>
+
+      <!-- EXPERIENCE -->
+      <h2 class="group s12" id="experience">Experiencia</h2>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer" aria-label="Projeto VORIS — proyecto"><img class="shot" src="assets/images/projects/voris.webp" alt="Línea láser sobre una mano vista por la cámara, junto a la nube de puntos 3D reconstruida a partir de ella" width="960" height="640" loading="lazy" /></a>
+        <span class="label">LABMETRO &middot; UFSC &middot; 2025 &middot; Visión + embebidos</span>
+        <p class="hl">Escáner láser 3D de bajo costo para inspección submarina, del hardware a la nube de puntos</p>
+        <div class="metric-label">Cámara, láser y espejo giratorio con encoder (Arduino) &middot; extracción subpíxel de la línea láser &middot; modelo de profundidad con gradient boosting &middot; ROV financiado por la FINEP en la UFSC</div>
+        <h3><a href="https://labmetroufsc.wixsite.com/labmetro/c%C3%B3pia-trriflex" target="_blank" rel="noopener noreferrer">Projeto VORIS <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks"><a href="https://github.com/diegofabre/triangulacao_v1/branches" target="_blank" rel="noopener noreferrer">Código de triangulación láser &#8599;</a><a href="assets/docs/voris-report.pdf" target="_blank" rel="noopener noreferrer">Informe de investigación (PDF, PT) &#8599;</a></div>
+        <p class="desc">VORIS (Vehículo Operado Remotamente para Inspección Submarina) es un proyecto financiado por la FINEP en el Laboratorio de Metrología y Automatización (LABMETRO) de la UFSC, con Petrobras como parte interesada: un ROV con sistemas ópticos de medición 3D para estructuras sumergidas. En mi investigación de grado, junto al <a href="http://lattes.cnpq.br/5099028947205509" target="_blank" rel="noopener noreferrer">Prof. Diego Fabre</a>, construí y evalué su banco de pruebas de triangulación láser: una cámara, un láser y un espejo giratorio que barren una escena y la convierten en una nube de puntos 3D.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Construí el sistema de principio a fin: el hardware (un Arduino Uno R4 que controla un espejo con motor paso a paso leído por un encoder absoluto, control PWM del láser y captura de imágenes sincronizada con el ángulo de barrido), la extracción subpíxel de la línea láser con un centroide ponderado por intensidad (mucho menos ruido que la umbralización), el modelo geométrico de triangulación (normalización de la cámara, geometría cámara&ndash;láser y corrección del ángulo del espejo), un modelo de regresión con gradient boosting entrenado con escaneos etiquetados para corregir errores sistemáticos de profundidad y una interfaz gráfica para operarlo todo.</p>
+          <p><strong>Qué aprendí</strong>Un modelo vale lo que vale su calibración: la geometría era precisa cerca del centro de la imagen, pero pequeños errores de calibración y de ángulo del láser crecían hacia los bordes. Aprender esos errores a partir de los datos redujo los artefactos allí, pero solo hasta donde llegaban los datos de entrenamiento, lo que apunta a un híbrido con la geometría como base. Trabajar en el <a href="https://pdpetro.com.br/anais/repositorio/12pdpetro/59240705082024200.pdf" target="_blank" rel="noopener noreferrer">LABMETRO</a> también me puso, como estudiante de ingeniería eléctrica, en un laboratorio de ingeniería mecánica junto a metrólogos e investigadores de visión por computadora, trabajando con profesores de distintas especialidades: aprendí a explicar mi subsistema en los términos de cada uno, a convertir sus críticas en mejoras del banco de pruebas y a cumplir el cronograma de un proyecto financiado.</p>
+        </details>
+        <ul class="tags"><li>Visión por computadora</li><li>Sistemas embebidos</li><li>Reconstrucción 3D</li><li>Machine Learning</li></ul>
+      </article>
+      <article class="tile s6 p">
+        <a class="shot-link" href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer" aria-label="E3 UFSC — Equipo de la Shell Eco-marathon — proyecto"><img class="shot" src="assets/images/projects/e3.webp" alt="Render 3D del prototipo 2023 del E3 UFSC para la Shell Eco-marathon" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Equipo de competición estudiantil &middot; 2025 &middot; Ingeniería + marketing</span>
+        <p class="hl">Compuestos de fibra de carbono en un prototipo ultraeficiente, y el marketing del equipo</p>
+        <div class="metric-label">Equipo de la Shell Eco-marathon &middot; prototipos a gasolina y eléctricos &middot; visita técnica a Nanopoxy (resinas epoxi)</div>
+        <h3><a href="https://e3.ufsc.br/" target="_blank" rel="noopener noreferrer">E3 UFSC &mdash; Equipo de la Shell Eco-marathon <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">El E3 (Equipo de Eficiencia Energética de la UFSC) diseña, construye y valida prototipos ultraeficientes a gasolina y eléctricos para la Shell Eco-marathon. Entré en 2025 y trabajé en la ingeniería del vehículo y en el marketing del equipo.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Trabajé sobre todo en la ingeniería del vehículo, con trabajo práctico en compuestos de fibra de carbono; participé en una visita técnica a <a href="https://nanopoxy.com.br/" target="_blank" rel="noopener noreferrer">Nanopoxy</a>, fabricante de resinas epoxi para compuestos &mdash; la misma familia de materiales usada en el vehículo; e hice el marketing del equipo mientras organizaba el área de marketing.</p>
+          <p><strong>Qué aprendí</strong>Cómo la fibra de carbono y la resina epoxi se combinan en piezas livianas y rígidas y, en Nanopoxy, qué hay detrás de las propias resinas. Organizar el área de marketing implicó repartir tareas entre compañeros, fijar plazos y hacer seguimiento; hacerlo junto con el trabajo de ingeniería me obligó a priorizar y a explicar el lado técnico del vehículo en términos que personas ajenas a la ingeniería pudieran seguir.</p>
+        </details>
+        <ul class="tags"><li>Ingeniería</li><li>Compuestos de fibra de carbono</li><li>Marketing</li><li>Trabajo en equipo</li></ul>
+      </article>
+
+      <!-- PROJECTS -->
+      <h2 class="group s12" id="projects">Proyectos</h2>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer" aria-label="LUNAX Fire Calendar — demo en vivo"><img class="shot" src="assets/images/projects/lunax.webp" alt="Mapa de LUNAX de los lugares de Rond&ocirc;nia que se quemaron año tras año, 2012&ndash;2025" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Hackathon &middot; 2026 &middot; NASA Space Apps</span>
+        <p class="hl">Pronostica dónde arderá Brasil la próxima temporada, celda por celda</p>
+        <div class="metric-label">NASA FIRMS, MODIS + VIIRS combinados (2000&ndash;2026) &middot; un modelo simple de proporciones superó al retador de ML &middot; certificado de participación</div>
+        <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar" target="_blank" rel="noopener noreferrer">LUNAX Fire Calendar <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://jacquesbelmont.github.io/lunax-fire-calendar/" target="_blank" rel="noopener noreferrer">Demo en vivo &#8599;</a>
+          <a href="https://www.spaceappschallenge.org/" target="_blank" rel="noopener noreferrer">NASA Space Apps &#8599;</a>
+          <a href="assets/images/nasa-space-apps-certificate.jpg" target="_blank" rel="noopener noreferrer">Certificado de participación &#8599;</a>
+        </div>
+        <p class="desc">Una aplicación web que combina las detecciones de incendios de NASA FIRMS de los dos sensores satelitales en una serie coherente y la convierte en un calendario mensual de quemas, con piloto en Rond&ocirc;nia y extendida a todos los estados de Brasil.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Uno de los dos desarrolladores principales (67 commits). Construí las vistas de temporada de incendios y de &ldquo;comparado con lo habitual&rdquo;, la perspectiva de la próxima temporada con probabilidades de incendio por celda, el piloto nacional con los límites del IBGE y herramientas de campo (enlaces para compartir, &ldquo;dónde actuar primero&rdquo;, carga de áreas personalizadas). También probé un retador de ML, que no superó al método de proporciones, más simple, y escribí las pruebas del pipeline.</p>
+          <p><strong>Qué aprendí</strong>Los datos satelitales deben conciliarse entre sensores antes de que cualquier análisis tenga sentido, y una línea base simple y explicable puede superar al ML; informarlo con honestidad es parte del resultado. El hackathon me enseñó a programar bajo presión: recortar el alcance temprano, entregar primero el núcleo, dividir el trabajo con claridad con el otro desarrollador principal, revisar rápido el código del otro y mantener pruebas para que la velocidad no rompa lo que ya funciona.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>JavaScript</li><li>NASA FIRMS</li><li>Geoespacial</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="Conecta+ — IBM SkillsBuild — demo en vivo"><img class="shot" src="assets/images/projects/conecta.webp" alt="Mapa de Brasil en el panel de Conecta+ con los municipios agrupados por prioridad" width="685" height="457" loading="lazy" /></a>
+        <span class="label">Prototipo en línea &middot; lideré un equipo de 3</span>
+        <p class="hl">Plan de conectividad óptimo según el presupuesto para los 5570 municipios de Brasil</p>
+        <div class="metric-label">VPN, payback y optimización de cartera &middot; explicaciones de IBM Granite verificadas contra los números &middot; 230 pruebas automatizadas</div>
+        <h3><a href="https://github.com/RafaelSdeS/conecta-mais" target="_blank" rel="noopener noreferrer">Conecta+ &mdash; IBM SkillsBuild <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://conecta-mais.onrender.com/" target="_blank" rel="noopener noreferrer">Demo en vivo (puede tardar ~1 min en despertar) &#8599;</a>
+          <a href="https://github.com/RafaelSdeS/conecta-mais/blob/main/DOCUMENTACAO_CONECTA.pdf" target="_blank" rel="noopener noreferrer">Documentación (PDF, PT) &#8599;</a>
+        </div>
+        <p class="desc">Sistema de apoyo a la decisión para el desafío IBM SkillsBuild &amp; Funda&ccedil;&atilde;o Telef&ocirc;nica Vivo: clasifica los municipios para la expansión de la conectividad con datos públicos (Anatel, IBGE, INEP), análisis financiero, optimización de cartera y un agente IBM Granite que explica cada recomendación.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Lideré el equipo de tres que lo construyó y fui responsable del motor de decisión: los puntajes de prioridad de los municipios, las distancias de backhaul, la herramienta financiera (payback, VPN, sensibilidad), la optimización de cartera con PuLP/CBC (IBM CPLEX opcional) y un backtest 2021&rarr;2025. También lideré la integración: el backend en FastAPI, las verificaciones de que el texto de Granite coincide con los números del motor, la CI y el despliegue.</p>
+          <p><strong>Qué aprendí</strong>Cómo convertir una pregunta de negocio en un modelo de optimización con restricciones reales de presupuesto, y por qué la salida de un LLM debe verificarse contra los datos. Al liderarlo, aprendí a dividir el trabajo según quién dominaba mejor cada parte, a fijar temprano las interfaces y los datos simulados para que datos, motor e interfaz avanzaran en paralelo, y a tomar las decisiones finales cuando las piezas tenían que encajar antes del plazo.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>Optimización</li><li>IBM watsonx</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer" aria-label="vLLM Parallelism Benchmark — proyecto"><img class="shot" src="assets/images/projects/vllm.webp" alt="Gráfico del rendimiento en tokens de salida frente a la concurrencia para ejecuciones en una sola GPU, con paralelismo de pipeline y con paralelismo de tensor" width="960" height="640" loading="lazy" /></a>
+        <span class="label">Benchmark concluido &middot; equipo de 3</span>
+        <p class="hl">Entre nodos, el paralelismo de tensor gastó hasta el 97&nbsp;% del tiempo de GPU en comunicación</p>
+        <div class="metric-label">Qwen2.5-7B en 1&ndash;4 GPU &middot; vLLM + Ray en PCAD, el clúster de HPC de la UFRGS &middot; conclusión: si el modelo cabe en una GPU, no lo dividas</div>
+        <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark" target="_blank" rel="noopener noreferrer">vLLM Parallelism Benchmark <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/slides/apresentacao_final/apresentacao_final.pdf" target="_blank" rel="noopener noreferrer">Diapositivas (PDF, PT) &#8599;</a>
+          <a href="https://github.com/matregnago/vllm-parallelism-benchmark/blob/main/tex/main.pdf" target="_blank" rel="noopener noreferrer">Informe (PDF, PT) &#8599;</a>
+        </div>
+        <p class="desc">Proyecto de la asignatura Evaluación de Desempeño de la UFRGS: compara el paralelismo de tensor y de pipeline para inferencia de LLM (vLLM y Ray) en <a href="https://pcad.inf.ufrgs.br/" target="_blank" rel="noopener noreferrer">PCAD</a>, el clúster de HPC de la UFRGS.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Me encargué del lado de GPU y de red del análisis: telemetría de GPU (utilización, consumo de energía), mediciones de red, los notebooks y gráficos de análisis estadístico, los scripts de ejecución y las diapositivas finales.</p>
+          <p><strong>Qué aprendí</strong>Cómo diseñar un experimento de desempeño con factores y repeticiones, y cómo el paralelismo de tensor y el de pipeline desplazan el cuello de botella entre cómputo y comunicación. Ser responsable de una parte de un estudio en equipo me enseñó a acordar el plan desde el inicio, entregar datos que los demás pudieran usar directamente y planificar las ejecuciones según la cola de un clúster de HPC compartido.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>vLLM</li><li>HPC</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer" aria-label="File Organizer — proyecto"><svg class="shot diagram" viewBox="0 0 600 400" role="img" aria-label="Pipeline: archivos PDF, DOCX, TXT, XML y de audio pasan por extracción de texto (audio con Vosk), embeddings de frases, clustering KMeans y nombres por palabras clave YAKE, y terminan en una vista previa antes de mover cualquier archivo"><defs><marker id="ah-f" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path class="head" d="M0 0 L8 4 L0 8 z"/></marker></defs><text class="sub" x="30" y="28" text-anchor="start">ARCHIVOS DE ENTRADA</text><rect class="box" x="30" y="40" width="96" height="42" rx="8"/><text x="78" y="66">PDF</text><rect class="box" x="141" y="40" width="96" height="42" rx="8"/><text x="189" y="66">DOCX</text><rect class="box" x="252" y="40" width="96" height="42" rx="8"/><text x="300" y="66">TXT</text><rect class="box" x="363" y="40" width="96" height="42" rx="8"/><text x="411" y="66">XML</text><rect class="box" x="474" y="40" width="96" height="42" rx="8"/><text x="522" y="66">audio</text><path class="arrow" d="M78 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M189 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M300 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M411 82 V122" marker-end="url(#ah-f)"/><path class="arrow" d="M522 82 V122" marker-end="url(#ah-f)"/><rect class="box" x="30" y="126" width="540" height="48" rx="8"/><text x="300" y="148">extracción de texto</text><text class="muted" x="300" y="165">audio transcrito sin conexión con Vosk</text><path class="arrow" d="M300 174 V210" marker-end="url(#ah-f)"/><rect class="box" x="30" y="214" width="168" height="48" rx="8"/><text x="114" y="235">embeddings</text><text x="114" y="252">de frases</text><path class="arrow" d="M200 238 H213" marker-end="url(#ah-f)"/><rect class="box" x="216" y="214" width="168" height="48" rx="8"/><text x="300" y="235">clusters</text><text x="300" y="252">KMeans</text><path class="arrow" d="M386 238 H399" marker-end="url(#ah-f)"/><rect class="box" x="402" y="214" width="168" height="48" rx="8"/><text x="486" y="235">palabras clave</text><text x="486" y="252">YAKE</text><path class="arrow" d="M300 262 V298" marker-end="url(#ah-f)"/><rect class="box out" x="30" y="302" width="540" height="56" rx="8"/><text x="300" y="326">vista previa (dry-run)</text><text class="muted" x="300" y="346">carpetas nombradas por palabra clave, antes de mover archivos</text></svg></a>
+        <span class="label">Prototipo concluido &middot; individual</span>
+        <p class="hl">Ordena una carpeta desordenada por significado, no por nombre de archivo</p>
+        <div class="metric-label">Embeddings de frases + KMeans &middot; YAKE nombra cada carpeta &middot; vista previa antes de mover nada</div>
+        <h3><a href="https://github.com/RafaelSdeS/File-Organizer" target="_blank" rel="noopener noreferrer">File Organizer <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">Organizador de documentos con IA que usa embeddings de frases, extracción de palabras clave y clustering KMeans para agrupar archivos por similitud semántica.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Lo construí solo: extracción de texto de PDF, DOCX, TXT y XML más transcripción de audio sin conexión con Vosk, embeddings de frases con KMeans, palabras clave YAKE para nombrar cada carpeta y una vista previa antes de mover cualquier archivo.</p>
+          <p><strong>Qué aprendí</strong>A aplicar NLP a archivos reales y desordenados, y que los clusters no supervisados solo sirven con etiquetas legibles. Construirlo solo me enseñó a reducir primero el alcance a un prototipo que funcione y a diseñar para la confianza del usuario: una herramienta que mueve archivos siempre debe mostrar una vista previa.</p>
+        </details>
+        <ul class="tags"><li>Python</li><li>NLP</li><li>Clustering</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer" aria-label="PAM UFRGS — pull request"><img class="shot" src="assets/images/projects/pam.webp" alt="Vista de pronóstico de graduación añadida a la app PAM UFRGS: un plan semestre a semestre de las asignaturas restantes" width="959" height="640" loading="lazy" /></a>
+        <span class="label">Contribución open source</span>
+        <p class="hl">Asistente de asignaturas con IA y pronóstico de graduación para estudiantes de la UFRGS</p>
+        <div class="metric-label">Pull request, no fusionado (el repositorio original ya no se mantiene) &middot; Vue &middot; endpoint de IA con límite de solicitudes &middot; pruebas con Vitest</div>
+        <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1" target="_blank" rel="noopener noreferrer">PAM UFRGS <span class="ext">&#8599;</span></a></h3>
+        <div class="sublinks">
+          <a href="https://github.com/RafaelSdeS/pam-ufrgs" target="_blank" rel="noopener noreferrer">Mi fork &#8599;</a>
+          <a href="https://github.com/vkveiga/pam-ufrgs" target="_blank" rel="noopener noreferrer">Repositorio original &#8599;</a>
+        </div>
+        <p class="desc">Pull request a una app open source de ayuda con la matrícula de la UFRGS, que añade funciones que eché en falta al usarla como estudiante.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Añadí un asistente con IA para preguntas sobre asignaturas y horarios (limitado a la carrera seleccionada, con CORS/CSP de producción y límites de solicitudes), un pronóstico de graduación con exportación a PDF, exportación del horario a .ics con comparación lado a lado, y configuré Vitest con pruebas para los servicios principales.</p>
+          <p><strong>Qué aprendí</strong>Cómo contribuir al código de otra persona: seguir sus convenciones, mantener un pull request enfocado y explicar por qué importa cada cambio para que el mantenedor pueda revisarlo rápido; y cómo añadir pruebas alrededor de código que no escribí.</p>
+        </details>
+        <ul class="tags"><li>Vue</li><li>Vitest</li><li>Open Source</li></ul>
+      </article>
+      <article class="tile s4 p">
+        <a class="shot-link" href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer" aria-label="Breakout — proyecto"><img class="shot" src="assets/images/projects/breakout.webp" alt="Captura del juego Breakout: un anillo de ladrillos verdes, la pelota, la paleta y power-ups cayendo" width="900" height="600" loading="lazy" /></a>
+        <span class="label">Proyecto de asignatura &middot; Algoritmos y Programación (INF01202) &middot; en pareja</span>
+        <p class="hl">Un juego arcade completo en C, con memoria y E/S de archivos manejadas a mano</p>
+        <div class="metric-label">32 de los 38 commits son míos &middot; Raylib &middot; partidas guardadas en binario con ranking de puntuaciones</div>
+        <h3><a href="https://github.com/RafaelSdeS/alg_prog_jogo" target="_blank" rel="noopener noreferrer">Breakout <span class="ext">&#8599;</span></a></h3>
+        <p class="desc">Un Brick Breaker de estilo arcade hecho en C con Raylib: movimiento por teclado, detección de colisiones, vidas, puntuación, power-ups y varios niveles cargados desde archivos.</p>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <p><strong>Cómo contribuí</strong>Escribí la mayor parte del código (32 de 38 commits): estados de juego modulares, colisiones, power-ups, niveles cargados desde archivos, partidas guardadas en binario con ranking de puntuaciones, audio y el HUD.</p>
+          <p><strong>Qué aprendí</strong>A estructurar un programa en C en módulos y a manejar la memoria y la E/S de archivos a mano. Trabajar en pareja me enseñó a dividir el juego en módulos de los que cada uno pudiera hacerse cargo, acordar las interfaces entre ellos y usar Git para mantener nuestro trabajo sincronizado.</p>
+        </details>
+        <ul class="tags"><li>C</li><li>Raylib</li><li>Sistemas de juego</li></ul>
+      </article>
+
+      <!-- ACTIVITIES: one wide card, figure left and text right (.tile.p.wide) -->
+      <h2 class="group s12" id="activities">Actividades</h2>
+      <article class="tile s12 p wide flip">
+        <a class="shot-link" href="https://www.ufrgs.br/ufrgsmun/xxiiiedicao/" target="_blank" rel="noopener noreferrer" aria-label="UFRGSMUN 2026 — sitio del evento"><img class="shot" src="assets/images/ufrgsmun-press.jpg" alt="Rafael, detrás de la placa de Israel, respondiendo a la entrevista especial de la prensa en el UFRGSMUN 2026" width="1200" height="800" loading="lazy" /></a>
+        <div>
+          <span class="label">Modelo de la ONU &middot; 2026 &middot; en inglés</span>
+          <p class="hl">Negocié políticas antiterroristas y de ciberseguridad; la prensa me eligió para una entrevista especial</p>
+          <div class="metric-label">Oficina de Lucha contra el Terrorismo de la ONU &middot; terrorismo en el Sahel y ciberterrorismo &middot; uno de los cuatro delegados entrevistados ante toda la conferencia</div>
+          <h3><a href="https://www.ufrgs.br/ufrgsmun/xxiiiedicao/" target="_blank" rel="noopener noreferrer">UFRGSMUN 2026 &mdash; Delegado de Israel, UNOCT <span class="ext">&#8599;</span></a></h3>
+          <div class="sublinks">
+            <a href="https://www.instagram.com/ufrgsmun/" target="_blank" rel="noopener noreferrer">Instagram &#8599;</a>
+          </div>
+          <p class="desc">El Modelo de Naciones Unidas de la UFRGS. Como delegado de Israel en la Oficina de las Naciones Unidas de Lucha contra el Terrorismo (UNOCT), debatí en inglés sobre el terrorismo en el Sahel y el ciberterrorismo, negociando con delegaciones cuyas posiciones a menudo estaban lejos de la mía.</p>
+        </div>
+        <details>
+          <summary>Contribución y aprendizajes</summary>
+          <div class="cols">
+            <div class="pic"><img src="assets/images/ufrgsmun-committee.jpg" alt="El comité UNOCT en el UFRGSMUN 2026, cada delegado con la placa de su país; Rafael sostiene la de Israel en la última fila" width="815" height="805" loading="lazy" /></div>
+            <div>
+              <p><strong>Cómo contribuí</strong>Para prepararme, seguí de cerca las noticias sobre ciberterrorismo, ciberseguridad y el Sahel. En el comité representé a Israel y negocié en caucus con otras delegaciones la redacción de las medidas antiterroristas, cediendo donde costaba poco y manteniéndome firme en los puntos a los que Israel no podía renunciar. El equipo de prensa me eligió como uno de los cuatro delegados para una entrevista especial ante todos los participantes, donde defendí la posición de mi delegación y respondí a una pregunta crítica de los periodistas.</p>
+              <p><strong>Qué aprendí</strong>Los acuerdos surgieron de entender por qué cada delegación sostenía su posición, no de repetir la mía. Aprendí a trabajar con delegaciones cuyas visiones estaban lejos de las de Israel, a negociar redacciones que varias partes pudieran aceptar, a formar un bloque en torno a un texto común y a defender en público una posición difícil, en inglés, sin perder precisión. La preparación también se volvió un hábito: sigo la ciberseguridad y la geopolítica a diario, desde nuevos ataques y vulnerabilidades hasta conflictos regionales y los debates de seguridad en torno a ellos, porque un argumento solo se sostiene cuando refleja el panorama actual.</p>
+            </div>
+          </div>
+        </details>
+        <ul class="tags"><li>Diplomacia</li><li>Negociación</li><li>Oratoria</li><li>Ciberseguridad</li></ul>
+      </article>
+
+      <!-- STACK & CONTACT: full-width skills, then the contact band that closes the page -->
+      <h2 class="group s12" id="contact">Stack y contacto</h2>
+      <section class="tile s12 skills">
+        <span class="label">Habilidades</span>
+        <div class="grp"><strong>Sistemas y aceleración</strong><ul class="tags"><li>C</li><li>C++</li><li>CUDA</li><li>FPGA (Vivado)</li><li>vLLM</li><li>Ray</li><li>Slurm (clúster PCAD)</li></ul></div>
+        <div class="grp"><strong>ML y datos</strong><ul class="tags"><li>Python</li><li>PyTorch</li><li>Cuantización (QAT/INT8)</li><li>Deep Learning</li><li>Aprendizaje por refuerzo</li><li>LightGBM</li><li>Visión por computadora</li><li>NLP</li></ul></div>
+        <div class="grp"><strong>Ingeniería de software</strong><ul class="tags"><li>FastAPI</li><li>Vue</li><li>React</li><li>TypeScript</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>Tailwind CSS</li><li>Firebase</li><li>Docker</li><li>Git</li></ul></div>
+        <div class="grp"><strong>Idiomas</strong><ul class="tags"><li>Portugués (nativo)</li><li>Inglés (fluido)</li><li>Francés (avanzado)</li><li>Español (avanzado)</li></ul></div>
+      </section>
+      <section class="tile s12 contact">
+        <div class="pitch">
+          <span class="label">Contacto</span>
+          <h3>Hablemos.</h3>
+          <p class="open"><span>Abierto a</span>Ingeniería de ML e investigación en IA &middot; Investigación cuantitativa &middot; HPC</p>
+          <p class="open"><span>Con base en</span>Porto Alegre, Brasil</p>
+        </div>
+        <ul class="links">
+          <li><a href="mailto:rafael.souza@inf.ufrgs.br"><i class="icon-gmail"></i>rafael.souza@inf.ufrgs.br</a><button class="pill copy" type="button" data-copy="rafael.souza@inf.ufrgs.br" data-done="Copiado" aria-label="Copiar la dirección de correo" aria-live="polite">Copiar</button></li>
+          <li><a href="https://github.com/RafaelSdeS" target="_blank" rel="noopener noreferrer"><i class="icon-github"></i>GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/rafael-silva-de-souza/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>LinkedIn</a></li>
+          <li><a href="resumees.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M6 2.5h8l4.5 4.5v14.5H6zM14 2.5V7h4.5M9 12h6M9 16h6"/></svg>CV de una página</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="credit">Rafael Silva de Souza &mdash; 2026<nav class="langs" aria-label="Idiomas"><a href="index.html" hreflang="en" lang="en">English</a><a href="indexpt.html" hreflang="pt-BR" lang="pt-BR">Português</a><a href="indexes.html" hreflang="es" lang="es" aria-current="page">Español</a><a href="indexfr.html" hreflang="fr" lang="fr">Français</a></nav></footer>
+    <!--NAV: border once scrolled + highlight the section in view-->
+    <script>
+      (function () {
+        var top = document.querySelector(".top");
+        var main = document.querySelector("main");
+        var root = document.documentElement;
+        var links = document.querySelectorAll(".top nav a");
+        function onScroll() {
+          top.classList.toggle("scrolled", window.scrollY > 8);
+          var max = root.scrollHeight - window.innerHeight;
+          top.style.setProperty("--p", max > 0 ? window.scrollY / max : 0);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            links.forEach(function (a) { a.classList.toggle("active", a.hash === "#" + e.target.id); });
+          });
+        }, { rootMargin: "-30% 0px -60% 0px" });
+        document.querySelectorAll("main [id]").forEach(function (el) { io.observe(el); });
+        // cursor spotlight: pointer position inside the hovered tile
+        main.addEventListener("pointermove", function (e) {
+          var t = e.target.closest(".tile");
+          if (!t) return;
+          var r = t.getBoundingClientRect();
+          t.style.setProperty("--mx", e.clientX - r.left + "px");
+          t.style.setProperty("--my", e.clientY - r.top + "px");
+        });
+        // copy email: the label swaps to data-done for a moment; hidden where the Clipboard API is missing (file://)
+        var copy = document.querySelector(".copy");
+        if (!navigator.clipboard) copy.hidden = true;
+        else {
+          var label = copy.textContent;
+          copy.addEventListener("click", function () {
+            navigator.clipboard.writeText(copy.dataset.copy).then(function () {
+              copy.textContent = copy.dataset.done;
+              copy.classList.add("done");
+              setTimeout(function () { copy.textContent = label; copy.classList.remove("done"); }, 1600);
+            });
+          });
+        }
+        // "Contribution & learnings" grows only its own card: grid rows stretch every card to the tallest one, so on the
+        // summary click (before the toggle) the other cards in that row are pinned to their current height; the pins go
+        // once the whole row is closed again (after the 0.35s slide). Rows reflow on resize, so pins reset there too.
+        var cards = Array.prototype.slice.call(document.querySelectorAll(".tile.p"));
+        function rowOf(card) { return cards.filter(function (t) { return t.offsetTop === card.offsetTop; }); }
+        function isOpen(t) { return !!t.querySelector("details[open]"); }
+        function unpin(list) { list.forEach(function (t) { t.style.height = ""; }); }
+        cards.forEach(function (card) {
+          var d = card.querySelector("details");
+          if (!d) return;
+          d.querySelector("summary").addEventListener("click", function () {
+            rowOf(card).forEach(function (t) { if (t !== card) t.style.height = t.offsetHeight + "px"; });
+            card.style.height = "";
+          });
+          d.addEventListener("toggle", function () {
+            var row = rowOf(card);
+            setTimeout(function () { if (!row.some(isOpen)) unpin(row); }, 400);
+          });
+        });
+        addEventListener("resize", function () { unpin(cards); });
+        // scroll reveal: each tile rises in once, staggered within the batch that entered together
+        if (root.classList.contains("motion")) {
+          var rv = new IntersectionObserver(function (entries) {
+            entries.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
+              e.target.style.setProperty("--d", i * 70 + "ms");
+              e.target.classList.add("in");
+              rv.unobserve(e.target);
+            });
+          }, { rootMargin: "0px 0px -8% 0px" });
+          Array.prototype.forEach.call(main.children, function (el) { rv.observe(el); });
+        }
+      })();
+    </script>
+  </body>
+</html>

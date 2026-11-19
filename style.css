@@ -369,6 +369,10 @@ details p strong { display: block; font-weight: 500; color: var(--text); font-si
 .contact i { font-size: 1.2rem; color: var(--accent); }
 .contact svg { width: 1.1rem; height: 1.1rem; flex: none; color: var(--accent); }
 .credit { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 2.5rem; font: 400 0.75rem var(--mono); color: var(--faint); }
+/* ES/FR (and EN/PT) live only here, kept quiet on purpose; the header pill stays EN <-> PT */
+.credit .langs { display: inline; }
+.credit .langs a { margin-left: 1rem; transition: color 0.2s; }
+.credit .langs a:hover, .credit .langs a[aria-current] { color: var(--muted); }
 
 /* MOTION — .motion is set on <html> by the head script, only when reduced motion is off */
 @property --spot { syntax: '<color>'; inherits: false; initial-value: transparent; }

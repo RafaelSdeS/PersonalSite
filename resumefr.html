@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CV d’une page de Rafael Silva de Souza, étudiant en génie informatique à l’UFRGS, qui travaille sur le machine learning, le HPC et la finance quantitative."
+    />
+    <link rel="stylesheet" href="resume.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Rafael Silva de Souza – CV</title>
+  </head>
+  <body>
+    <nav class="actions">
+      <a class="dl" href="resumefr.pdf" download="Rafael-Silva-de-Souza-CV-FR.pdf">Télécharger le PDF</a>
+      <a href="indexfr.html">&larr; Site web</a>
+      <a href="resume.html" lang="en">English</a>
+    </nav>
+
+    <header>
+      <h1>Rafael Silva de Souza</h1>
+      <p class="headline">Étudiant en génie informatique · Machine learning, HPC et finance quantitative</p>
+      <p class="contact">
+        Porto Alegre, RS, Brésil ·
+        <a href="mailto:rafael.souza@inf.ufrgs.br">rafael.souza@inf.ufrgs.br</a> ·
+        <a href="https://www.linkedin.com/in/rafael-silva-de-souza/">linkedin.com/in/rafael-silva-de-souza</a> ·
+        <a href="https://github.com/RafaelSdeS">github.com/RafaelSdeS</a> ·
+        <a href="https://rafaelsdes.github.io/indexfr.html">rafaelsdes.github.io</a>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Profil</h2>
+        <p>
+          Étudiant en génie informatique à l’UFRGS&nbsp;; recherche sur les réseaux de neurones adaptés au matériel (GPU et
+          FPGA). Ouvert aux postes en ingénierie ML, recherche en IA, recherche quantitative et HPC.
+        </p>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <h3>UFRGS, Université fédérale du Rio Grande do Sul&nbsp;: génie informatique (diplôme d’ingénieur) <span>Prévu en 2030</span></h3>
+        <h3>UFSC, Université fédérale de Santa Catarina&nbsp;: génie électrique (études antérieures)</h3>
+      </section>
+
+      <section>
+        <h2>Recherche et expérience</h2>
+        <h3>Étudiant-chercheur, UFRGS (directeur&nbsp;: professeur Mateus Grellert) <span>En cours</span></h3>
+        <ul>
+          <li>J’étudie l’effet de noyaux CNN limités au 2×2/3×3 adapté à Winograd sur précision, efficacité et robustesse INT8 (QAT) (152 exécutions sur PCAD)&nbsp;: alterner 3×3/2×2 réduit les MAC de 24&nbsp;% sans perte de précision mesurable.</li>
+          <li>Avec Thomas Schmitz&nbsp;: évaluation de ses accélérateurs Winograd sur FPGA sur 16 réseaux et entraînement de leur réseau 4 bits (68,51&nbsp;% de top-1 sur ImageNet). Coauteur&nbsp;: IEEE OJCAS (en prép.), ISCAS (en évaluation).</li>
+        </ul>
+        <h3>Projeto VORIS, LABMETRO UFSC (avec le professeur Diego Fabre) <span>2025</span></h3>
+        <ul>
+          <li>Construction d’un scanner 3D par triangulation laser (caméra, laser, miroir piloté par encodeur, Arduino)&nbsp;: extraction sous-pixel de la ligne, triangulation géométrique et modèle de profondeur par gradient boosting.</li>
+        </ul>
+        <h3>E3 UFSC, équipe Shell Eco-marathon <span>2025</span></h3>
+        <ul>
+          <li>Ingénierie du prototype ultra-économe, dont les composites en fibre de carbone&nbsp;; marketing de l’équipe et organisation du pôle marketing&nbsp;; visite technique chez Nanopoxy (résines époxy pour composites).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projets et compétitions</h2>
+        <h3><a href="https://github.com/jacquesbelmont/lunax-fire-calendar">LUNAX Fire Calendar, NASA Space Apps Challenge</a> <span>2026</span></h3>
+        <ul>
+          <li>Fusion des détections MODIS et VIIRS (NASA FIRMS) de 2000–2026 en un calendrier mensuel des brûlis au Brésil.</li>
+          <li>L’un des deux principaux développeurs (67 commits)&nbsp;: prévision de la saison suivante, pilote national et outils de terrain&nbsp;; comparaison d’un challenger ML avec la référence par ratios.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/conecta-mais">Conecta+, défi IBM SkillsBuild &amp; Fundação Telefônica Vivo</a> <span>2026</span></h3>
+        <ul>
+          <li>Direction de l’équipe de 3&nbsp;; responsable du moteur de décision qui classe 5&#8239;570 communes pour étendre la connectivité&nbsp;: scores de priorité, VAN/payback, optimisation de portefeuille (PuLP/CBC, IBM CPLEX) et backtest 2021→2025.</li>
+          <li>Intégration&nbsp;: backend FastAPI, CI, déploiement Docker et vérification d’IBM Granite (watsonx) face aux chiffres du moteur.</li>
+        </ul>
+        <h3><a href="https://github.com/RafaelSdeS/finance_analysis">Finance quantitative, marché actions brésilien (B3)</a> <span>En cours</span></h3>
+        <ul>
+          <li>Pipeline point-in-time sans biais du survivant&nbsp;: B3 depuis 2000, sociétés radiées incluses, ~9&#8239;600 tickers américains (SEC EDGAR, FRED)&nbsp;; LightGBM, modèle de risque et optimiseur avec coûts en backtests walk-forward (en cours).</li>
+        </ul>
+        <h3><a href="https://github.com/matregnago/vllm-parallelism-benchmark">vLLM Parallelism Benchmark, cours d’évaluation des performances (UFRGS)</a></h3>
+        <ul>
+          <li>Parallélisme tenseur vs pipeline pour Qwen2.5-7B sur 1–4 GPU (vLLM + Ray, PCAD)&nbsp;: entre nœuds, le parallélisme de tenseurs a passé jusqu’à 97&nbsp;% du temps GPU en communication&nbsp;; j’ai mené télémétrie GPU et statistiques (équipe de 3).</li>
+        </ul>
+        <h3><a href="https://github.com/vkveiga/pam-ufrgs/pull/1">PAM UFRGS, contribution open source</a></h3>
+        <ul>
+          <li>Pull request vers une application d’inscription de l’UFRGS (Vue) ajoutant un assistant IA, une prévision de fin d’études, l’export de l’emploi du temps en .ics et des tests Vitest.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Compétences</h2>
+        <ul>
+          <li><strong>Programmation et HPC&nbsp;:</strong> Python, C, C++, CUDA, TypeScript, JavaScript · vLLM, Ray, profilage GPU, FPGA (Vivado)</li>
+          <li><strong>ML/données&nbsp;:</strong> PyTorch, quantification QAT/INT8, apprentissage par renforcement, LightGBM, vision par ordinateur, NLP</li>
+          <li><strong>Logiciel&nbsp;:</strong> FastAPI, Vue, React, Node.js, Express, Firebase, Docker, Git, PuLP</li>
+          <li><strong>Langues&nbsp;:</strong> portugais (langue maternelle) · anglais (courant) · français (avancé) · espagnol (avancé)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Activités</h2>
+        <h3>UFRGSMUN, délégué d’Israël au Bureau de lutte contre le terrorisme de l’ONU (UNOCT) <span>2026</span></h3>
+        <ul>
+          <li>Comité en anglais sur le terrorisme au Sahel et le cyberterrorisme&nbsp;: négociation de mesures antiterroristes et de cybersécurité&nbsp;; l’un des quatre délégués choisis par la presse pour une interview spéciale devant tous les participants.</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

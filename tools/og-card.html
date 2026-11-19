@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!-- Link-preview card (og:image), 1200×630. Regenerate from the repo root (see CLAUDE.md):
      chromium-browser --headless --hide-scrollbars --virtual-time-budget=3000 --window-size=1200,630 \
-       --screenshot="$PWD/og.png" "file://$PWD/tools/og-card.html"          (EN; add ?lang=pt for PT)
-     then convert the PNG to assets/images/og-en.jpg / og-pt.jpg (JPEG q85). Texts mirror the hero of index*.html. -->
+       --screenshot="$PWD/og.png" "file://$PWD/tools/og-card.html"          (EN; add ?lang=pt / es / fr for the others)
+     then convert the PNG to assets/images/og-en.jpg / og-pt.jpg / og-es.jpg / og-fr.jpg (JPEG q85). Texts mirror the hero of index*.html. -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -31,10 +31,15 @@
   </section>
   <figure class="tile portrait"><img src="../assets/images/rafael-portrait.jpg" alt="" /></figure>
   <script>
-    if (/lang=pt/.test(location.search)) {
-      document.documentElement.lang = "pt-BR";
-      document.getElementById("label").textContent = "Engenharia de Computação @ UFRGS";
-      document.getElementById("role").textContent = "Aceleração de Hardware, HPC & Finanças Quantitativas";
+    var t = {
+      pt: ["pt-BR", "Engenharia de Computação @ UFRGS", "Aceleração de Hardware, HPC & Finanças Quantitativas"],
+      es: ["es", "Ingeniería de Computación @ UFRGS", "Aceleración de hardware, HPC y finanzas cuantitativas"],
+      fr: ["fr", "Génie informatique @ UFRGS", "Accélération matérielle, HPC et finance quantitative"]
+    }[(location.search.match(/lang=(\w+)/) || [])[1]];
+    if (t) {
+      document.documentElement.lang = t[0];
+      document.getElementById("label").textContent = t[1];
+      document.getElementById("role").textContent = t[2];
     }
   </script>
 </body>

@@ -26,6 +26,8 @@
   .bento { padding-inline: 1rem; }
   .intro { padding: 1.75rem 1.25rem; }
   .tile { padding: 1.25rem; }
+  .credit .langs { display: flex; gap: 1rem; margin-top: 0.5rem; } /* language links on their own line, not splitting "— 2026" */
+  .credit .langs a { margin-left: 0; }
 }
 
 /* phones: nav + actions don't fit on one line — keep the actions, drop the section links.
